@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: investment_card
+label: 'Investment Card'
+icon_uuid: null
+icon_default: null
+description: 'Investment information card with image and link'
+behavior_plugins: {  }

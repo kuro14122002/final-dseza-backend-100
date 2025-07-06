@@ -1,0 +1,57 @@
+# Composer dependencies
+/vendor/
+
+# Drupal core (if managing with Composer)
+# /web/core/
+
+# Configuration files that may contain sensitive information
+web/sites/*/settings*.php
+web/sites/*/services*.yml
+web/sites/*/settings.local.php
+
+# User-generated content
+web/sites/*/files
+web/sites/*/private
+
+# Multi-site test environment
+web/sites/simpletest
+
+# Drupal's file cache directories
+web/sites/*/files/styles/
+web/sites/*/files/js/
+web/sites/*/files/css/
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Local development files
+web/sites/development.services.yml
+web/sites/local.settings.php
+
+# Drush
+/.drush/
+
+# Lando
+.lando.yml
+
+# PHPStorm
+.idea/
+
+# Logs
+*.log
+error.log
+access.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Git keep files (but ignore the files directory contents)
+!web/sites/*/files/.htaccess
+!web/sites/*/files/README.txt 

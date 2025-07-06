@@ -1,0 +1,12 @@
+type: module
+name: GraphQL schema extension test
+description: Test module for GraphQL schema extension plugins.
+package: Testing
+hidden: TRUE
+dependencies:
+  - graphql:graphql
+
+# Information added by Drupal.org packaging script on 2025-03-28
+version: '8.x-4.12'
+project: 'graphql'
+datestamp: 1743150425

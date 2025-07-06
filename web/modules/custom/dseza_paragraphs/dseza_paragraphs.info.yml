@@ -1,0 +1,12 @@
+name: 'DSEZA Paragraphs'
+type: module
+description: 'Custom paragraph types for DSEZA project'
+core_version_requirement: ^9 || ^10
+package: 'DSEZA'
+dependencies:
+  - paragraphs
+  - media
+  - media_library
+  - link
+  - field
+  - file

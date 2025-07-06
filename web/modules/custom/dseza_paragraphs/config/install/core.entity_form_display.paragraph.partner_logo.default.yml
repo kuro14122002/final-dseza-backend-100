@@ -1,0 +1,41 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.partner_logo.field_logo
+    - field.field.paragraph.partner_logo.field_partner_name
+    - field.field.paragraph.partner_logo.field_partner_url
+    - paragraphs.paragraphs_type.partner_logo
+  module:
+    - link
+    - media_library
+id: paragraph.partner_logo.default
+targetEntityType: paragraph
+bundle: partner_logo
+mode: default
+content:
+  field_partner_name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_logo:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types:
+        - image
+    third_party_settings: {  }
+  field_partner_url:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+hidden: {  }

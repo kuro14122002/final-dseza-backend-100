@@ -1,0 +1,46 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.partner_logo.field_logo
+    - field.field.paragraph.partner_logo.field_partner_name
+    - field.field.paragraph.partner_logo.field_partner_url
+    - paragraphs.paragraphs_type.partner_logo
+  module:
+    - link
+    - media
+id: paragraph.partner_logo.default
+targetEntityType: paragraph
+bundle: partner_logo
+mode: default
+content:
+  field_partner_name:
+    type: string
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_logo:
+    type: entity_reference_entity_view
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+  field_partner_url:
+    type: link
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: '_blank'
+    third_party_settings: {  }
+hidden: {  }

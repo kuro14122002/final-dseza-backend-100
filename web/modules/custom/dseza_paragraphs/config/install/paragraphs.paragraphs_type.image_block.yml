@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: image_block
+label: 'Image Block'
+icon_uuid: null
+icon_default: null
+description: 'A simple image block with caption'
+behavior_plugins: {  }

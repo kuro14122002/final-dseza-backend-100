@@ -1,0 +1,82 @@
+{
+    "name": "dseza/drupal-backend",
+    "description": "Drupal Backend for DSEZA Headless Project",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Project Architect",
+            "role": "Developer"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ],
+    "require": {
+        "composer/installers": "^2.0",
+        "drupal/admin_toolbar": "^3.4",
+        "drupal/backup_migrate": "5.1",
+        "drupal/core-composer-scaffold": "^10.5",
+        "drupal/core-project-message": "^10.5",
+        "drupal/core-recommended": "^10.5",
+        "drupal/focal_point": "2.1",
+        "drupal/gin": "3.1",
+        "drupal/gin_toolbar": "1.1",
+        "drupal/graphql": "4.12",
+        "drupal/jsonapi_image_styles": "3.0",
+        "drupal/metatag": "^2.0",
+        "drupal/paragraphs": "1.19",
+        "drupal/pathauto": "^1.12",
+        "drupal/redirect": "1.11",
+        "drupal/seo_checklist": "5.2",
+        "drupal/shield": "1.8",
+        "drupal/simple_oauth": "6.0",
+        "drupal/symfony_mailer": "1.6",
+        "drupal/tfa": "1.11",
+        "drupal/twig_tweak": "3.4",
+        "drupal/webform": "6.2",
+        "drupal/webhooks": "4.0.x-dev@dev",
+        "drupal/webp": "1.x-dev@dev",
+        "drush/drush": "^12.0"
+    },
+    "require-dev": {
+        "drupal/devel": "^5.1"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
+            "php-http/discovery": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        },
+        "sort-packages": true,
+        "process-timeout": 2000
+    },
+    "extra": {
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "web/"
+            }
+        },
+        "installer-paths": {
+            "web/core": ["type:drupal-core"],
+            "web/libraries/{$name}": ["type:drupal-library"],
+            "web/modules/contrib/{$name}": ["type:drupal-module"],
+            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "drush/Commands/contrib/{$name}": ["type:drupal-drush"],
+            "web/modules/custom/{$name}": ["type:drupal-custom-module"],
+            "web/profiles/custom/{$name}": ["type:drupal-custom-profile"],
+            "web/themes/custom/{$name}": ["type:drupal-custom-theme"]
+        }
+    }
+}
