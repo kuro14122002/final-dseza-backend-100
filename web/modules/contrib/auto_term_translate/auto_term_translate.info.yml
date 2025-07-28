@@ -1,0 +1,14 @@
+name: Auto Taxonomy Term Translation
+type: module
+description: "Translate taxonomy terms automatically."
+package: Multilingual
+core_version_requirement: ^10.2 || ^11
+configure: auto_node_translate.settings
+dependencies:
+  - drupal:content_translation
+  - auto_node_translate
+
+# Information added by Drupal.org packaging script on 2025-01-03
+version: '2.0.0'
+project: 'auto_term_translate'
+datestamp: 1735900966

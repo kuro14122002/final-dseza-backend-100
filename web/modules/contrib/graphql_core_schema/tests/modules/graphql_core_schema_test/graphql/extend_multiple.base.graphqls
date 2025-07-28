@@ -1,0 +1,13 @@
+interface Node {
+  anotherExtendedField: Boolean
+}
+
+type User {
+  fieldOnUser: String
+}
+
+interface EntityPaywalled implements Entity {
+  isPaywalled: Boolean
+}
+
+interface Node implements EntityPaywalled

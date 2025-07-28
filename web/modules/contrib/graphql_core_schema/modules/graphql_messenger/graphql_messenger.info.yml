@@ -1,0 +1,11 @@
+name: GraphQL Messenger
+description: 'Provides a way to get Messenger messages via GraphQL.'
+core_version_requirement: '^9.3 || ^10'
+type: module
+dependencies:
+  - graphql:graphql
+
+# Information added by Drupal.org packaging script on 2024-01-26
+version: '1.0.0'
+project: 'graphql_core_schema'
+datestamp: 1706258946

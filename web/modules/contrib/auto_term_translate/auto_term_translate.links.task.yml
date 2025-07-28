@@ -1,0 +1,3 @@
+auto_term_translate.local_tasks:
+  deriver: 'Drupal\auto_term_translate\Plugin\Derivative\AutoTermTranslateLocalTasks'
+  weight: 101

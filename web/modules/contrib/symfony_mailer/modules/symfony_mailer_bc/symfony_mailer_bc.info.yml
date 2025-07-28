@@ -6,7 +6,7 @@ package: Mail
 lifecycle: deprecated
 lifecycle_link: 'https://www.drupal.org/project/symfony_mailer/issues/3355626'
 
-# Information added by Drupal.org packaging script on 2025-05-28
-version: '1.6.0'
+# Information added by Drupal.org packaging script on 2025-06-27
+version: '1.6.2'
 project: 'symfony_mailer'
-datestamp: 1748426613
+datestamp: 1751013033

@@ -1,0 +1,4 @@
+"""
+Generic type for untyped values.
+"""
+scalar MapData

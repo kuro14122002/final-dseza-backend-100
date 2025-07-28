@@ -1,0 +1,57 @@
+interface Entity {
+  id: String
+  """
+  The unique UUID.
+  """
+  uuid: String!
+
+  """
+  The label of this entity.
+  """
+  label: String
+
+  """
+  The langcode of this entity.
+  """
+  langcode: String
+
+  """
+  Gets an array of all property values.
+  """
+  toArray: MapData
+
+  """
+  Gets the configuration target identifier for the entity.
+  """
+  getConfigTarget: String
+
+  """
+  Gets a list of URI relationships supported by this entity.
+  """
+  uriRelationships: [String]
+
+  """
+  The bundle ID of the entity.
+  """
+  entityBundle: String!
+
+  """
+  Gets a list of entities referenced by this entity.
+  """
+  referencedEntities: [Entity]
+
+  """
+  The entity type ID.
+  """
+  entityTypeId: String!
+
+  """
+  Determines whether the entity is new.
+  """
+  isNew: Boolean!
+
+  """
+  Check entity access for the given operation, defaults to view.
+  """
+  accessCheck(operation: String): Boolean!
+}

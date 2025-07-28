@@ -1,0 +1,17 @@
+auto_node_translate.settings:
+  title: Auto node translate settings
+  parent: system.admin_config_regional
+  route_name: auto_node_translate.settings
+  weight: 10
+
+auto_node_translate.translators:
+  title: Auto node translate translators
+  parent: system.admin_config_regional
+  route_name: <nolink>
+  weight: 10
+  
+auto_node_translate.my_memory_settings:
+  title: MyMemory Settings
+  parent: auto_node_translate.translators
+  route_name: auto_node_translate.my_memory_settings
+  weight: 10

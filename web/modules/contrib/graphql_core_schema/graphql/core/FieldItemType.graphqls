@@ -1,0 +1,9 @@
+"""
+An item in a field list.
+"""
+interface FieldItemType {
+  """
+  True if this item is considered empty.
+  """
+  isEmpty: Boolean!
+}

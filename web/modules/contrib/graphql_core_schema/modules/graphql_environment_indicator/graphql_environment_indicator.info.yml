@@ -1,0 +1,13 @@
+name: GraphQL Environment Indicator
+type: module
+description: GraphQL support for environment_indicator.
+package: GraphQL
+core_version_requirement: ^9.3 || ^10
+dependencies:
+  - graphql_core_schema:graphql_core_schema
+  - environment_indicator:environment_indicator
+
+# Information added by Drupal.org packaging script on 2024-01-26
+version: '1.0.0'
+project: 'graphql_core_schema'
+datestamp: 1706258946

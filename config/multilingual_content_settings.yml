@@ -1,0 +1,324 @@
+# Multilingual Content Settings Configuration for DSEZA
+# This file defines content translation settings for all entity types
+#
+# IMPORTANT: Paragraphs Multilingual Configuration Best Practices
+# Based on: https://www.drupal.org/docs/contributed-modules/paragraphs/multilingual-paragraphs-configuration
+#
+# 1. Paragraph TYPES must be translatable (enabled: true, language_alterable: true)
+#    - This allows fields WITHIN paragraphs to be translated
+#    - Content editors can translate text, titles, descriptions inside paragraphs
+#
+# 2. Paragraph REFERENCE FIELDS on parent entities must NOT be translatable
+#    - Go to /admin/config/regional/content-language
+#    - In Node/Block sections, ensure paragraph reference fields are UNCHECKED
+#    - This prevents creating new paragraphs when translating content
+#    - Translating only modifies content within existing paragraph structure
+#
+# 3. If translation doesn't work, clear Drupal cache after configuration changes
+
+# Default settings for all content types
+default_settings: &default_settings
+  default_langcode: 'vi'
+  language_alterable: true
+  third_party_settings:
+    content_translation:
+      enabled: true
+      bundle_settings:
+        untranslatable_fields_hide: '0'
+
+# Node content types configuration
+node_types:
+  # Main content types that require full translation
+  bai_viet:
+    <<: *default_settings
+    description: "Articles/News content"
+    priority: high
+    
+  su_kien:
+    <<: *default_settings
+    description: "Events content" 
+    priority: high
+    
+  business_partner:
+    <<: *default_settings
+    description: "Business partner information"
+    priority: medium
+    
+  department:
+    <<: *default_settings
+    description: "Department information"
+    priority: medium
+    
+  du_thao_van_ban:
+    <<: *default_settings
+    description: "Draft documents"
+    priority: high
+    
+  event:
+    <<: *default_settings
+    description: "Event content"
+    priority: high
+    
+  functional_zone:
+    <<: *default_settings
+    description: "Functional zones information"
+    priority: high
+    
+  investment_card:
+    <<: *default_settings
+    description: "Investment information cards"
+    priority: high
+    
+  legal_document:
+    <<: *default_settings
+    description: "Legal documents"
+    priority: high
+    
+  listed_enterprise:
+    <<: *default_settings
+    description: "Listed enterprises"
+    priority: medium
+    
+  page:
+    <<: *default_settings
+    description: "Basic pages"
+    priority: medium
+    
+  poll:
+    <<: *default_settings
+    description: "Poll content"
+    priority: low
+    
+  poll_choice:
+    <<: *default_settings
+    description: "Poll choices"
+    priority: low
+    
+  question:
+    <<: *default_settings
+    description: "FAQ questions"
+    priority: medium
+    
+  quick_access_link:
+    <<: *default_settings
+    description: "Quick access links"
+    priority: medium
+    
+  resource:
+    <<: *default_settings
+    description: "Resource content (images, videos, documents)"
+    priority: high
+    
+  schedule_item:
+    <<: *default_settings
+    description: "Schedule items"
+    priority: medium
+    
+  staff_member:
+    <<: *default_settings
+    description: "Staff member profiles"
+    priority: medium
+    
+  tai_lieu_doanh_nghiep:
+    <<: *default_settings
+    description: "Enterprise documents"
+    priority: medium
+    
+  tin_tuyen_dung:
+    <<: *default_settings
+    description: "Recruitment news"
+    priority: medium
+
+# Block content types
+block_content_types:
+  basic:
+    <<: *default_settings
+    description: "Basic custom blocks"
+    priority: medium
+    
+  mega_menu_feature:
+    <<: *default_settings
+    description: "Mega menu featured content"
+    priority: high
+    
+  quick_link:
+    <<: *default_settings
+    description: "Quick link blocks"  
+    priority: high
+
+# Media types (limited translation needs)
+media_types:
+  audio:
+    default_langcode: 'vi'
+    language_alterable: false
+    third_party_settings:
+      content_translation:
+        enabled: false
+    description: "Audio files (filename/alt text only)"
+    
+  document:
+    default_langcode: 'vi'
+    language_alterable: true
+    third_party_settings:
+      content_translation:
+        enabled: true
+        bundle_settings:
+          untranslatable_fields_hide: '0'
+    description: "Document files (title/description translatable)"
+    
+  image:
+    default_langcode: 'vi'
+    language_alterable: true
+    third_party_settings:
+      content_translation:
+        enabled: true
+        bundle_settings:
+          untranslatable_fields_hide: '0'
+    description: "Image files (alt text/title translatable)"
+    
+  remote_video:
+    <<: *default_settings
+    description: "Remote video content"
+    
+  video:
+    default_langcode: 'vi'
+    language_alterable: true
+    third_party_settings:
+      content_translation:
+        enabled: true
+        bundle_settings:
+          untranslatable_fields_hide: '0'
+    description: "Video files (title/description translatable)"
+
+# Taxonomy terms
+taxonomy_terms:
+  cap_ban_hanh:
+    <<: *default_settings
+    description: "Issuing authority levels"
+    priority: high
+    
+  chu_de_lien_ket:
+    <<: *default_settings
+    description: "Link categories"
+    priority: medium
+    
+  co_quan_ban_hanh:
+    <<: *default_settings
+    description: "Issuing organizations"
+    priority: high
+    
+  investment_card_category:
+    <<: *default_settings
+    description: "Investment card categories"
+    priority: high
+    
+  khu_hanh_chinh:
+    <<: *default_settings
+    description: "Administrative areas"
+    priority: medium
+
+# Paragraph types (MUST be translatable according to Drupal.org best practices)
+# NOTE: Paragraph types are translatable but paragraph REFERENCE FIELDS on parent entities are NOT
+paragraph_types:
+  file_dinh_kem:
+    <<: *default_settings
+    description: "Attached files (fields within can be translated)"
+    priority: medium
+    
+  image_block:
+    <<: *default_settings
+    description: "Image blocks (fields within can be translated)"
+    priority: medium
+    
+  investment_card:
+    <<: *default_settings
+    description: "Investment card paragraphs (fields within can be translated)"
+    priority: high
+    
+  partner_logo:
+    <<: *default_settings
+    description: "Partner logos (fields within can be translated)"
+    priority: low
+    
+  rich_text_block:
+    <<: *default_settings
+    description: "Rich text blocks (fields within can be translated)"
+    priority: high
+    
+  slideshow:
+    <<: *default_settings
+    description: "Slideshow paragraphs (fields within can be translated)"
+    priority: medium
+    
+  thu_vien_anh:
+    <<: *default_settings
+    description: "Image gallery (fields within can be translated)"
+    priority: medium
+    
+  video_nhung:
+    <<: *default_settings
+    description: "Embedded video (fields within can be translated)"
+    priority: medium
+
+# Language negotiation configuration
+language_negotiation:
+  url:
+    source: 1  # Path prefix
+    prefixes:
+      vi: 'vi'
+      en: 'en'
+  detection_order:
+    - 'language-url'
+    - 'language-session'  
+    - 'language-user'
+    - 'language-browser'
+    - 'language-selected'
+
+# Site-wide language settings
+site_settings:
+  default_langcode: 'vi'
+  multilingual: true
+  supported_languages:
+    - vi
+    - en
+  fallback_language: 'vi'
+
+# JSON:API specific settings
+jsonapi_settings:
+  language_negotiation: true
+  include_translations: true
+  default_language_fallback: true
+  endpoints:
+    # Language-prefixed endpoints
+    vi_prefix: '/vi/jsonapi'
+    en_prefix: '/en/jsonapi'
+    # Universal endpoint (returns current language)
+    universal: '/jsonapi'
+
+# Field-level translation settings
+field_translation_settings:
+  # Fields that should always be translated
+  always_translate:
+    - 'title'
+    - 'body'
+    - 'field_mo_ta'
+    - 'field_noi_dung'
+    - 'field_tom_tat'
+    - 'field_tieu_de'
+    
+  # Fields that should never be translated
+  never_translate:
+    - 'field_anh_dai_dien'
+    - 'field_file_dinh_kem'
+    - 'field_video'
+    - 'field_audio'
+    - 'created'
+    - 'changed'
+    - 'uid'
+    - 'status'
+    
+  # Fields that may be translated (optional)
+  optional_translate:
+    - 'field_tags'
+    - 'field_meta_description'
+    - 'field_meta_keywords' 

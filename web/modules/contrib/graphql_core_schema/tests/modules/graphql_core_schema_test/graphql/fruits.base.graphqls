@@ -1,0 +1,42 @@
+"""
+The color.
+"""
+enum Color {
+  """
+  Red.
+  """
+  RED
+
+  """
+  Green.
+  """
+  GREEN
+
+  """
+  Yellow.
+  """
+  YELLOW
+}
+
+"""
+A fruit.
+"""
+interface Fruit {
+  color: Color
+}
+
+"""
+A round fruit.
+"""
+type Apple implements Fruit {
+  color: Color
+  sweetness: Int
+}
+
+"""
+An elongated fruit.
+"""
+type Banana implements Fruit {
+  color: Color
+  brand: String
+}

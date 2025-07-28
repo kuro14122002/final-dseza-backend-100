@@ -1,0 +1,3 @@
+use bulk auto translate:
+  title: "Bulk translate taxonomy terms"
+  restrict access: true

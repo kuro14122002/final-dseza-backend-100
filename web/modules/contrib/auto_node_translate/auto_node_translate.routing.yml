@@ -1,0 +1,21 @@
+auto_node_translate.settings:
+  path: '/admin/config/regional/auto-node-translate-settings'
+  defaults:
+    _title: 'Auto node translate settings'
+    _form: 'Drupal\auto_node_translate\Form\SettingsForm'
+  requirements:
+    _permission: 'configure auto node translate'
+  options:
+    _admin_route: TRUE
+
+
+auto_node_translate.my_memory_settings:
+  path: '/admin/config/regional/my-memory'
+  defaults:
+    _title: 'MyMemory Settings'
+    _form: 'Drupal\auto_node_translate\Form\MyMemorySettingsForm'
+  requirements:
+    _permission: 'configure auto node translate'
+  options:
+    _admin_route: TRUE
+

@@ -1,0 +1,3 @@
+auto_block_translate.local_tasks:
+  deriver: 'Drupal\auto_block_translate\Plugin\Derivative\AutoBlockTranslateLocalTasks'
+  weight: 101

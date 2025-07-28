@@ -1,0 +1,21 @@
+"""
+An entity that is translatable.
+"""
+interface EntityTranslatable implements Entity {
+  """
+  Get all translations.
+  """
+  translations: [EntityTranslatable]
+
+  """
+  Get a specific translation.
+  """
+  translation(
+    langcode: Langcode!,
+
+    """
+    Return entity in current language if translation language does not exist.
+    """
+    fallback: Boolean
+  ): EntityTranslatable
+}

@@ -1,0 +1,28 @@
+services:
+  plugin.manager.auto_node_translate_provider:
+    class: Drupal\auto_node_translate\AutoNodeTranslateProviderPluginManager
+    parent: default_plugin_manager
+    
+  auto_node_translate.subscriber:
+    class: Drupal\auto_node_translate\Routing\AutoNodeTranslateRouteSubscriber
+    arguments: ['@content_translation.manager']
+    tags:
+      - { name: event_subscriber }
+  
+  auto_node_translate.manage_access:
+    class: Drupal\auto_node_translate\Access\AutoNodeTranslateAccessCheck
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: access_check, applies_to: _access_auto_translation }
+
+
+  auto_node_translate.translator:
+    class: Drupal\auto_node_translate\Translator
+    arguments: [
+      '@entity_type.manager',
+      '@module_handler',
+      '@current_user',
+      '@config.factory',
+      '@plugin.manager.auto_node_translate_provider',
+      '@datetime.time'
+    ]

@@ -1,0 +1,4 @@
+ant_bulk.translate_form:
+  title: "Auto bulk translations"
+  parent: system.admin_config_regional
+  route_name: ant_bulk.translate

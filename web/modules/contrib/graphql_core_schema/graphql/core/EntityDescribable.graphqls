@@ -1,0 +1,9 @@
+"""
+An entity that has a description.
+"""
+interface EntityDescribable implements Entity {
+  """
+  The description.
+  """
+  entityDescription: String
+}

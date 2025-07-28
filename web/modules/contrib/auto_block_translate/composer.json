@@ -1,0 +1,22 @@
+{
+  "name": "drupal/auto_block_translate",
+  "description": "This module provides the ability translate custom blocks on creation and edition.",
+  "type": "drupal-module",
+  "homepage": "https://drupal.org/project/auto_block_translate",
+  "authors": [
+    {
+      "name": "João mauricio (jmauricio)",
+      "email": "jmauricio@javali.pt",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/auto_block_translate",
+    "source": "https://git.drupalcode.org/project/auto_block_translate"
+  },
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "require": {
+    "drupal/auto_node_translate": "^3"
+  }
+}

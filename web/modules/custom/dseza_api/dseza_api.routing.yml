@@ -1,0 +1,111 @@
+dseza_api.submit_question:
+  path: '/api/v1/submit-question'
+  defaults:
+    _controller: '\Drupal\dseza_api\Controller\QuestionSubmissionController::handleSubmission'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+  options:
+    _format: 'json'
+
+dseza_api.test:
+  path: '/api/v1/test'
+  defaults:
+    _controller: '\Drupal\dseza_api\Controller\QuestionSubmissionController::testEndpoint'
+  methods: [GET]
+  requirements:
+    _access: 'TRUE'
+  options:
+    _format: 'json'
+
+# Language-specific GraphQL endpoints for automatic language detection
+dseza_api.graphql_english:
+  path: '/en/graphql/dseza_api'
+  defaults:
+    graphql_server: 'dseza_api'
+    _graphql: TRUE
+    _controller: '\Drupal\graphql\Controller\RequestController::handleRequest'
+    _disable_route_normalizer: TRUE
+    language: 'en'
+  requirements:
+    _graphql_query_access: 'graphql_server:dseza_api'
+    _format: 'json'
+  methods: [GET, POST]
+  options:
+    _auth: ['cookie', 'basic_auth']
+    default_url_options:
+      path_processing: FALSE
+    parameters:
+      graphql_server:
+        type: 'entity:graphql_server'
+
+dseza_api.graphql_vietnamese:
+  path: '/vi/graphql/dseza_api'  
+  defaults:
+    graphql_server: 'dseza_api'
+    _graphql: TRUE
+    _controller: '\Drupal\graphql\Controller\RequestController::handleRequest'
+    _disable_route_normalizer: TRUE
+    language: 'vi'
+  requirements:
+    _graphql_query_access: 'graphql_server:dseza_api'
+    _format: 'json'
+  methods: [GET, POST]
+  options:
+    _auth: ['cookie', 'basic_auth']
+    default_url_options:
+      path_processing: FALSE
+    parameters:
+      graphql_server:
+        type: 'entity:graphql_server'
+
+dseza_api.submit_contact_form:
+  path: '/api/v1/submit-contact-form'
+  defaults:
+    _controller: '\Drupal\dseza_api\Controller\ContactFormController::handleSubmission'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+  options:
+    _format: 'json'
+
+dseza_api.user_register:
+  path: '/api/v1/user/register'
+  defaults:
+    _controller: '\Drupal\dseza_api\Controller\UserRegistrationController::handleRegistration'
+  methods: [POST]
+  requirements:
+    _access: 'TRUE'
+  options:
+    _format: 'json'
+
+dseza_api.user_register_options:
+  path: '/api/v1/user/register'
+  defaults:
+    _controller: '\Drupal\dseza_api\Controller\UserRegistrationController::handleOptions'
+  methods: [OPTIONS]
+  requirements:
+    _access: 'TRUE'
+  options:
+    _format: 'json'
+
+dseza_api.user_change_password:
+  path: '/api/v1/user/change-password'
+  defaults:
+    _controller: '\Drupal\dseza_api\Controller\UserPasswordController::changePassword'
+  methods: [POST]
+  requirements:
+    _permission: 'access content'
+    _user: '^[1-9]\d*$'
+  options:
+    _format: 'json'
+
+dseza_api.user_change_password_options:
+  path: '/api/v1/user/change-password'
+  defaults:
+    _controller: '\Drupal\dseza_api\Controller\UserPasswordController::handleOptions'
+  methods: [OPTIONS]
+  requirements:
+    _access: 'TRUE'
+  options:
+    _format: 'json' 

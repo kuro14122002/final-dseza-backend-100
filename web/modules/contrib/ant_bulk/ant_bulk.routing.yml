@@ -1,0 +1,9 @@
+ant_bulk.translate:
+  path: "/ant-bulk/translate"
+  defaults:
+    _title: "Translate"
+    _form: 'Drupal\ant_bulk\Form\TranslateForm'
+  requirements:
+    _permission: "use bulk auto translate"
+  options:
+    _admin_route: TRUE

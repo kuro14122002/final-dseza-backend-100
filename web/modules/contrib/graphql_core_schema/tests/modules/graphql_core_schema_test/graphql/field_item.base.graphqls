@@ -1,0 +1,3 @@
+interface FieldItemType {
+  customFieldItemField: NodeArticle
+}

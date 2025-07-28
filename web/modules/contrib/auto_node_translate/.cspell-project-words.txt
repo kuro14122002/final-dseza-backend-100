@@ -1,0 +1,14 @@
+
+# List of words excluded from cspell validation for the project.
+
+automatica
+calado
+cota
+javali
+jmauricio
+joão
+kallado
+langpair
+mymemory
+recursivity
+transled

@@ -1,0 +1,7 @@
+type DrupalDateTime {
+  formatted(format: String, drupalDateFormat: DrupalDateFormat): String!
+}
+
+interface FieldItemTypeTimestampInterface {
+  formatted(format: String, drupalDateFormat: DrupalDateFormat): String!
+}

@@ -55,3 +55,4 @@ Thumbs.db
 # Git keep files (but ignore the files directory contents)
 !web/sites/*/files/.htaccess
 !web/sites/*/files/README.txt 
+/keys/private.key

@@ -1,0 +1,26 @@
+input UrlOptions {
+  """
+  Force generating the URL in the given langcode.
+  """
+  language: Langcode
+
+  """
+  A fragment identifier (named anchor) to append to the URL. Do not include the leading '#' character.
+  """
+  fragment: String
+
+  """
+  Whether to force the output to be an absolute link (beginning with http:). Useful for links that will be displayed outside the site, such as in an RSS feed.
+  """
+  absolute: Boolean
+}
+
+"""
+An entity that is linkable.
+"""
+interface EntityLinkable {
+  """
+  Get the URL, defaults to canonical.
+  """
+  url(rel: String, options: UrlOptions): Url
+}

@@ -1,0 +1,16 @@
+type ImageResource {
+  """
+  The path of the image.
+  """
+  urlPath: String
+
+  """
+  The width of the generated image.
+  """
+  width: Int
+
+  """
+  The height of the generated image.
+  """
+  height: Int
+}

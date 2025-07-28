@@ -1,0 +1,9 @@
+name: 'Dseza API'
+type: module
+description: 'Cung cấp API endpoints cho việc gửi câu hỏi và tương tác với hệ thống'
+core_version_requirement: ^10
+package: 'Custom'
+dependencies:
+  - drupal:node
+  - drupal:rest
+  - drupal:serialization 

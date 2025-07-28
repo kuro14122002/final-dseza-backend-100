@@ -1,0 +1,29 @@
+"""
+A field item list containing items.
+"""
+interface FieldItemList {
+  """
+  True if the field list has no items.
+  """
+  isEmpty: Boolean!
+
+  """
+  The number of field items.
+  """
+  count: Int!
+
+  """
+  Get a string representation of all field items.
+  """
+  getString: String!
+
+  """
+  Get the entity the field belongs to.
+  """
+  entity: Entity
+
+  """
+  The field items.
+  """
+  list: [FieldItemType]
+}

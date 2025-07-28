@@ -1,0 +1,12 @@
+# Commented out since MenuItem type is commented out to avoid GraphQL Compose conflict
+# Use GraphQL Compose menu queries instead: menuByName(name: MAIN)
+
+# extend type Query {
+#   mainMenu: [MenuItem!]!
+# } 
+
+extend type Query {
+  # Placeholder field to avoid GraphQL syntax error
+  # Remove this when adding actual custom queries
+  _dsezaMenuPlaceholder: Boolean
+} 

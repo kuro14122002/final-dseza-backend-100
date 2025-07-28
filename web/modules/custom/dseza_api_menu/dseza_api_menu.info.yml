@@ -1,0 +1,9 @@
+name: 'DSEZA API Menu'
+type: module
+description: 'Provides GraphQL API endpoints for menu structures'
+core_version_requirement: ^9 || ^10
+package: 'DSEZA'
+dependencies:
+  - graphql
+  - menu_link_content
+  - system 

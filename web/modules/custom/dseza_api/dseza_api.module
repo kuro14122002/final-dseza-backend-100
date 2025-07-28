@@ -1,0 +1,56 @@
+<?php
+
+/**
+ * @file
+ * Module file cho Dseza API.
+ */
+
+use Symfony\Component\HttpFoundation\Response;
+
+/**
+ * Implements hook_page_attachments().
+ */
+function dseza_api_page_attachments(array &$attachments) {
+  // Note: CORS headers được xử lý trong Event Subscriber
+  // Không thể set response headers trong hook_page_attachments()
+  // Xem EventSubscriber/CorsEventSubscriber.php
+}
+
+/**
+ * Implements hook_init().
+ */
+function dseza_api_init() {
+  // Xử lý preflight OPTIONS requests
+  if (\Drupal::request()->getMethod() === 'OPTIONS') {
+    $current_path = \Drupal::request()->getPathInfo();
+    
+    if (strpos($current_path, '/api/v1/') === 0) {
+      $response = new Response('', 200, [
+        'Access-Control-Allow-Origin' => '*',
+        'Access-Control-Allow-Methods' => 'GET, POST, PUT, DELETE, OPTIONS',
+        'Access-Control-Allow-Headers' => 'Content-Type, Authorization, X-Requested-With',
+        'Access-Control-Max-Age' => '86400',
+      ]);
+      $response->send();
+      exit;
+    }
+  }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function dseza_api_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'contact_form':
+      $message['subject'] = $params['subject'];
+      $message['body'][] = $params['body'];
+      
+      // Thiết lập header
+      $message['headers']['Content-Type'] = 'text/plain; charset=UTF-8';
+      $message['headers']['From'] = $params['from_name'] . ' <' . $params['from'] . '>';
+      $message['headers']['Reply-To'] = $params['from'];
+      
+      break;
+  }
+} 

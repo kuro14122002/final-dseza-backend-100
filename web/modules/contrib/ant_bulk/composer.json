@@ -1,0 +1,22 @@
+{
+    "name": "drupal/ant_bulk",
+    "description": "Uses Auto Node Translate to translate all nodes of a content type automatically.",
+    "type": "drupal-module",
+    "homepage": "https://drupal.org/project/ant_bulk",
+    "authors": [
+        {
+            "name": "Paulo Calado (kallado)",
+            "email": "paulo.calado@javali.pt",
+            "role": "Maintainer"
+        }
+    ],
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/ant_bulk",
+        "source": "https://git.drupalcode.org/project/ant_bulk"
+    },
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "require": {
+        "drupal/auto_node_translate": "^3.0"
+    }
+}

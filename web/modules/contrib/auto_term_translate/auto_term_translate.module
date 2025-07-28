@@ -1,0 +1,74 @@
+<?php
+
+/**
+ * @file
+ * This module provides the ability translate taxonomy terms automatically.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Url;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Access\AccessResult;
+
+/**
+ * Implements hook_help().
+ */
+function auto_term_translate_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.auto_term_translate':
+      $readme = __DIR__ . '/README.md';
+      $text = file_get_contents($readme);
+      $output = '';
+
+      // If the Markdown module is installed, use it to render the README.
+      if ($text && \Drupal::moduleHandler()->moduleExists('markdown') === TRUE) {
+        $filter_manager = \Drupal::service('plugin.manager.filter');
+        $settings = \Drupal::configFactory()->get('markdown.settings')->getRawData();
+        $config = ['settings' => $settings];
+        $filter = $filter_manager->createInstance('markdown', $config);
+        $output = $filter->process($text, 'en');
+      }
+      // Else the Markdown module is not installed output the README as text.
+      elseif ($text) {
+        $output = '<pre>' . $text . '</pre>';
+      }
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_entity_operation().
+ */
+function auto_term_translate_entity_operation(EntityInterface $entity) {
+  $operations = [];
+  if ($entity->getEntityTypeId() == 'taxonomy_term' && $entity->hasLinkTemplate('drupal:content-translation-overview') && auto_node_translate_translate_access($entity)->isAllowed()) {
+    $operations['auto_translate'] = [
+      'title' => t('Auto Translate'),
+      'url' => Url::fromRoute('entity.' . $entity->getEntityTypeId() . '.auto_translation_add', ['taxonomy_term' => $entity->id()]),
+      'weight' => 51,
+    ];
+  }
+  return $operations;
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function auto_term_translate_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  if ($router_item == 'entity.taxonomy_vocabulary.overview_form') {
+    $currentUser = \Drupal::service('current_user');
+    $vocabulary = \Drupal::routeMatch()->getParameter('taxonomy_vocabulary');
+    $vid = $vocabulary->id();
+    $data['tabs'][0]['auto_term_translate.bulk_form'] = [
+      '#theme' => "menu_local_task",
+      '#link' => [
+        'title' => "Auto Translate",
+        'url' => Url::fromRoute('auto_term_translate.bulk_form', ['vocabulary' => $vid]),
+        'localized_options' => [],
+      ],
+      '#active' => FALSE,
+      '#weight' => 600,
+      '#access' => AccessResult::allowedIfHasPermission($currentUser, 'use bulk auto translate'),
+    ];
+  }
+}

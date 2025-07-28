@@ -1,0 +1,7 @@
+
+# List of words excluded from cspell validation for the project.
+
+calado
+javali
+kallado
+anttrans

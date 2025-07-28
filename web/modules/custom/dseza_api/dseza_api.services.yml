@@ -1,0 +1,15 @@
+services:
+  dseza_api.question_submission_controller:
+    class: Drupal\dseza_api\Controller\QuestionSubmissionController
+    arguments: ['@entity_type.manager', '@logger.factory']
+
+  dseza_api.cors_event_subscriber:
+    class: Drupal\dseza_api\EventSubscriber\CorsEventSubscriber
+    tags:
+      - { name: event_subscriber }
+
+  dseza_api.language_detection_subscriber:
+    class: Drupal\dseza_api\EventSubscriber\LanguageDetectionSubscriber
+    arguments: ['@language_manager']
+    tags:
+      - { name: event_subscriber } 

@@ -1,0 +1,20 @@
+"""
+Interface for entities that are revisionable.
+This corresponds to the core RevisionableInterface but is only implemeted by entity types where revisions are enabled.
+"""
+interface EntityRevisionable implements Entity {
+  """
+  The revision identifier of the entity, or NULL if the entity does not have a revision identifier.
+  """
+  entityRevisionId: String
+
+  """
+  TRUE if the entity object was a revision, FALSE otherwise.
+  """
+  wasDefaultRevision: Boolean
+
+  """
+  Checks if this entity is the latest revision.
+  """
+  isLatestRevision: Boolean
+}

@@ -1,0 +1,22 @@
+{
+  "name": "drupal/auto_term_translate",
+  "description": "This module provides the ability translate taxonomy terms automatically.",
+  "type": "drupal-module",
+  "homepage": "https://drupal.org/project/auto_term_translate",
+  "authors": [
+    {
+      "name": "Paulo Calado (kallado)",
+      "email": "paulo.calado@javali.pt",
+      "role": "Maintainer"
+    }
+  ],
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/auto_term_translate",
+    "source": "https://git.drupalcode.org/project/auto_term_translate"
+  },
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "require": {
+    "drupal/auto_node_translate": "^3.0"
+  }
+}

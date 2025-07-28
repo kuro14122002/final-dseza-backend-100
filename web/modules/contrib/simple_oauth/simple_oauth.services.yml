@@ -78,6 +78,9 @@ services:
   simple_oauth.repositories.auth_code:
     class: Drupal\simple_oauth\Repositories\AuthCodeRepository
     arguments: [ '@entity_type.manager', '@serializer' ]
+  simple_oauth.repositories.user:
+    class: Drupal\simple_oauth\Repositories\UserRepository
+    arguments: [ '@entity_type.manager', '@password' ]
   simple_oauth.server.response_type:
     class: Drupal\simple_oauth\OpenIdConnect\OpenIdConnectIdTokenResponse
     arguments:

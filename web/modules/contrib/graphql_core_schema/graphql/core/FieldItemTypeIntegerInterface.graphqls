@@ -1,0 +1,6 @@
+"""
+Interface for field item types with an integer value.
+"""
+interface FieldItemTypeIntegerInterface implements FieldItemType {
+  value: Int
+}

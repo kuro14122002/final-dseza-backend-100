@@ -1,0 +1,1 @@
+﻿{"query": "query GetMainMenu { menuByName(name: MAIN) { links { link { label url { path } expanded } } } }"}

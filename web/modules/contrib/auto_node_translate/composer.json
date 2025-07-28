@@ -1,0 +1,19 @@
+{
+    "name": "drupal/auto_node_translate",
+    "description": "This module provides the ability translate nodes on creation and edition.",
+    "type": "drupal-module",
+    "homepage": "https://drupal.org/project/auto_node_translate",
+    "authors": [
+        {
+            "name": "Paulo Calado (kallado)",
+            "email": "paulo.calado@javali.pt",
+            "role": "Maintainer"
+        }
+    ],
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/auto_node_translate",
+        "source": "https://git.drupalcode.org/project/auto_node_translate"
+    },
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev"
+}

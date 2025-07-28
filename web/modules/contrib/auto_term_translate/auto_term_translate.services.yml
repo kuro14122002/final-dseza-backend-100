@@ -1,0 +1,12 @@
+services:
+  auto_term_translate.subscriber:
+    class: Drupal\auto_term_translate\Routing\AutoTermTranslateRouteSubscriber
+    arguments: ["@content_translation.manager"]
+    tags:
+      - { name: event_subscriber }
+
+  auto_term_translate.manage_access:
+    class: Drupal\auto_term_translate\Access\AutoTermTranslateAccessCheck
+    arguments: ["@entity_type.manager"]
+    tags:
+      - { name: access_check, applies_to: _access_auto_term_translation }

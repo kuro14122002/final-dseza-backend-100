@@ -1,0 +1,9 @@
+auto_term_translate.bulk_form:
+  path: "/vocabulary/{vocabulary}/bulk-auto-translate-form"
+  defaults:
+    _title: "Translate complete vocabulary"
+    _form: '\Drupal\auto_term_translate\Form\BulkTranslationForm'
+  requirements:
+    _permission: "use bulk auto translate"
+  options:
+    _admin_route: TRUE

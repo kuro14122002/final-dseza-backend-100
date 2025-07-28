@@ -1,0 +1,12 @@
+name: 'Auto Node Translate Bulk'
+type: module
+description: 'Automatic bulk translations.'
+package: Multilingual
+core_version_requirement: ^10.2 || ^11
+dependencies:
+  - auto_node_translate:auto_node_translate
+
+# Information added by Drupal.org packaging script on 2025-01-24
+version: '2.0.0-rc3'
+project: 'ant_bulk'
+datestamp: 1737712402

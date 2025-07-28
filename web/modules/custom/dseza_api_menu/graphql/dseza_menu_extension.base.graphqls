@@ -1,0 +1,10 @@
+# Commented out due to conflict with GraphQL Compose MenuItem type
+# The GraphQL Compose module already provides a comprehensive MenuItem type
+# with langcode and other advanced features
+
+# type MenuItem {
+#   id: String!
+#   title: String!
+#   url: String!
+#   children: [MenuItem!]!
+# } 

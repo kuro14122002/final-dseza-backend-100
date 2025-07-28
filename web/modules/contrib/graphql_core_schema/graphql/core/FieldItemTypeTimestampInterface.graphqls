@@ -1,0 +1,6 @@
+"""
+Interface for field item types with a timestamp value.
+"""
+interface FieldItemTypeTimestampInterface implements FieldItemType {
+  value: String
+}

@@ -1,0 +1,13 @@
+name: Graphql Core Schema
+type: module
+description: GraphQL Core schema for v4.
+package: GraphQL
+core_version_requirement: ^9.3 || ^10
+php: 8.1
+dependencies:
+  - graphql:graphql (4.x)
+
+# Information added by Drupal.org packaging script on 2024-01-26
+version: '1.0.0'
+project: 'graphql_core_schema'
+datestamp: 1706258946

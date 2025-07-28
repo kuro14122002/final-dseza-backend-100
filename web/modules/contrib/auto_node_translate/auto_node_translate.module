@@ -1,0 +1,95 @@
+<?php
+
+/**
+ * @file
+ * This module provides the ability translate nodes on creation and edition.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\ContentEntityInterface;
+use Drupal\Core\Url;
+use Drupal\Core\Template\Attribute;
+
+/**
+ * Implements hook_help().
+ */
+function auto_node_translate_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.auto_node_translate':
+      $readme = __DIR__ . '/README.md';
+      $text = file_get_contents($readme);
+      $output = '';
+
+      // If the Markdown module is installed, use it to render the README.
+      if ($text && \Drupal::moduleHandler()->moduleExists('markdown') === TRUE) {
+        $filter_manager = \Drupal::service('plugin.manager.filter');
+        $settings = \Drupal::configFactory()->get('markdown.settings')->getRawData();
+        $config = ['settings' => $settings];
+        $filter = $filter_manager->createInstance('markdown', $config);
+        $output = $filter->process($text, 'en');
+      }
+      // Else the Markdown module is not installed output the README as text.
+      elseif ($text) {
+        $output = '<pre>' . $text . '</pre>';
+      }
+      return $output;
+  }
+}
+
+/**
+ * Access callback for the translation overview page.
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *   The entity whose translation overview should be displayed.
+ *
+ * @return \Drupal\Core\Access\AccessResultInterface
+ *   The access result.
+ */
+function auto_node_translate_translate_access(EntityInterface $entity) {
+  $account = \Drupal::currentUser();
+  $condition = $entity instanceof ContentEntityInterface && $entity->access('view') &&
+    !$entity->getUntranslated()->language()->isLocked() && \Drupal::languageManager()->isMultilingual() && $entity->isTranslatable() &&
+    ($account->hasPermission('create content translations') || $account->hasPermission('update content translations') || $account->hasPermission('delete content translations') ||
+    ($account->hasPermission('translate editable entities') && $entity->access('update'))) && $account->hasPermission("auto translate {$entity->bundle()} {$entity->getEntityTypeId()}");
+  return AccessResult::allowedIf($condition)->cachePerPermissions()->addCacheableDependency($entity);
+}
+
+/**
+ * Implements hook_entity_operation().
+ */
+function auto_node_translate_entity_operation(EntityInterface $entity) {
+  $operations = [];
+  if ($entity->getEntityTypeId() == 'node' && $entity->hasLinkTemplate('drupal:content-translation-overview') && auto_node_translate_translate_access($entity)->isAllowed()) {
+    $operations['auto_translate'] = [
+      'title' => t('Auto Translate'),
+      'url' => Url::fromRoute('entity.' . $entity->getEntityTypeId() . '.auto_translation_add', ['node' => $entity->id()]),
+      'weight' => 51,
+    ];
+  }
+
+  return $operations;
+}
+
+/**
+ * Implements hook_preprocess_hook().
+ */
+function auto_node_translate_preprocess_links(&$variables) {
+  $route_match = \Drupal::routeMatch();
+  if ($variables['theme_hook_original'] == 'links__dropbutton__operations' && $route_match->getRouteName() == 'entity.node.content_translation_overview') {
+    if (!(count($variables["links"]) == 1 && !empty($variables["links"]['edit']))) {
+      $entity = $route_match->getParameter('node');
+      $link_title = (count($variables["links"]) == 1) ? t('Add automatic translation') : t('Update automatic translation');
+      $variables["links"]['auto'] = [
+        "link" => [
+          "#type" => "link",
+          "#title" => $link_title,
+          "#url" => Url::fromRoute('entity.' . $entity->getEntityTypeId() . '.auto_translation_add', ['node' => $entity->id()], ['query' => \Drupal::destination()->getAsArray()]),
+        ],
+        "text" => $link_title,
+        "attributes" => new Attribute(),
+      ];
+    }
+  }
+}

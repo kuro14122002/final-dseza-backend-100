@@ -1,0 +1,41 @@
+<?php
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\Session\AccountInterface;
+
+/**
+ * Implements hook_entity_field_access().
+ */
+function graphql_core_schema_test_entity_field_access($operation, FieldDefinitionInterface $field_definition, AccountInterface $account, FieldItemListInterface $items = NULL) {
+  $fieldName = $field_definition->getName();
+
+  if ($fieldName === 'field_restricted') {
+    return AccessResult::forbidden()->addCacheTags(['tag_added_from_field_access_check']);
+  }
+  return AccessResult::neutral();
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_access().
+ */
+function graphql_core_schema_test_node_access(EntityInterface $entity, $operation, AccountInterface $account) {
+  if ($entity->bundle() === 'restricted') {
+    return AccessResult::forbidden()->addCacheTags(['tag_added_from_entity_access_check']);
+  }
+
+  return AccessResult::neutral();
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_access().
+ */
+function graphql_core_schema_test_taxonomy_term_access(EntityInterface $entity, $operation, AccountInterface $account) {
+  if ($entity->bundle() === 'location') {
+    return AccessResult::forbidden();
+  }
+
+  return AccessResult::neutral();
+}

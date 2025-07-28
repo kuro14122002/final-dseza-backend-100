@@ -1,0 +1,80 @@
+<?php
+
+/**
+ * @file
+ * This module provides the ability translate blocks automatically.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Url;
+use Drupal\Core\Template\Attribute;
+
+/**
+ * Implements hook_help().
+ */
+function auto_block_translate_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the auto_block_translate module.
+    case 'help.page.auto_block_translate':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('This module provides the ability to add automatic translations to custom blocks using external libraries.') . '</p>';
+      $output .= '<p>' . t('This is a sub-module of <a href="https://www.drupal.org/project/auto_node_translate">Auto Node Translate</a>') . '</p>';
+      $output .= '<h3>' . t('Installation') . '</h3>';
+      $output .= '<p>' . t('<a href="https://www.drupal.org/documentation/install/modules-themes/modules-8">Normal module installation procedure</a>.') . '</p>';
+      $output .= '<h3>' . t('Dependencies') . '</h3>';
+      $output .= '<p>' . t('<a href="https://www.drupal.org/project/auto_node_translate">Auto Node Translate</a>') . '</p>';
+      $output .= '<h3>' . t('Configuration') . '</h3>';
+      $output .= '<p>' . t('Configure the Automatic Translation at (/admin/config/regional/auto-node-translate-settings).') . '</p>';
+      $output .= '<h3>' . t('Using') . '</h3>';
+      $output .= '<ul>' . t('<li>Choose an API in the settings page.</li>') . '</ul>';
+      $output .= '<ul>' . t('<li>Create a translatable custom block, in any language.</li>') . '</ul>';
+      $output .= '<ul>' . t('<li>Click on the "Automatic Translation" tab.</li>') . '</ul>';
+      $output .= '<ul>' . t('<li>Choose the language(s) you want to translate to.</li>') . '</ul>';
+      $output .= '<ul>' . t('<li>This module will create or update the translations of the selected languages, automatically translating all text fields.</li>') . '</ul>';
+      $output .= '<h3>' . t('Credits') . '</h3>';
+      $output .= '<p>' . t('Powered by <a href="http://javali.pt/">Javali</a>') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_entity_operation().
+ */
+function auto_block_translate_entity_operation(EntityInterface $entity) {
+  $operations = [];
+  if ($entity->getEntityTypeId() == 'block_content' && $entity->hasLinkTemplate('drupal:content-translation-overview') && auto_node_translate_translate_access($entity)->isAllowed()) {
+    $operations['auto_translate'] = [
+      'title' => t('Auto Translate'),
+      'url' => Url::fromRoute('entity.' . $entity->getEntityTypeId() . '.auto_translation_add', ['block_content' => $entity->id()]),
+      'weight' => 51,
+    ];
+  }
+
+  return $operations;
+}
+
+/**
+ * Implements hook_preprocess_hook().
+ */
+function auto_block_translate_preprocess_links(&$variables) {
+  $route_match = \Drupal::routeMatch();
+  if ($variables['theme_hook_original'] == 'links__dropbutton__operations' && $route_match->getRouteName() == 'entity.block_content.content_translation_overview') {
+    if (!(count($variables["links"]) == 1 && !empty($variables["links"]['edit']))) {
+      $entity = $route_match->getParameter('block_content');
+      $link_title = (count($variables["links"]) == 1) ? t('Add automatic translation') : t('Update automatic translation');
+      $variables["links"]['auto'] = [
+        "link" => [
+          "#type" => "link",
+          "#title" => $link_title,
+          "#url" => Url::fromRoute('entity.' . $entity->getEntityTypeId() . '.auto_translation_add', ['block_content' => $entity->id()], ['query' => \Drupal::destination()->getAsArray()]),
+        ],
+        "text" => $link_title,
+        "attributes" => new Attribute(),
+      ];
+    }
+  }
+}

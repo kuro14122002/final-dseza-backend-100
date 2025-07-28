@@ -1,0 +1,13 @@
+interface FieldItemType {
+  """
+  Render the field item in the given viewmode.
+  """
+  viewFieldItem(viewMode: String): String!
+}
+
+interface FieldItemList {
+  """
+  Render the field in the given viewmode.
+  """
+  viewField(viewMode: String): String!
+}

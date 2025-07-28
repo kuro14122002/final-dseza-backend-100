@@ -1,0 +1,4 @@
+extend type File {
+  urlAbsolute: String
+  urlRelative: String
+}

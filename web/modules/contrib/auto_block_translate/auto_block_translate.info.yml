@@ -1,0 +1,14 @@
+name: Auto Block Translation
+type: module
+description: 'Translate custom blocks automatically'
+package: Multilingual
+core_version_requirement: ^10.2 || ^11
+configure: auto_node_translate.settings
+dependencies:
+  - drupal:content_translation
+  - auto_node_translate:auto_node_translate
+
+# Information added by Drupal.org packaging script on 2025-01-02
+version: '2.0.0'
+project: 'auto_block_translate'
+datestamp: 1735839509

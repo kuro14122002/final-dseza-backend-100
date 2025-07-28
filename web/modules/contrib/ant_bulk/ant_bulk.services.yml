@@ -1,0 +1,14 @@
+services:
+  ant_bulk.manager:
+    class: Drupal\ant_bulk\TranslationManager
+    arguments:
+      [
+        "@auto_node_translate.translator",
+        "@entity_type.manager",
+        "@messenger",
+      ]
+    calls:
+      - [
+          setContentModerationInformation,
+          ["@?content_moderation.moderation_information"],
+        ]

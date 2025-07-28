@@ -1,0 +1,19 @@
+extend interface InternalUrl {
+  schemaOrgMetatags: SchemaMetatag!
+}
+
+extend interface EntityUrl {
+  schemaOrgMetatags: SchemaMetatag!
+}
+
+extend type DefaultInternalUrl {
+  schemaOrgMetatags: SchemaMetatag!
+}
+
+extend type DefaultEntityUrl {
+  schemaOrgMetatags: SchemaMetatag!
+}
+
+extend type EntityCanonicalUrl {
+  schemaOrgMetatags: SchemaMetatag!
+}

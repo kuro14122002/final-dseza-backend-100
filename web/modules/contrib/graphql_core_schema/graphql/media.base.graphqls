@@ -1,0 +1,6 @@
+interface Media {
+  """
+  The URL of the file belonging to the media.
+  """
+  mediaFileUrl: Url
+}

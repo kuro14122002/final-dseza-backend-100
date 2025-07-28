@@ -3,6 +3,7 @@
 namespace Drupal\symfony_mailer;
 
 use Drupal\Component\Render\MarkupInterface;
+use Drupal\Core\Access\AccessResult;
 
 /**
  * Provides the legacy mailer helper service.
@@ -114,7 +115,11 @@ class LegacyMailerHelper implements LegacyMailerHelperInterface {
     $attachments = $message['params']['attachments'] ?? [];
     foreach ($attachments as $attachment) {
       if (!empty($attachment['filepath'])) {
-        $email->attach(Attachment::fromPath($attachment['filepath'], $attachment['filename'] ?? NULL, $attachment['filemime'] ?? NULL));
+        $at = Attachment::fromPath($attachment['filepath'], $attachment['filename'] ?? NULL, $attachment['filemime'] ?? NULL);
+        // On the legacy interface, the code that sets an attachment is
+        // responsible for access checking.
+        $at->setAccess(AccessResult::allowed());
+        $email->attach($at);
       }
       elseif (!empty($attachment['filecontent'])) {
         $email->attach(Attachment::fromData($attachment["filecontent"], $attachment['filename'] ?? NULL, $attachment['filemime'] ?? NULL));
@@ -124,6 +129,12 @@ class LegacyMailerHelper implements LegacyMailerHelperInterface {
     // Headers.
     $src_headers = $message['headers'];
     $dest_headers = $email->getHeaders();
+
+    // Add in 'To' header which is stored directly in the message.
+    // @see \Drupal\Core\Mail\Plugin\Mail\PhpMail::mail()
+    if (isset($message['to'])) {
+      $src_headers['to'] = $message['to'];
+    }
 
     foreach ($src_headers as $name => $value) {
       $name = strtolower($name);

@@ -1,0 +1,10 @@
+"""
+Interface for an URL.
+"""
+interface Url {
+  path: String
+}
+
+type DefaultUrl implements Url {
+  path: String
+}

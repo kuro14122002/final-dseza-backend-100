@@ -1,0 +1,6 @@
+"""
+Interface for string field types.
+"""
+interface FieldItemTypeStringInterface implements FieldItemType {
+  value: String
+}
