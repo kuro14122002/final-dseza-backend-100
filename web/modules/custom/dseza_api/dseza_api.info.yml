@@ -1,9 +1,13 @@
 name: 'Dseza API'
 type: module
-description: 'Cung cấp API endpoints cho việc gửi câu hỏi và tương tác với hệ thống'
+description: 'Cung cấp REST API endpoints và GraphQL API cho hệ thống DSEZA bao gồm gửi câu hỏi, form liên hệ, đăng ký người dùng, menu structures với hỗ trợ song ngữ (EN/VI)'
 core_version_requirement: ^10
 package: 'Custom'
 dependencies:
   - drupal:node
   - drupal:rest
-  - drupal:serialization 
+  - drupal:serialization
+  - drupal:menu_link_content
+  - drupal:system
+  - graphql
+  - graphql_compose 

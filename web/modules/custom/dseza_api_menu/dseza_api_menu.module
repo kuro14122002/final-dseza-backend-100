@@ -2,17 +2,5 @@
 
 /**
  * @file
- * DSEZA API Menu module.
- */
-
-use Drupal\Core\Routing\RouteMatchInterface;
-
-/**
- * Implements hook_help().
- */
-function dseza_api_menu_help($route_name, RouteMatchInterface $route_match) {
-  switch ($route_name) {
-    case 'help.page.dseza_api_menu':
-      return '<p>' . t('Provides GraphQL API endpoints for menu structures.') . '</p>';
-  }
-} 
+ * Temporary module for clean uninstall.
+ */ 

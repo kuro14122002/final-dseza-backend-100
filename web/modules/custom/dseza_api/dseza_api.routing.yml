@@ -18,17 +18,37 @@ dseza_api.test:
   options:
     _format: 'json'
 
+# Main GraphQL endpoint
+dseza_api.graphql_main:
+  path: '/graphql/dseza_menu_api'
+  defaults:
+    graphql_server: 'graphql_compose_server'
+    _graphql: TRUE
+    _controller: '\Drupal\graphql\Controller\RequestController::handleRequest'
+    _disable_route_normalizer: TRUE
+  requirements:
+    _graphql_query_access: 'graphql_server:graphql_compose_server'
+    _format: 'json'
+  methods: [GET, POST]
+  options:
+    _auth: ['cookie', 'basic_auth']
+    default_url_options:
+      path_processing: FALSE
+    parameters:
+      graphql_server:
+        type: 'entity:graphql_server'
+
 # Language-specific GraphQL endpoints for automatic language detection
 dseza_api.graphql_english:
-  path: '/en/graphql/dseza_api'
+  path: '/en/graphql/dseza_menu_api'
   defaults:
-    graphql_server: 'dseza_api'
+    graphql_server: 'graphql_compose_server'
     _graphql: TRUE
     _controller: '\Drupal\graphql\Controller\RequestController::handleRequest'
     _disable_route_normalizer: TRUE
     language: 'en'
   requirements:
-    _graphql_query_access: 'graphql_server:dseza_api'
+    _graphql_query_access: 'graphql_server:graphql_compose_server'
     _format: 'json'
   methods: [GET, POST]
   options:
@@ -40,15 +60,15 @@ dseza_api.graphql_english:
         type: 'entity:graphql_server'
 
 dseza_api.graphql_vietnamese:
-  path: '/vi/graphql/dseza_api'  
+  path: '/vi/graphql/dseza_menu_api'  
   defaults:
-    graphql_server: 'dseza_api'
+    graphql_server: 'graphql_compose_server'
     _graphql: TRUE
     _controller: '\Drupal\graphql\Controller\RequestController::handleRequest'
     _disable_route_normalizer: TRUE
     language: 'vi'
   requirements:
-    _graphql_query_access: 'graphql_server:dseza_api'
+    _graphql_query_access: 'graphql_server:graphql_compose_server'
     _format: 'json'
   methods: [GET, POST]
   options:

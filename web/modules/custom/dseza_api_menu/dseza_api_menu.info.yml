@@ -1,9 +1,5 @@
-name: 'DSEZA API Menu'
+name: 'DSEZA API Menu (Temporary)'
 type: module
-description: 'Provides GraphQL API endpoints for menu structures'
+description: 'Temporary module for clean uninstall'
 core_version_requirement: ^9 || ^10
-package: 'DSEZA'
-dependencies:
-  - graphql
-  - menu_link_content
-  - system 
+package: 'DSEZA' 
