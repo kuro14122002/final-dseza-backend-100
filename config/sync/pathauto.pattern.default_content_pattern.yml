@@ -1,0 +1,24 @@
+uuid: 05af845f-c6d1-4ccd-bea4-971ee240b6ee
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: default_content_pattern
+label: 'Default Content Pattern'
+type: 'canonical_entities:node'
+pattern: '[node:content-type:name]/[node:title]'
+selection_criteria:
+  -
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      article: article
+      event: event
+      functional_zone: functional_zone
+      resource: resource
+selection_logic: and
+weight: -5
+relationships: {  }

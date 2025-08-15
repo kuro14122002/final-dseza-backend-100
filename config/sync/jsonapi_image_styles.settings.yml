@@ -1,0 +1,14 @@
+_core:
+  default_config_hash: wOZVD8Wsf3NSSsAU36-FVkO7zaC4TgH_Buj0Up6vHYQ
+image_styles:
+  large_1200x800: large_1200x800
+  medium_800x600: medium_800x600
+  thumbnail_400x300: thumbnail_400x300
+  large: '0'
+  large_1280x720: '0'
+  media_library: '0'
+  medium: '0'
+  medium_800x450: '0'
+  thumbnail: '0'
+  thumbnail_320x180: '0'
+  wide: '0'

@@ -1,0 +1,23 @@
+uuid: 2b9820b2-e22a-43fb-8eb8-e64ad80c1d22
+langcode: vi
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_area
+    - node.type.functional_zone
+id: node.functional_zone.field_area
+field_name: field_area
+entity_type: node
+bundle: functional_zone
+label: Area
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: decimal

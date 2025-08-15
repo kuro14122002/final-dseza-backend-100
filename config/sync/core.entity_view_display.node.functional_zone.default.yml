@@ -1,0 +1,94 @@
+uuid: 51c8c5c1-59f8-4ef4-9097-9a69788fd828
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.functional_zone.field_area
+    - field.field.node.functional_zone.field_description
+    - field.field.node.functional_zone.field_enterprises
+    - field.field.node.functional_zone.field_image_large
+    - field.field.node.functional_zone.field_image_thumbnail
+    - field.field.node.functional_zone.field_name_en
+    - field.field.node.functional_zone.field_occupancy
+    - image.style.thumbnail
+    - node.type.functional_zone
+  module:
+    - media
+    - text
+    - user
+id: node.functional_zone.default
+targetEntityType: node
+bundle: functional_zone
+mode: default
+content:
+  field_area:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_enterprises:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_image_large:
+    type: media_thumbnail
+    label: above
+    settings:
+      image_link: ''
+      image_style: large
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_image_thumbnail:
+    type: media_thumbnail
+    label: above
+    settings:
+      image_link: ''
+      image_style: thumbnail
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_name_en:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_occupancy:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 1
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

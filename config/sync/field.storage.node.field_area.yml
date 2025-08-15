@@ -1,0 +1,20 @@
+uuid: d6f1e066-fa7d-4501-85c1-c805809cf72f
+langcode: vi
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_area
+field_name: field_area
+entity_type: node
+type: decimal
+settings:
+  precision: 10
+  scale: 2
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

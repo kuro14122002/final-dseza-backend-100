@@ -1,0 +1,19 @@
+uuid: ef1860b1-efb7-4768-ad78-0bf4c18419e6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quoc_gia
+    - node.type.listed_enterprise
+id: node.listed_enterprise.field_quoc_gia
+field_name: field_quoc_gia
+entity_type: node
+bundle: listed_enterprise
+label: 'Quốc gia'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

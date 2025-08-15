@@ -1,0 +1,19 @@
+uuid: d7545791-d01c-40d7-ac2d-95a12b332d1d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dien_thoai
+    - node.type.listed_enterprise
+id: node.listed_enterprise.field_dien_thoai
+field_name: field_dien_thoai
+entity_type: node
+bundle: listed_enterprise
+label: 'Điện thoại'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

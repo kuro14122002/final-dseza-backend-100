@@ -1,0 +1,10 @@
+uuid: 23f0d687-3745-49e5-adcb-ed924a41c7df
+langcode: en
+status: true
+dependencies: {  }
+id: thu_vien_anh
+label: 'Thư viện Ảnh'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

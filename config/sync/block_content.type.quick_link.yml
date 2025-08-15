@@ -1,0 +1,8 @@
+uuid: 4d6f70d3-fe11-442c-9117-5247cfd9fed4
+langcode: en
+status: true
+dependencies: {  }
+id: quick_link
+label: 'Quick Link'
+revision: true
+description: 'Một khối liên kết nhanh bao gồm icon, tiêu đề và đường dẫn.'

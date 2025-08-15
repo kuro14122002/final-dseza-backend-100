@@ -1,0 +1,65 @@
+uuid: 85a27ca3-8e84-49ad-aa2c-0b32c9949661
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.staff_member.field_chuc_vu
+    - field.field.node.staff_member.field_email_nhan_su
+    - field.field.node.staff_member.field_order_weight
+    - field.field.node.staff_member.field_sdt_nhan_su
+    - field.field.node.staff_member.field_thuoc_phong_ban
+    - node.type.staff_member
+  module:
+    - user
+id: node.staff_member.default
+targetEntityType: node
+bundle: staff_member
+mode: default
+content:
+  field_chuc_vu:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_email_nhan_su:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_order_weight:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_sdt_nhan_su:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_thuoc_phong_ban:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

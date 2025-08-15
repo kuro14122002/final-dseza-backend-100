@@ -1,0 +1,37 @@
+uuid: 150bba23-200c-4852-a259-a3e9a8993b22
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.quick_link
+    - field.field.block_content.quick_link.field_duong_dan
+    - field.field.block_content.quick_link.field_icon
+  module:
+    - link
+id: block_content.quick_link.default
+targetEntityType: block_content
+bundle: quick_link
+mode: default
+content:
+  field_duong_dan:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_icon:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,9 @@
+uuid: 5875168f-5253-4a8e-b009-f8ae42decb1a
+langcode: en
+status: true
+dependencies: {  }
+name: 'Chủ đề Liên kết'
+vid: chu_de_lien_ket
+description: null
+weight: 0
+new_revision: false

@@ -1,0 +1,10 @@
+uuid: 6e441349-ecfe-4f6d-ab5d-5396090c72e1
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: pQP5iQy4SdhAMVcjDUncCfkJmTofnHVtXrsMzx4k6Yk
+id: basic
+label: 'Thông tin liên hệ chung'
+revision: false
+description: 'Chứa các thông tin liên hệ chính của Ban Quản lý.'

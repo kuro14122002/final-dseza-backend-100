@@ -1,0 +1,20 @@
+uuid: d680e821-d54b-49b2-b315-911d13a8d0e3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_loai_van_ban
+field_name: field_loai_van_ban
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

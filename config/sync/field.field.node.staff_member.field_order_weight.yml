@@ -1,0 +1,25 @@
+uuid: cfda66a8-66d9-4bc1-bdd1-7fc7e70df366
+langcode: vi
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_order_weight
+    - node.type.staff_member
+id: node.staff_member.field_order_weight
+field_name: field_order_weight
+entity_type: node
+bundle: staff_member
+label: 'Order Weight'
+description: 'Numeric weight for ordering partners (lower numbers appear first)'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

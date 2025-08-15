@@ -1,0 +1,20 @@
+uuid: 8fab242b-1c07-45d7-8c1e-79c54dff43dc
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - paragraphs
+id: paragraph.field_file_dinh_kem
+field_name: field_file_dinh_kem
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

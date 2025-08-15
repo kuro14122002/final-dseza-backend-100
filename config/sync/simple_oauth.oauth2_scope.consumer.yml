@@ -1,0 +1,22 @@
+uuid: 255e7955-e1dc-4a74-b5a9-8c10f1423891
+langcode: en
+status: true
+dependencies: {  }
+id: consumer
+name: consumer
+description: 'Client-credentials access for headless API'
+grant_types:
+  authorization_code:
+    status: false
+    description: ''
+  client_credentials:
+    status: true
+    description: 'Read-only access to public content via JSON:API'
+  refresh_token:
+    status: false
+    description: ''
+umbrella: false
+parent: _none
+granularity_id: permission
+granularity_configuration:
+  permission: 'view own unpublished content'

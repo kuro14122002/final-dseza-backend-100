@@ -1,0 +1,9 @@
+uuid: ef23ef1d-131a-464d-a060-70d27a5be64b
+langcode: en
+status: true
+dependencies: {  }
+name: 'Loại văn bản'
+vid: van_ban
+description: null
+weight: 0
+new_revision: false

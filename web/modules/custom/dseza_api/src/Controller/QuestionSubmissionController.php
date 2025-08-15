@@ -3,6 +3,7 @@
 namespace Drupal\dseza_api\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Flood\FloodInterface;
 use Drupal\node\Entity\Node;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,16 +31,26 @@ class QuestionSubmissionController extends ControllerBase {
   protected $entityTypeManager;
 
   /**
+   * Flood control service.
+   *
+   * @var \Drupal\Core\Flood\FloodInterface
+   */
+  protected $flood;
+
+  /**
    * QuestionSubmissionController constructor.
    *
    * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger_factory
    *   The logger factory.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
+   * @param \Drupal\Core\Flood\FloodInterface $flood
+   *   The flood control service.
    */
-  public function __construct(LoggerChannelFactoryInterface $logger_factory, EntityTypeManagerInterface $entity_type_manager) {
+  public function __construct(LoggerChannelFactoryInterface $logger_factory, EntityTypeManagerInterface $entity_type_manager, FloodInterface $flood) {
     $this->logger = $logger_factory->get('dseza_api');
     $this->entityTypeManager = $entity_type_manager;
+    $this->flood = $flood;
   }
 
   /**
@@ -48,7 +59,8 @@ class QuestionSubmissionController extends ControllerBase {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('logger.factory'),
-      $container->get('entity_type.manager')
+      $container->get('entity_type.manager'),
+      $container->get('flood')
     );
   }
 
@@ -63,6 +75,20 @@ class QuestionSubmissionController extends ControllerBase {
    */
   public function handleSubmission(Request $request) {
     try {
+      // Flood control: limit number of submissions per identifier within a time window.
+      // Identifier: authenticated user ID, otherwise client IP for anonymous.
+      $event = 'dseza_api_question_submit';
+      $windowSeconds = 3600; // 1 hour window
+      $maxAttempts = 5; // Allow 5 submissions per window
+      $identifier = $this->currentUser()->isAuthenticated() ? (string) $this->currentUser()->id() : (string) $request->getClientIp();
+
+      if (!$this->flood->isAllowed($event, $maxAttempts, $windowSeconds, $identifier)) {
+        return new JsonResponse([
+          'status' => 'error',
+          'message' => 'Bạn đã gửi quá nhiều lần. Vui lòng thử lại sau.',
+        ], 429);
+      }
+
       // Lấy dữ liệu JSON từ request body
       $content = $request->getContent();
       
@@ -118,7 +144,7 @@ class QuestionSubmissionController extends ControllerBase {
         'type' => 'question',
         'title' => $data['tieuDe'],
         'status' => FALSE, // Unpublished để chờ duyệt
-        'uid' => 1, // Gán cho admin user
+        'uid' => $this->currentUser()->id(), // Gán cho người dùng hiện tại hoặc ẩn danh
         'langcode' => 'vi',
       ];
 
@@ -140,14 +166,14 @@ class QuestionSubmissionController extends ControllerBase {
       try {
         $node->set('field_noi_dung_cau_hoi', [
           'value' => $data['noiDung'],
-          'format' => 'basic_html',
+          'format' => 'plain_text',
         ]);
       } catch (\Exception $e) {
         $this->logger->warning('Cannot set field_noi_dung_cau_hoi: @error', ['@error' => $e->getMessage()]);
         // Fallback: sử dụng body field
         $node->set('body', [
           'value' => $data['noiDung'],
-          'format' => 'basic_html',
+          'format' => 'plain_text',
         ]);
       }
 
@@ -172,6 +198,8 @@ class QuestionSubmissionController extends ControllerBase {
       $result = $node->save();
 
       if ($result === SAVED_NEW) {
+        // Register flood event on successful submission.
+        $this->flood->register($event, $windowSeconds, $identifier);
         // Log thành công
         $this->logger->info('Câu hỏi mới đã được gửi từ @email với tiêu đề: @title', [
           '@email' => $data['email'],

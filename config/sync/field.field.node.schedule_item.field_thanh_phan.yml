@@ -1,0 +1,19 @@
+uuid: 869d6274-e784-49fa-921e-cd109a985e45
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_thanh_phan
+    - node.type.schedule_item
+id: node.schedule_item.field_thanh_phan
+field_name: field_thanh_phan
+entity_type: node
+bundle: schedule_item
+label: 'Thành phần'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

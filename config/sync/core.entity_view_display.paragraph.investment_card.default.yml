@@ -1,0 +1,48 @@
+uuid: 92ab0c37-06f0-462d-b0e2-58a10f93ce75
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.investment_card.field_image
+    - field.field.paragraph.investment_card.field_link
+    - field.field.paragraph.investment_card.field_title
+    - paragraphs.paragraphs_type.investment_card
+  module:
+    - link
+_core:
+  default_config_hash: oI88HYIydsHQ_w5KXHTdSL6M0qyBgFod8zcUqZiTDQc
+id: paragraph.investment_card.default
+targetEntityType: paragraph
+bundle: investment_card
+mode: default
+content:
+  field_image:
+    type: entity_reference_entity_view
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+  field_link:
+    type: link
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_title:
+    type: string
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden: {  }

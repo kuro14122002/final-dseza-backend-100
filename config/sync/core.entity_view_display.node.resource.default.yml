@@ -1,0 +1,51 @@
+uuid: 71ee24c4-ba38-4c4c-8196-8a93d6a8a360
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.resource.field_resource_type
+    - field.field.node.resource.field_resource_file
+    - field.field.node.resource.field_publication_date
+    - node.type.resource
+  module:
+    - datetime
+    - media
+    - user
+id: node.resource.default
+targetEntityType: node
+bundle: resource
+mode: default
+content:
+  field_publication_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_resource_file:
+    type: media_thumbnail
+    label: above
+    settings:
+      image_link: ''
+      image_style: large
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_resource_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

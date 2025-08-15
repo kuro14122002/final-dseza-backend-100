@@ -1,0 +1,12 @@
+uuid: 55a57280-44b1-4f09-a998-a7eb9f0450eb
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 1ODlWWRp6U-yHef69-q7L8bqCkRagbaau9vmltCp2kg
+id: slideshow
+label: Slideshow
+icon_uuid: null
+icon_default: null
+description: 'A slideshow with multiple images'
+behavior_plugins: {  }

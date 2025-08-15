@@ -1,0 +1,9 @@
+uuid: 99b8e5d5-0451-45ca-80a7-b2cf9fffce0a
+langcode: vi
+status: true
+dependencies: {  }
+name: 'Loại Thông tin Đầu tư'
+vid: loai_thong_tin_dau_tu
+description: null
+weight: 0
+new_revision: false

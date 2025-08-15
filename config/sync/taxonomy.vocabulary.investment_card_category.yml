@@ -1,0 +1,9 @@
+uuid: 44726ab8-c265-4bef-a4fc-b694c2d91a50
+langcode: en
+status: true
+dependencies: {  }
+name: 'Investment Card Category'
+vid: investment_card_category
+description: null
+weight: 0
+new_revision: false

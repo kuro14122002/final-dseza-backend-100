@@ -1,0 +1,15 @@
+uuid: 35982a74-b79b-44d9-9c76-8599fa19ba23
+langcode: en
+status: true
+dependencies: {  }
+name: large_1200x800
+label: 'Large (1200x800)'
+effects:
+  834b873f-24fd-4739-9f22-9903ba57cec0:
+    uuid: 834b873f-24fd-4739-9f22-9903ba57cec0
+    id: image_scale
+    weight: 1
+    data:
+      width: 1200
+      height: 800
+      upscale: true

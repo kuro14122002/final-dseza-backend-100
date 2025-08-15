@@ -1,0 +1,22 @@
+uuid: 839eb371-e1fe-43cb-a6fe-22b04a3d30c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_trich_yeu
+    - node.type.legal_document
+  module:
+    - text
+id: node.legal_document.field_trich_yeu
+field_name: field_trich_yeu
+entity_type: node
+bundle: legal_document
+label: 'Trích yếu'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

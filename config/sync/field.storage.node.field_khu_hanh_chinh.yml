@@ -1,0 +1,20 @@
+uuid: a0a69c5a-e168-408b-8ff1-91d660eba866
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_khu_hanh_chinh
+field_name: field_khu_hanh_chinh
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,47 @@
+uuid: 9e3571fd-6b9a-49fc-9a63-c2b7102d7e9b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.business_partner.field_logo
+    - field.field.node.business_partner.field_order_weight
+    - field.field.node.business_partner.field_partner_url
+    - node.type.business_partner
+  module:
+    - link
+    - media
+    - user
+id: node.business_partner.default
+targetEntityType: node
+bundle: business_partner
+mode: default
+content:
+  field_logo:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_partner_url:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: _blank
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_order_weight: true
+  langcode: true

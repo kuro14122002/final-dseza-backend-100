@@ -1,0 +1,24 @@
+uuid: 760ee68d-fc02-409a-9500-ca0360f88ee1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.thu_vien_anh.field_danh_sach_anh
+    - paragraphs.paragraphs_type.thu_vien_anh
+  module:
+    - media_library
+id: paragraph.thu_vien_anh.default
+targetEntityType: paragraph
+bundle: thu_vien_anh
+mode: default
+content:
+  field_danh_sach_anh:
+    type: media_library_widget
+    weight: 0
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

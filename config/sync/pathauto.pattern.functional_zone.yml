@@ -1,0 +1,21 @@
+uuid: 00f4d41a-53fb-4e48-be4c-14f49fe44846
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: functional_zone
+label: 'Functional Zone'
+type: 'canonical_entities:node'
+pattern: '/functional-zone/[node:title]'
+selection_criteria:
+  -
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: node
+    bundles:
+      functional_zone: functional_zone
+selection_logic: and
+weight: -5
+relationships: {  }

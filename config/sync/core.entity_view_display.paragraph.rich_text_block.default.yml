@@ -1,0 +1,22 @@
+uuid: fa90454b-0989-4ae5-95d5-45b63ab98550
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.rich_text_block.field_body
+    - paragraphs.paragraphs_type.rich_text_block
+  module:
+    - text
+id: paragraph.rich_text_block.default
+targetEntityType: paragraph
+bundle: rich_text_block
+mode: default
+content:
+  field_body:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

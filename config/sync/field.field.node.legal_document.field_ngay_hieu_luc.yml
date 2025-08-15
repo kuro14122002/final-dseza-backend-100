@@ -1,0 +1,21 @@
+uuid: 557b40b5-b050-4b26-9b76-c17d69d90fe5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ngay_hieu_luc
+    - node.type.legal_document
+  module:
+    - datetime
+id: node.legal_document.field_ngay_hieu_luc
+field_name: field_ngay_hieu_luc
+entity_type: node
+bundle: legal_document
+label: 'Ngày hiệu lực'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

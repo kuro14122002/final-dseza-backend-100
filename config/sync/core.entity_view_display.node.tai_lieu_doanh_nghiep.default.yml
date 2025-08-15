@@ -1,0 +1,59 @@
+uuid: 7e955cba-5c6d-4fbe-a78c-0feecbcd56d3
+langcode: vi
+status: true
+dependencies:
+  config:
+    - field.field.node.tai_lieu_doanh_nghiep.field_file_dinh_kem
+    - field.field.node.tai_lieu_doanh_nghiep.field_loai_tai_lieu
+    - field.field.node.tai_lieu_doanh_nghiep.field_ngay_ban_hanh
+    - field.field.node.tai_lieu_doanh_nghiep.field_so_ky_hieu
+    - node.type.tai_lieu_doanh_nghiep
+  module:
+    - datetime
+    - user
+id: node.tai_lieu_doanh_nghiep.default
+targetEntityType: node
+bundle: tai_lieu_doanh_nghiep
+mode: default
+content:
+  field_file_dinh_kem:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_loai_tai_lieu:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_ngay_ban_hanh:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_so_ky_hieu:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,21 @@
+uuid: 401fd72b-7366-4439-a63b-3bc1a6cf3873
+langcode: vi
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_han_nop_ho_so
+    - node.type.tin_tuyen_dung
+  module:
+    - datetime
+id: node.tin_tuyen_dung.field_han_nop_ho_so
+field_name: field_han_nop_ho_so
+entity_type: node
+bundle: tin_tuyen_dung
+label: 'Hạn nộp hồ sơ'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,90 @@
+uuid: f56496f3-0344-4ff0-992a-f18e46f14a4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.question.field_dia_chi
+    - field.field.node.question.field_email
+    - field.field.node.question.field_linh_vuc
+    - field.field.node.question.field_nguoi_gui
+    - field.field.node.question.field_noi_dung_cau_hoi
+    - field.field.node.question.field_noi_dung_tra_loi
+    - field.field.node.question.field_so_dien_thoai
+    - field.field.node.question.field_trang_thai
+    - node.type.question
+  module:
+    - options
+    - text
+    - user
+id: node.question.default
+targetEntityType: node
+bundle: question
+mode: default
+content:
+  field_dia_chi:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_email:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_linh_vuc:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_nguoi_gui:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_noi_dung_cau_hoi:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_noi_dung_tra_loi:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_so_dien_thoai:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_trang_thai:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

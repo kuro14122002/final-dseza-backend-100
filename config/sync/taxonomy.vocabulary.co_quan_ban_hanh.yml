@@ -1,0 +1,9 @@
+uuid: 08199df6-3aa6-4fbd-b7b3-2898f8b6dac3
+langcode: en
+status: true
+dependencies: {  }
+name: 'Cơ quan ban hành'
+vid: co_quan_ban_hanh
+description: null
+weight: 0
+new_revision: false

@@ -1,0 +1,19 @@
+uuid: 0ecd4ec3-4df9-4aa0-85fa-ea9086661fb0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dia_chi
+    - node.type.question
+id: node.question.field_dia_chi
+field_name: field_dia_chi
+entity_type: node
+bundle: question
+label: 'Địa chỉ'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

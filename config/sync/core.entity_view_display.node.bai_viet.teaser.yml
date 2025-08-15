@@ -1,0 +1,41 @@
+uuid: ae52457f-2441-4c22-9da4-da8e5d82de13
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.bai_viet.body
+    - field.field.node.bai_viet.field_anh_dai_dien
+    - field.field.node.bai_viet.field_binh_luan
+    - field.field.node.bai_viet.field_chuyen_muc
+    - field.field.node.bai_viet.field_noi_dung_bai_viet
+    - field.field.node.bai_viet.field_su_kien_tieu_bieu
+    - node.type.bai_viet
+  module:
+    - text
+    - user
+id: node.bai_viet.teaser
+targetEntityType: node
+bundle: bai_viet
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_anh_dai_dien: true
+  field_binh_luan: true
+  field_chuyen_muc: true
+  field_noi_dung_bai_viet: true
+  field_su_kien_tieu_bieu: true
+  langcode: true

@@ -1,0 +1,22 @@
+uuid: 5db94627-59ea-46e9-91ce-ccdd3a9ce5f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_noi_dung_tra_loi
+    - node.type.question
+  module:
+    - text
+id: node.question.field_noi_dung_tra_loi
+field_name: field_noi_dung_tra_loi
+entity_type: node
+bundle: question
+label: 'Nội dung trả lời'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

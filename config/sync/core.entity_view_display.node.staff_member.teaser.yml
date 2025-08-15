@@ -1,0 +1,31 @@
+uuid: 5f0abdf8-faeb-49ca-bda0-19789fa7f400
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.staff_member.field_chuc_vu
+    - field.field.node.staff_member.field_email_nhan_su
+    - field.field.node.staff_member.field_order_weight
+    - field.field.node.staff_member.field_sdt_nhan_su
+    - field.field.node.staff_member.field_thuoc_phong_ban
+    - node.type.staff_member
+  module:
+    - user
+id: node.staff_member.teaser
+targetEntityType: node
+bundle: staff_member
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_chuc_vu: true
+  field_email_nhan_su: true
+  field_order_weight: true
+  field_sdt_nhan_su: true
+  field_thuoc_phong_ban: true
+  langcode: true

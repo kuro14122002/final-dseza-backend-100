@@ -1,0 +1,24 @@
+uuid: ca2ba484-cf62-4fd3-823b-fad3ec7860cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.basic
+    - field.storage.block_content.field_ban_do_google_map
+    - filter.format.full_html
+  module:
+    - text
+id: block_content.basic.field_ban_do_google_map
+field_name: field_ban_do_google_map
+entity_type: block_content
+bundle: basic
+label: 'Bản đồ Google Map'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - full_html
+field_type: text_long

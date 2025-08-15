@@ -1,0 +1,29 @@
+uuid: 1d547065-eef7-45a5-a417-5c965e5e77f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_linh_vuc
+    - node.type.legal_document
+    - taxonomy.vocabulary.linh_vuc_hoat_dong
+id: node.legal_document.field_linh_vuc
+field_name: field_linh_vuc
+entity_type: node
+bundle: legal_document
+label: 'Lĩnh vực'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      linh_vuc_hoat_dong: linh_vuc_hoat_dong
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

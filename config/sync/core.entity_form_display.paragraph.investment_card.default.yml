@@ -1,0 +1,46 @@
+uuid: 1d7a9ac6-0b35-4a5d-99dd-058c8a7bfdaf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.investment_card.field_image
+    - field.field.paragraph.investment_card.field_link
+    - field.field.paragraph.investment_card.field_title
+    - paragraphs.paragraphs_type.investment_card
+  module:
+    - link
+    - media_library
+_core:
+  default_config_hash: lOLPrNYRLrzyvGsDLTy6AzW3gSk_t2x-mAHLEHCibYk
+id: paragraph.investment_card.default
+targetEntityType: paragraph
+bundle: investment_card
+mode: default
+content:
+  field_image:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types:
+        - image
+    third_party_settings: {  }
+  field_link:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

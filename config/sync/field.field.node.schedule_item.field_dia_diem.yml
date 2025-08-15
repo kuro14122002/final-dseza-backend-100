@@ -1,0 +1,19 @@
+uuid: ec8cb23d-3c58-490c-b65a-511b53857c06
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dia_diem
+    - node.type.schedule_item
+id: node.schedule_item.field_dia_diem
+field_name: field_dia_diem
+entity_type: node
+bundle: schedule_item
+label: 'Địa điểm'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

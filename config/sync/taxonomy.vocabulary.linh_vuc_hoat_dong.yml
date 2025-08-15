@@ -1,0 +1,9 @@
+uuid: ed551602-38f6-40d6-86ba-2aec4836b140
+langcode: vi
+status: true
+dependencies: {  }
+name: 'Lĩnh vực hoạt động'
+vid: linh_vuc_hoat_dong
+description: null
+weight: 0
+new_revision: false

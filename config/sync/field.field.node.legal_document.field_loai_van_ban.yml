@@ -1,0 +1,29 @@
+uuid: acedd7db-d63a-4625-8689-dcb63b696e4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_loai_van_ban
+    - node.type.legal_document
+    - taxonomy.vocabulary.van_ban
+id: node.legal_document.field_loai_van_ban
+field_name: field_loai_van_ban
+entity_type: node
+bundle: legal_document
+label: 'Loại văn bản'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      van_ban: van_ban
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,29 @@
+uuid: e3428b49-7bdf-4a0e-8ea1-56417fe710d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_file_dinh_kem
+    - media.type.document
+    - node.type.legal_document
+id: node.legal_document.field_file_dinh_kem
+field_name: field_file_dinh_kem
+entity_type: node
+bundle: legal_document
+label: 'File đính kèm'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

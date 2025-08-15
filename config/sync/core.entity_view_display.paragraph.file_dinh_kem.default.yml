@@ -1,0 +1,22 @@
+uuid: cb9277c1-5309-4216-bc92-747f3e6a6222
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.file_dinh_kem.field_file_dinh_kem
+    - paragraphs.paragraphs_type.file_dinh_kem
+id: paragraph.file_dinh_kem.default
+targetEntityType: paragraph
+bundle: file_dinh_kem
+mode: default
+content:
+  field_file_dinh_kem:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

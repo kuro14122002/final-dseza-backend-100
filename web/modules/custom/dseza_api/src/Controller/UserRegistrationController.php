@@ -3,6 +3,7 @@
 namespace Drupal\dseza_api\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Flood\FloodInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -38,6 +39,13 @@ class UserRegistrationController extends ControllerBase {
   protected $passwordHasher;
 
   /**
+   * Flood control service.
+   *
+   * @var \Drupal\Core\Flood\FloodInterface
+   */
+  protected $flood;
+
+  /**
    * UserRegistrationController constructor.
    *
    * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger_factory
@@ -46,15 +54,19 @@ class UserRegistrationController extends ControllerBase {
    *   The entity type manager.
    * @param \Drupal\Core\Password\PasswordInterface $password_hasher
    *   The password hashing service.
+   * @param \Drupal\Core\Flood\FloodInterface $flood
+   *   The flood control service.
    */
   public function __construct(
     LoggerChannelFactoryInterface $logger_factory,
     EntityTypeManagerInterface $entity_type_manager,
-    PasswordInterface $password_hasher
+    PasswordInterface $password_hasher,
+    FloodInterface $flood
   ) {
     $this->logger = $logger_factory->get('dseza_api');
     $this->entityTypeManager = $entity_type_manager;
     $this->passwordHasher = $password_hasher;
+    $this->flood = $flood;
   }
 
   /**
@@ -64,7 +76,8 @@ class UserRegistrationController extends ControllerBase {
     return new static(
       $container->get('logger.factory'),
       $container->get('entity_type.manager'),
-      $container->get('password')
+      $container->get('password'),
+      $container->get('flood')
     );
   }
 
@@ -89,6 +102,20 @@ class UserRegistrationController extends ControllerBase {
     ];
 
     try {
+      // Flood control: limit number of registration attempts within a time window.
+      $event = 'dseza_api_user_register';
+      $windowSeconds = 3600; // 1 hour window
+      $maxAttempts = 5; // Allow 5 registrations per identifier per window
+      $identifier = $this->currentUser()->isAuthenticated() ? (string) $this->currentUser()->id() : (string) $request->getClientIp();
+
+      if (!$this->flood->isAllowed($event, $maxAttempts, $windowSeconds, $identifier)) {
+        return new JsonResponse([
+          'success' => FALSE,
+          'message' => 'Bạn đã thực hiện quá nhiều lần đăng ký. Vui lòng thử lại sau.',
+          'error' => 'TOO_MANY_REQUESTS'
+        ], 429, $response_headers);
+      }
+
       // Parse JSON input
       $json_data = json_decode($request->getContent(), TRUE);
       
@@ -180,6 +207,9 @@ class UserRegistrationController extends ControllerBase {
       $user->save();
 
       $this->logger->info('User registered successfully: @email', ['@email' => $email]);
+
+      // Register flood event on successful registration
+      $this->flood->register($event, $windowSeconds, $identifier);
 
       // Return success response
       return new JsonResponse([

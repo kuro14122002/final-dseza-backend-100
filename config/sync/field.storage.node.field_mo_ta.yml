@@ -1,0 +1,19 @@
+uuid: c0c73e15-59cf-445d-a480-b376dabbc2dc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_mo_ta
+field_name: field_mo_ta
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

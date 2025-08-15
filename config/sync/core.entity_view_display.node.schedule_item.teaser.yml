@@ -1,0 +1,39 @@
+uuid: 34c1c0e6-7eef-4297-9606-6b42776ed30f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.schedule_item.field_buoi
+    - field.field.node.schedule_item.field_chu_tri
+    - field.field.node.schedule_item.field_dia_diem
+    - field.field.node.schedule_item.field_don_vi_chuan_bi
+    - field.field.node.schedule_item.field_ghi_chu
+    - field.field.node.schedule_item.field_ngay
+    - field.field.node.schedule_item.field_noi_dung
+    - field.field.node.schedule_item.field_thanh_phan
+    - field.field.node.schedule_item.field_thoi_gian
+    - node.type.schedule_item
+  module:
+    - user
+id: node.schedule_item.teaser
+targetEntityType: node
+bundle: schedule_item
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_buoi: true
+  field_chu_tri: true
+  field_dia_diem: true
+  field_don_vi_chuan_bi: true
+  field_ghi_chu: true
+  field_ngay: true
+  field_noi_dung: true
+  field_thanh_phan: true
+  field_thoi_gian: true
+  langcode: true

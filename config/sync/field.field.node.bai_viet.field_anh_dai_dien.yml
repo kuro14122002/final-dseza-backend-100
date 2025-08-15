@@ -1,0 +1,29 @@
+uuid: 99ebc9b9-abf8-4baf-8a9e-d8de0ca64896
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_anh_dai_dien
+    - media.type.image
+    - node.type.bai_viet
+id: node.bai_viet.field_anh_dai_dien
+field_name: field_anh_dai_dien
+entity_type: node
+bundle: bai_viet
+label: 'Ảnh đại diện'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

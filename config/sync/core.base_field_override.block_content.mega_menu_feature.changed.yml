@@ -1,0 +1,18 @@
+uuid: 553c9618-bd35-4303-9235-1f04742a172e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mega_menu_feature
+id: block_content.mega_menu_feature.changed
+field_name: changed
+entity_type: block_content
+bundle: mega_menu_feature
+label: Changed
+description: 'The time that the content block was last edited.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

@@ -1,0 +1,22 @@
+uuid: 25463ff0-dab0-4994-9f4b-292b1bae6d81
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.quick_link
+id: block_content.quick_link.status
+field_name: status
+entity_type: block_content
+bundle: quick_link
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

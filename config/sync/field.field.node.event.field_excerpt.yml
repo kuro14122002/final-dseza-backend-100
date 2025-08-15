@@ -1,0 +1,22 @@
+uuid: af5b8136-9ae1-4c3b-b3fa-879a154adb8c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_excerpt
+    - node.type.event
+  module:
+    - text
+id: node.event.field_excerpt
+field_name: field_excerpt
+entity_type: node
+bundle: event
+label: Excerpt
+description: 'Short summary of the event'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

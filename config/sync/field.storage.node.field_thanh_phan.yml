@@ -1,0 +1,21 @@
+uuid: 8ad239aa-5e79-44df-b8bb-bf57893a67a7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_thanh_phan
+field_name: field_thanh_phan
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

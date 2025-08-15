@@ -1,0 +1,114 @@
+uuid: 3dfa4329-0c29-4637-bee5-ad2e4950b7cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.listed_enterprise.field_address
+    - field.field.node.listed_enterprise.field_dien_thoai
+    - field.field.node.listed_enterprise.field_email1
+    - field.field.node.listed_enterprise.field_khu_hanh_chinh
+    - field.field.node.listed_enterprise.field_linh_vuc_hoat_dong
+    - field.field.node.listed_enterprise.field_mo_ta
+    - field.field.node.listed_enterprise.field_nguoi_dai_dien
+    - field.field.node.listed_enterprise.field_quoc_gia
+    - field.field.node.listed_enterprise.field_ten_viet_tat
+    - field.field.node.listed_enterprise.field_website
+    - node.type.listed_enterprise
+  module:
+    - link
+    - text
+    - user
+id: node.listed_enterprise.default
+targetEntityType: node
+bundle: listed_enterprise
+mode: default
+content:
+  field_address:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_dien_thoai:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_email1:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_khu_hanh_chinh:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_linh_vuc_hoat_dong:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_mo_ta:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_nguoi_dai_dien:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_quoc_gia:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_ten_viet_tat:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_website:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

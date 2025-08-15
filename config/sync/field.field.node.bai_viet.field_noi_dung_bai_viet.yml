@@ -1,0 +1,66 @@
+uuid: 3a3008bd-7677-4ea5-b029-e06ad17bc04b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_noi_dung_bai_viet
+    - node.type.bai_viet
+    - paragraphs.paragraphs_type.file_dinh_kem
+    - paragraphs.paragraphs_type.image_block
+    - paragraphs.paragraphs_type.investment_card
+    - paragraphs.paragraphs_type.partner_logo
+    - paragraphs.paragraphs_type.rich_text_block
+    - paragraphs.paragraphs_type.slideshow
+    - paragraphs.paragraphs_type.thu_vien_anh
+    - paragraphs.paragraphs_type.video_nhung
+  module:
+    - entity_reference_revisions
+id: node.bai_viet.field_noi_dung_bai_viet
+field_name: field_noi_dung_bai_viet
+entity_type: node
+bundle: bai_viet
+label: 'Nội dung bài viết'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      file_dinh_kem: file_dinh_kem
+      image_block: image_block
+      investment_card: investment_card
+      partner_logo: partner_logo
+      rich_text_block: rich_text_block
+      slideshow: slideshow
+      thu_vien_anh: thu_vien_anh
+      video_nhung: video_nhung
+    negate: 0
+    target_bundles_drag_drop:
+      file_dinh_kem:
+        weight: 11
+        enabled: true
+      image_block:
+        weight: 13
+        enabled: true
+      investment_card:
+        weight: 14
+        enabled: true
+      partner_logo:
+        weight: 16
+        enabled: true
+      rich_text_block:
+        weight: 17
+        enabled: true
+      slideshow:
+        weight: 18
+        enabled: true
+      thu_vien_anh:
+        weight: 19
+        enabled: true
+      video_nhung:
+        weight: 20
+        enabled: true
+field_type: entity_reference_revisions

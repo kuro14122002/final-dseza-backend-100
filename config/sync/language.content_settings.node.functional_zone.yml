@@ -1,0 +1,18 @@
+uuid: cc60f430-8c16-48ad-8e23-701ed10e01b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.functional_zone
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.functional_zone
+target_entity_type_id: node
+target_bundle: functional_zone
+default_langcode: vi
+language_alterable: true

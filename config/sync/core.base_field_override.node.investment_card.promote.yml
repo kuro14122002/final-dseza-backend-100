@@ -1,0 +1,22 @@
+uuid: c00a02bd-1e3f-42f1-9a8b-c6fb2d194282
+langcode: vi
+status: true
+dependencies:
+  config:
+    - node.type.investment_card
+id: node.investment_card.promote
+field_name: promote
+entity_type: node
+bundle: investment_card
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

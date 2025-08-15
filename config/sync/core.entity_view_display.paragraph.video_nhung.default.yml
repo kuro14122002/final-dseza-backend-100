@@ -1,0 +1,22 @@
+uuid: b9523eb2-9377-4171-802a-52d54d7314a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.video_nhung.field_video
+    - paragraphs.paragraphs_type.video_nhung
+id: paragraph.video_nhung.default
+targetEntityType: paragraph
+bundle: video_nhung
+mode: default
+content:
+  field_video:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

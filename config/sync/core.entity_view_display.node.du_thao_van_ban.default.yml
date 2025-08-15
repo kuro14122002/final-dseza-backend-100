@@ -1,0 +1,71 @@
+uuid: d0b1a1af-ca9e-481e-a640-0975377e16fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment.default
+    - field.field.node.du_thao_van_ban.field_binh_luan
+    - field.field.node.du_thao_van_ban.field_file_dinh_kem
+    - field.field.node.du_thao_van_ban.field_linh_vuc
+    - field.field.node.du_thao_van_ban.field_thoi_gian_lay_y_kien
+    - node.type.du_thao_van_ban
+  module:
+    - comment
+    - user
+id: node.du_thao_van_ban.default
+targetEntityType: node
+bundle: du_thao_van_ban
+mode: default
+content:
+  field_binh_luan:
+    type: comment_default
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_file_dinh_kem:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_linh_vuc:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_thoi_gian_lay_y_kien:
+    type: timestamp
+    label: above
+    settings:
+      date_format: medium
+      custom_date_format: ''
+      timezone: ''
+      tooltip:
+        date_format: long
+        custom_date_format: ''
+      time_diff:
+        enabled: false
+        future_format: '@interval hence'
+        past_format: '@interval ago'
+        granularity: 2
+        refresh: 60
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

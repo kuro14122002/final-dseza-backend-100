@@ -1,0 +1,18 @@
+uuid: 9ed5b5e9-fd15-4279-9fc2-b0f8a30e5267
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.co_quan_ban_hanh
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.co_quan_ban_hanh
+target_entity_type_id: taxonomy_term
+target_bundle: co_quan_ban_hanh
+default_langcode: vi
+language_alterable: true

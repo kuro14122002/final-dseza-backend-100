@@ -1,0 +1,45 @@
+uuid: 8a59d61b-9890-4fbc-8d71-c12893038962
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.legal_document.field_cac_loai_van_ban
+    - field.field.node.legal_document.field_cap_ban_hanh
+    - field.field.node.legal_document.field_co_quan_ban_hanh
+    - field.field.node.legal_document.field_file_dinh_kem
+    - field.field.node.legal_document.field_linh_vuc
+    - field.field.node.legal_document.field_loai_van_ban
+    - field.field.node.legal_document.field_ngay_ban_hanh
+    - field.field.node.legal_document.field_ngay_hieu_luc
+    - field.field.node.legal_document.field_nguoi_ky
+    - field.field.node.legal_document.field_noi_dung
+    - field.field.node.legal_document.field_so_ky_hieu
+    - field.field.node.legal_document.field_trich_yeu
+    - node.type.legal_document
+  module:
+    - user
+id: node.legal_document.teaser
+targetEntityType: node
+bundle: legal_document
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_cac_loai_van_ban: true
+  field_cap_ban_hanh: true
+  field_co_quan_ban_hanh: true
+  field_file_dinh_kem: true
+  field_linh_vuc: true
+  field_loai_van_ban: true
+  field_ngay_ban_hanh: true
+  field_ngay_hieu_luc: true
+  field_nguoi_ky: true
+  field_noi_dung: true
+  field_so_ky_hieu: true
+  field_trich_yeu: true
+  langcode: true

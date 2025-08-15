@@ -1,0 +1,10 @@
+uuid: 7ff439b3-ccaa-473c-ae59-7170b89120c9
+langcode: en
+status: true
+dependencies: {  }
+id: file_dinh_kem
+label: 'File Đính kèm'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

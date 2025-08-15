@@ -1,0 +1,73 @@
+uuid: 40af2ae4-7a85-4cb7-9ca1-0f14a0f47e25
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.event.field_event_date
+    - field.field.node.event.field_featured_image
+    - field.field.node.event.field_excerpt
+    - field.field.node.event.field_is_featured
+    - field.field.node.event.field_flexible_content
+    - node.type.event
+  module:
+    - datetime
+    - entity_reference_revisions
+    - media
+    - text
+    - user
+id: node.event.default
+targetEntityType: node
+bundle: event
+mode: default
+content:
+  field_event_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_excerpt:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_featured_image:
+    type: media_thumbnail
+    label: above
+    settings:
+      image_link: ''
+      image_style: large
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_flexible_content:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_is_featured:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

@@ -1,0 +1,19 @@
+uuid: e91bfaf6-0468-4893-a0d7-81cbe982db5c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_don_vi_chuan_bi
+    - node.type.schedule_item
+id: node.schedule_item.field_don_vi_chuan_bi
+field_name: field_don_vi_chuan_bi
+entity_type: node
+bundle: schedule_item
+label: 'Đơn vị chuẩn bị'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

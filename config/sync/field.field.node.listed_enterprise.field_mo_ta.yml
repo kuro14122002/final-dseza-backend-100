@@ -1,0 +1,22 @@
+uuid: 141b19ee-870f-431a-855a-e8d92d927b5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mo_ta
+    - node.type.listed_enterprise
+  module:
+    - text
+id: node.listed_enterprise.field_mo_ta
+field_name: field_mo_ta
+entity_type: node
+bundle: listed_enterprise
+label: 'Mô tả'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

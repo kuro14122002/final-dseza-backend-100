@@ -1,0 +1,21 @@
+uuid: fd495c24-6557-490b-9fc8-8f265d82be94
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_buoi
+    - node.type.schedule_item
+  module:
+    - options
+id: node.schedule_item.field_buoi
+field_name: field_buoi
+entity_type: node
+bundle: schedule_item
+label: Buổi
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

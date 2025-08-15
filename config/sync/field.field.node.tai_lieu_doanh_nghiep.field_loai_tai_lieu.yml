@@ -1,0 +1,29 @@
+uuid: d3be84d9-2eb4-4150-8e3b-1c1af89b8ea4
+langcode: vi
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_loai_tai_lieu
+    - node.type.tai_lieu_doanh_nghiep
+    - taxonomy.vocabulary.loai_tai_lieu_dn
+id: node.tai_lieu_doanh_nghiep.field_loai_tai_lieu
+field_name: field_loai_tai_lieu
+entity_type: node
+bundle: tai_lieu_doanh_nghiep
+label: 'Loại tài liệu'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      loai_tai_lieu_dn: loai_tai_lieu_dn
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

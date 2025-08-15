@@ -1,0 +1,18 @@
+uuid: 64d66863-d733-4a14-8b9d-a82192401a8e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.listed_enterprise
+id: node.listed_enterprise.title
+field_name: title
+entity_type: node
+bundle: listed_enterprise
+label: 'Tên doanh nghiệp'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,19 @@
+uuid: c80e8393-2d5d-4d84-86b2-a56cd2b42e18
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_trich_yeu
+field_name: field_trich_yeu
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,29 @@
+uuid: 77a1d227-5184-4495-aba9-a6cea07a97ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_linh_vuc
+    - node.type.question
+    - taxonomy.vocabulary.linh_vuc_hoat_dong
+id: node.question.field_linh_vuc
+field_name: field_linh_vuc
+entity_type: node
+bundle: question
+label: 'Lĩnh vực'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      linh_vuc_hoat_dong: linh_vuc_hoat_dong
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

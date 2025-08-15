@@ -1,0 +1,24 @@
+uuid: b7816ceb-452e-4476-aeb8-817acd9fa16a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_body
+    - paragraphs.paragraphs_type.rich_text_block
+  module:
+    - text
+id: paragraph.rich_text_block.field_body
+field_name: field_body
+entity_type: paragraph
+bundle: rich_text_block
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

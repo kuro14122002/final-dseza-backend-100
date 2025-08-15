@@ -1,0 +1,29 @@
+uuid: 788db8a2-2a8c-42f6-ae70-3eb238bac79f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mega_menu_feature
+    - field.storage.block_content.field_anh_nen
+    - media.type.image
+id: block_content.mega_menu_feature.field_anh_nen
+field_name: field_anh_nen
+entity_type: block_content
+bundle: mega_menu_feature
+label: 'Ảnh nền'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

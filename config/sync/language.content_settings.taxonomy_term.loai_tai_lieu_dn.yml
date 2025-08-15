@@ -1,0 +1,18 @@
+uuid: 221358b5-34b0-4175-94b4-057e7d328896
+langcode: vi
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.loai_tai_lieu_dn
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.loai_tai_lieu_dn
+target_entity_type_id: taxonomy_term
+target_bundle: loai_tai_lieu_dn
+default_langcode: site_default
+language_alterable: true

@@ -1,0 +1,18 @@
+uuid: 22f4d222-39f1-40c7-8326-5472c0f26a4b
+langcode: vi
+status: true
+dependencies:
+  config:
+    - node.type.business_partner
+id: node.business_partner.title
+field_name: title
+entity_type: node
+bundle: business_partner
+label: 'Partner Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

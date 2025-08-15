@@ -1,0 +1,18 @@
+uuid: a703338c-2873-41b3-bd94-469091d4a352
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.du_thao_van_ban
+id: node.du_thao_van_ban.title
+field_name: title
+entity_type: node
+bundle: du_thao_van_ban
+label: 'Tên dự thảo'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

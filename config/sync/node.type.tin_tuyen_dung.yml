@@ -1,0 +1,18 @@
+uuid: 01e5222f-a00d-4773-a4c9-cada6762c926
+langcode: vi
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Tin tuyển dụng'
+type: tin_tuyen_dung
+description: null
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

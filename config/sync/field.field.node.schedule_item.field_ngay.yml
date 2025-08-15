@@ -1,0 +1,21 @@
+uuid: fb0678ad-7e8a-42bb-bb42-a366adbf4d6c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ngay
+    - node.type.schedule_item
+  module:
+    - datetime
+id: node.schedule_item.field_ngay
+field_name: field_ngay
+entity_type: node
+bundle: schedule_item
+label: Ngày
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

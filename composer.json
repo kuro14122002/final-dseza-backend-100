@@ -50,8 +50,8 @@
         "drupal/tmgmt": "^1.17",
         "drupal/twig_tweak": "3.4",
         "drupal/webform": "6.2",
-        "drupal/webhooks": "4.0.x-dev@dev",
-        "drupal/webp": "1.x-dev@dev",
+        "drupal/webhooks": "^4.0",
+        "drupal/webp": "^1.0",
         "drush/drush": "^12.0"
     },
     "require-dev": {

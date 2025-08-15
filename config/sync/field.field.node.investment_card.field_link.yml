@@ -1,0 +1,23 @@
+uuid: 9cc1fb00-85e3-4ddb-a91c-6b5888377bcf
+langcode: vi
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link
+    - node.type.investment_card
+  module:
+    - link
+id: node.investment_card.field_link
+field_name: field_link
+entity_type: node
+bundle: investment_card
+label: Link
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

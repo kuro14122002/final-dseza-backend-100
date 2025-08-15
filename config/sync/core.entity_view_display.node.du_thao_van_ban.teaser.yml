@@ -1,0 +1,29 @@
+uuid: 6b7fc8cf-022c-4c9b-8b35-eb31aace34fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.du_thao_van_ban.field_binh_luan
+    - field.field.node.du_thao_van_ban.field_file_dinh_kem
+    - field.field.node.du_thao_van_ban.field_linh_vuc
+    - field.field.node.du_thao_van_ban.field_thoi_gian_lay_y_kien
+    - node.type.du_thao_van_ban
+  module:
+    - user
+id: node.du_thao_van_ban.teaser
+targetEntityType: node
+bundle: du_thao_van_ban
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_binh_luan: true
+  field_file_dinh_kem: true
+  field_linh_vuc: true
+  field_thoi_gian_lay_y_kien: true
+  langcode: true

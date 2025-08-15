@@ -1,0 +1,18 @@
+uuid: 6171a46b-ca15-4fff-81db-2ee01b35c2d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mega_menu_feature
+id: block_content.mega_menu_feature.info
+field_name: info
+entity_type: block_content
+bundle: mega_menu_feature
+label: 'Block description'
+description: 'A brief description of your block.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

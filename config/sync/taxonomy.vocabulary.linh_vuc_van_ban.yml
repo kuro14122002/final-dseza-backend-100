@@ -1,0 +1,9 @@
+uuid: 4438e124-c630-4554-aa5a-aae86765a795
+langcode: en
+status: true
+dependencies: {  }
+name: 'Lĩnh vực Văn bản'
+vid: linh_vuc_van_ban
+description: null
+weight: 0
+new_revision: false

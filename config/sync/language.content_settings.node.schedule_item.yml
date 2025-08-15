@@ -1,0 +1,18 @@
+uuid: d8d57605-0ae4-4ff5-95f5-62e97f7cf2e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.schedule_item
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.schedule_item
+target_entity_type_id: node
+target_bundle: schedule_item
+default_langcode: vi
+language_alterable: true

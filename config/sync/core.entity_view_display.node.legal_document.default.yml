@@ -1,0 +1,125 @@
+uuid: d40d8abd-1d2c-460f-a257-82f86a3eede0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.legal_document.field_cac_loai_van_ban
+    - field.field.node.legal_document.field_cap_ban_hanh
+    - field.field.node.legal_document.field_co_quan_ban_hanh
+    - field.field.node.legal_document.field_file_dinh_kem
+    - field.field.node.legal_document.field_linh_vuc
+    - field.field.node.legal_document.field_loai_van_ban
+    - field.field.node.legal_document.field_ngay_ban_hanh
+    - field.field.node.legal_document.field_ngay_hieu_luc
+    - field.field.node.legal_document.field_nguoi_ky
+    - field.field.node.legal_document.field_noi_dung
+    - field.field.node.legal_document.field_so_ky_hieu
+    - field.field.node.legal_document.field_trich_yeu
+    - node.type.legal_document
+  module:
+    - datetime
+    - text
+    - user
+id: node.legal_document.default
+targetEntityType: node
+bundle: legal_document
+mode: default
+content:
+  field_cac_loai_van_ban:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_cap_ban_hanh:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_co_quan_ban_hanh:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_file_dinh_kem:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_linh_vuc:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_loai_van_ban:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_ngay_ban_hanh:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_ngay_hieu_luc:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_nguoi_ky:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_noi_dung:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_so_ky_hieu:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_trich_yeu: true
+  langcode: true

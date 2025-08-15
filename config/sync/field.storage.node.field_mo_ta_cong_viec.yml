@@ -1,0 +1,19 @@
+uuid: ffa2a87f-3668-436e-988a-6f44e2036a60
+langcode: vi
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_mo_ta_cong_viec
+field_name: field_mo_ta_cong_viec
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

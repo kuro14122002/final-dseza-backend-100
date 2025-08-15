@@ -1,0 +1,19 @@
+uuid: af863344-1a45-4ab4-8b5b-1aaae2f88100
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_so_dien_thoai
+    - node.type.question
+id: node.question.field_so_dien_thoai
+field_name: field_so_dien_thoai
+entity_type: node
+bundle: question
+label: 'Số điện thoại'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

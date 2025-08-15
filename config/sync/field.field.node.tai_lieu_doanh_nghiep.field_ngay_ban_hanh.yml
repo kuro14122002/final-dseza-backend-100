@@ -1,0 +1,21 @@
+uuid: edd6db97-a7b8-404f-b38d-f7ea5fdac772
+langcode: vi
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ngay_ban_hanh
+    - node.type.tai_lieu_doanh_nghiep
+  module:
+    - datetime
+id: node.tai_lieu_doanh_nghiep.field_ngay_ban_hanh
+field_name: field_ngay_ban_hanh
+entity_type: node
+bundle: tai_lieu_doanh_nghiep
+label: 'Ngày ban hành'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

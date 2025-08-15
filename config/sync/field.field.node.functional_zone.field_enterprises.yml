@@ -1,0 +1,23 @@
+uuid: feb8cc8b-4222-4917-bd9e-c537ae96a964
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_enterprises
+    - node.type.functional_zone
+id: node.functional_zone.field_enterprises
+field_name: field_enterprises
+entity_type: node
+bundle: functional_zone
+label: Enterprises
+description: 'Number of enterprises in this functional zone'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

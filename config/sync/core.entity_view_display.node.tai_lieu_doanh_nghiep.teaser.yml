@@ -1,0 +1,29 @@
+uuid: 4d51556d-5e70-4794-9d7d-c044fb939f2b
+langcode: vi
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tai_lieu_doanh_nghiep.field_file_dinh_kem
+    - field.field.node.tai_lieu_doanh_nghiep.field_loai_tai_lieu
+    - field.field.node.tai_lieu_doanh_nghiep.field_ngay_ban_hanh
+    - field.field.node.tai_lieu_doanh_nghiep.field_so_ky_hieu
+    - node.type.tai_lieu_doanh_nghiep
+  module:
+    - user
+id: node.tai_lieu_doanh_nghiep.teaser
+targetEntityType: node
+bundle: tai_lieu_doanh_nghiep
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_file_dinh_kem: true
+  field_loai_tai_lieu: true
+  field_ngay_ban_hanh: true
+  field_so_ky_hieu: true
+  langcode: true

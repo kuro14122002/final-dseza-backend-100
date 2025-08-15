@@ -1,0 +1,15 @@
+uuid: 27cb3c23-33db-4c4b-8cbe-72510d6e0220
+langcode: en
+status: true
+dependencies: {  }
+name: large_1280x720
+label: 'Large (1280x720)'
+effects:
+  6ec0a69c-a96a-4c13-941b-d699018e3ed6:
+    uuid: 6ec0a69c-a96a-4c13-941b-d699018e3ed6
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1280
+      height: 720
+      anchor: center-center

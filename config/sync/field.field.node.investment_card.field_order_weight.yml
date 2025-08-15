@@ -1,0 +1,25 @@
+uuid: ccce1488-ff30-4541-8ce7-a89a2a66dc65
+langcode: vi
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_order_weight
+    - node.type.investment_card
+id: node.investment_card.field_order_weight
+field_name: field_order_weight
+entity_type: node
+bundle: investment_card
+label: 'Order Weight'
+description: 'Numeric weight for ordering partners (lower numbers appear first)'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

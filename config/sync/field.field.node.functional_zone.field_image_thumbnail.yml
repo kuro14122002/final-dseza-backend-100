@@ -1,0 +1,29 @@
+uuid: 0f33ab8f-c26d-4062-9ed8-4dad93d67be7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image_thumbnail
+    - media.type.image
+    - node.type.functional_zone
+id: node.functional_zone.field_image_thumbnail
+field_name: field_image_thumbnail
+entity_type: node
+bundle: functional_zone
+label: 'Thumbnail Image'
+description: 'Thumbnail image for this functional zone'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

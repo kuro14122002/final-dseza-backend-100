@@ -1,0 +1,19 @@
+uuid: e4662487-553f-41f5-bb05-708d8c1f475e
+langcode: vi
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_yeu_cau_ung_vien
+field_name: field_yeu_cau_ung_vien
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

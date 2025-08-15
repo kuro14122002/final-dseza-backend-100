@@ -1,0 +1,22 @@
+uuid: a0f03c08-141f-457f-aa63-319eb2da3083
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.file_dinh_kem
+id: paragraph.file_dinh_kem.status
+field_name: status
+entity_type: paragraph
+bundle: file_dinh_kem
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

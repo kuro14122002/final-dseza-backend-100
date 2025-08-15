@@ -1,0 +1,18 @@
+uuid: 25256a53-3af3-4185-bfdd-47b5587a9c84
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Poll Choice'
+type: poll_choice
+description: null
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

@@ -1,0 +1,19 @@
+uuid: dcfe5ee9-d8b0-4806-9c85-80bc89d2b267
+langcode: vi
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_so_ky_hieu
+    - node.type.tai_lieu_doanh_nghiep
+id: node.tai_lieu_doanh_nghiep.field_so_ky_hieu
+field_name: field_so_ky_hieu
+entity_type: node
+bundle: tai_lieu_doanh_nghiep
+label: 'Số/Ký hiệu'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

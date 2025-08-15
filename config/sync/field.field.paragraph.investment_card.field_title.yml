@@ -1,0 +1,21 @@
+uuid: b4b717ed-6462-421c-982e-e7fbdd604273
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_title
+    - paragraphs.paragraphs_type.investment_card
+_core:
+  default_config_hash: AK36_pWgbTNppEYv5EvvgstksY65EoQI70ME79Z1nD0
+id: paragraph.investment_card.field_title
+field_name: field_title
+entity_type: paragraph
+bundle: investment_card
+label: Title
+description: 'Title for the investment card'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

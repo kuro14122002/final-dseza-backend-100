@@ -1,0 +1,18 @@
+uuid: 2bdf4425-0764-41f5-9b91-6492d017fbab
+langcode: vi
+status: true
+dependencies:
+  config:
+    - node.type.tin_tuyen_dung
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.tin_tuyen_dung
+target_entity_type_id: node
+target_bundle: tin_tuyen_dung
+default_langcode: vi
+language_alterable: true

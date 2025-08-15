@@ -1,0 +1,45 @@
+uuid: 70cd2af2-33d6-452c-804d-c75925ec9773
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.quick_access_link.field_icon
+    - field.field.node.quick_access_link.field_link
+    - field.field.node.quick_access_link.field_order_weight
+    - node.type.quick_access_link
+  module:
+    - link
+    - options
+    - user
+id: node.quick_access_link.default
+targetEntityType: node
+bundle: quick_access_link
+mode: default
+content:
+  field_icon:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_link:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: _blank
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_order_weight: true
+  langcode: true

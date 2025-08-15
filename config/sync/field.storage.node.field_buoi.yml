@@ -1,0 +1,45 @@
+uuid: 014f9652-7337-4225-a2e6-0666ea5df1b2
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_buoi
+field_name: field_buoi
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: sang
+      label: Sáng
+    -
+      value: trua
+      label: Trưa
+    -
+      value: chieu
+      label: Chiều
+    -
+      value: toi
+      label: Tối
+    -
+      value: morning
+      label: Morning
+    -
+      value: lunch
+      label: Noon
+    -
+      value: afternoon
+      label: Afternoon
+    -
+      value: evening
+      label: Evening
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,19 @@
+uuid: 37704a2b-c669-4169-b73f-9db9ecee443c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_nguoi_ky
+    - node.type.legal_document
+id: node.legal_document.field_nguoi_ky
+field_name: field_nguoi_ky
+entity_type: node
+bundle: legal_document
+label: 'Người ký'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

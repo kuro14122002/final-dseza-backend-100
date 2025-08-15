@@ -1,0 +1,18 @@
+uuid: f2031a8c-271f-4782-b2aa-df06777a4918
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.business_partner
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.business_partner
+target_entity_type_id: node
+target_bundle: business_partner
+default_langcode: vi
+language_alterable: true

@@ -1,0 +1,9 @@
+uuid: e445a809-86a4-4bd3-8234-caf00ed3a0f7
+langcode: en
+status: true
+dependencies: {  }
+name: 'Lĩnh vực Hỏi-Đáp'
+vid: linh_vuc_hoi_dap
+description: null
+weight: 0
+new_revision: false

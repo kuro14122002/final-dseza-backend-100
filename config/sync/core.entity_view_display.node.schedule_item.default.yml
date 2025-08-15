@@ -1,0 +1,104 @@
+uuid: fc399538-1099-4d20-ad5d-719369d611a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.schedule_item.field_buoi
+    - field.field.node.schedule_item.field_chu_tri
+    - field.field.node.schedule_item.field_dia_diem
+    - field.field.node.schedule_item.field_don_vi_chuan_bi
+    - field.field.node.schedule_item.field_ghi_chu
+    - field.field.node.schedule_item.field_ngay
+    - field.field.node.schedule_item.field_noi_dung
+    - field.field.node.schedule_item.field_thanh_phan
+    - field.field.node.schedule_item.field_thoi_gian
+    - node.type.schedule_item
+  module:
+    - datetime
+    - options
+    - text
+    - user
+id: node.schedule_item.default
+targetEntityType: node
+bundle: schedule_item
+mode: default
+content:
+  field_buoi:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_chu_tri:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_dia_diem:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_don_vi_chuan_bi:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_ghi_chu:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_ngay:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_noi_dung:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_thanh_phan:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_thoi_gian:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

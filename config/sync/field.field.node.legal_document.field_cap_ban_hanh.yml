@@ -1,0 +1,31 @@
+uuid: f7ef5881-762d-4397-a1b7-f3b6115a66bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cap_ban_hanh
+    - node.type.legal_document
+    - taxonomy.vocabulary.cap_ban_hanh
+    - taxonomy.vocabulary.co_quan_ban_hanh
+id: node.legal_document.field_cap_ban_hanh
+field_name: field_cap_ban_hanh
+entity_type: node
+bundle: legal_document
+label: 'Cấp ban hành'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      co_quan_ban_hanh: co_quan_ban_hanh
+      cap_ban_hanh: cap_ban_hanh
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: co_quan_ban_hanh
+field_type: entity_reference

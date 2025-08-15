@@ -1,0 +1,18 @@
+uuid: d693dd01-a82f-495f-8be0-db58058a5ad2
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.staff_member
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: node.staff_member
+target_entity_type_id: node
+target_bundle: staff_member
+default_langcode: vi
+language_alterable: true

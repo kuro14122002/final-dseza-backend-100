@@ -1,0 +1,22 @@
+uuid: d6edddda-e089-477f-b5fe-453b52c040ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.thu_vien_anh
+id: paragraph.thu_vien_anh.status
+field_name: status
+entity_type: paragraph
+bundle: thu_vien_anh
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

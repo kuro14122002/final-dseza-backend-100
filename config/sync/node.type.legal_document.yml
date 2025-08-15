@@ -1,0 +1,18 @@
+uuid: 47b9f31b-a047-4c53-95a9-7e374fb207ea
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Văn bản'
+type: legal_document
+description: null
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,19 @@
+uuid: 93719733-dbff-4bb8-b05a-b92a1eaa4424
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_thuoc_phong_ban
+field_name: field_thuoc_phong_ban
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

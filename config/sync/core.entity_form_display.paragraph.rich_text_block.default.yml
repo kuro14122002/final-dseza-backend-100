@@ -1,0 +1,27 @@
+uuid: d09abb22-ac56-478f-96a7-b2f36fee62f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.rich_text_block.field_body
+    - paragraphs.paragraphs_type.rich_text_block
+  module:
+    - text
+id: paragraph.rich_text_block.default
+targetEntityType: paragraph
+bundle: rich_text_block
+mode: default
+content:
+  field_body:
+    type: text_textarea_with_summary
+    weight: 0
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

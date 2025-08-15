@@ -1,0 +1,21 @@
+uuid: 9d119d96-8255-4b9b-a3b7-3ec10009650f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_hien_thi_noi_bat
+    - taxonomy.vocabulary.news_category
+id: taxonomy_term.news_category.field_hien_thi_noi_bat
+field_name: field_hien_thi_noi_bat
+entity_type: taxonomy_term
+bundle: news_category
+label: 'Hiển thị nổi bật'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

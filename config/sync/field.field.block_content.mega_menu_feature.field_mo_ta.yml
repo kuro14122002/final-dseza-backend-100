@@ -1,0 +1,22 @@
+uuid: a56744a0-e81b-46e7-93ab-219125f63c94
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mega_menu_feature
+    - field.storage.block_content.field_mo_ta
+  module:
+    - text
+id: block_content.mega_menu_feature.field_mo_ta
+field_name: field_mo_ta
+entity_type: block_content
+bundle: mega_menu_feature
+label: 'Mô tả'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

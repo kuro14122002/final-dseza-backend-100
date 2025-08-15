@@ -1,0 +1,22 @@
+uuid: 45d69dc2-78ab-4d91-92da-5123dcdccaf9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_noi_dung_cau_hoi
+    - node.type.question
+  module:
+    - text
+id: node.question.field_noi_dung_cau_hoi
+field_name: field_noi_dung_cau_hoi
+entity_type: node
+bundle: question
+label: 'Nội dung câu hỏi'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

@@ -1,0 +1,18 @@
+uuid: 76806ecb-ad8c-43cf-9fe2-6ea7dd07a5c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.linh_vuc_van_ban
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.linh_vuc_van_ban
+target_entity_type_id: taxonomy_term
+target_bundle: linh_vuc_van_ban
+default_langcode: site_default
+language_alterable: true

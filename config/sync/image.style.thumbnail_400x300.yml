@@ -1,0 +1,15 @@
+uuid: 220b2212-6a70-48a7-84ac-02e52d50fddb
+langcode: en
+status: true
+dependencies: {  }
+name: thumbnail_400x300
+label: 'Thumbnail (400x300)'
+effects:
+  4d42e43e-36bc-4643-aaf0-98064032da6e:
+    uuid: 4d42e43e-36bc-4643-aaf0-98064032da6e
+    id: image_scale
+    weight: 1
+    data:
+      width: 400
+      height: 300
+      upscale: true

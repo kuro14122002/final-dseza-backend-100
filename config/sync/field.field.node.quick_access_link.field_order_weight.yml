@@ -1,0 +1,25 @@
+uuid: f988b318-aecb-4501-a4cf-650c7cb44b09
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_order_weight
+    - node.type.quick_access_link
+id: node.quick_access_link.field_order_weight
+field_name: field_order_weight
+entity_type: node
+bundle: quick_access_link
+label: 'Order Weight'
+description: 'Numeric weight for ordering quick access links (lower numbers appear first)'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,11 @@
+uuid: 511eb328-56d2-4e71-a258-7216595af4bf
+langcode: en
+status: true
+dependencies: {  }
+name: 'Quick Access Link'
+type: quick_access_link
+description: 'Content type for quick access links with icons'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

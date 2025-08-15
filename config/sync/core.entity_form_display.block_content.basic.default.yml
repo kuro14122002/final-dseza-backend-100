@@ -1,0 +1,55 @@
+uuid: 9a4198a4-0b6c-4d6f-bd61-29a8e287631d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.basic
+    - field.field.block_content.basic.field_ban_do_google_map
+    - field.field.block_content.basic.field_dia_chi
+    - field.field.block_content.basic.field_email
+    - field.field.block_content.basic.field_fax
+    - field.field.block_content.basic.field_so_dien_thoai
+  module:
+    - text
+_core:
+  default_config_hash: jAps3FCxvKecABS_tgExbhCZrBLQB3bNPWw18WjE3ss
+id: block_content.basic.default
+targetEntityType: block_content
+bundle: basic
+mode: default
+content:
+  field_ban_do_google_map:
+    type: text_textarea
+    weight: 27
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_email:
+    type: email_default
+    weight: 26
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden:
+  field_dia_chi: true
+  field_fax: true
+  field_so_dien_thoai: true

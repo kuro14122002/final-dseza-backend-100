@@ -1,0 +1,30 @@
+uuid: 4484e3fb-ccab-4749-91f2-5a596c740919
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_trang_thai
+field_name: field_trang_thai
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: trang_thai
+      label: 'Chờ duyệt'
+    -
+      value: da_tra_loi
+      label: 'Đã trả lời'
+    -
+      value: da_cong_khai
+      label: 'Đã công khai'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

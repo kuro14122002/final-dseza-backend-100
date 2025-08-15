@@ -1,0 +1,29 @@
+uuid: 220df66c-c9b0-4395-87ff-ac94d8975f90
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_file_dinh_kem
+    - media.type.document
+    - node.type.du_thao_van_ban
+id: node.du_thao_van_ban.field_file_dinh_kem
+field_name: field_file_dinh_kem
+entity_type: node
+bundle: du_thao_van_ban
+label: 'File đính kèm'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

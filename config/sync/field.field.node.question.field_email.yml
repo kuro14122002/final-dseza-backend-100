@@ -1,0 +1,19 @@
+uuid: 98840513-15fe-4a72-9a84-7bda8c2a19f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_email
+    - node.type.question
+id: node.question.field_email
+field_name: field_email
+entity_type: node
+bundle: question
+label: Email
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

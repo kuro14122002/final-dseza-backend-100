@@ -1,0 +1,11 @@
+uuid: 08ec0d08-ea71-42f0-aee4-7963e519cd91
+langcode: en
+status: true
+dependencies: {  }
+name: 'Functional Zone'
+type: functional_zone
+description: 'A functional zone within the economic zone'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

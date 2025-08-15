@@ -1,0 +1,112 @@
+uuid: 17078f42-3626-4df6-9010-d44b3674256e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.du_thao_van_ban.field_binh_luan
+    - field.field.node.du_thao_van_ban.field_file_dinh_kem
+    - field.field.node.du_thao_van_ban.field_linh_vuc
+    - field.field.node.du_thao_van_ban.field_thoi_gian_lay_y_kien
+    - node.type.du_thao_van_ban
+  module:
+    - comment
+    - media_library
+    - path
+id: node.du_thao_van_ban.default
+targetEntityType: node
+bundle: du_thao_van_ban
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_binh_luan:
+    type: comment_default
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_file_dinh_kem:
+    type: media_library_widget
+    weight: 7
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_linh_vuc:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_thoi_gian_lay_y_kien:
+    type: datetime_timestamp
+    weight: 121
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 15
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 120
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 16
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

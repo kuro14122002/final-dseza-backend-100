@@ -1,0 +1,19 @@
+uuid: 26a579a1-a1b8-489a-bff2-434ddc07382b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_question
+    - node.type.poll
+id: node.poll.field_question
+field_name: field_question
+entity_type: node
+bundle: poll
+label: Question
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

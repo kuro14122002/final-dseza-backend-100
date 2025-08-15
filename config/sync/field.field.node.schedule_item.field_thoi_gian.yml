@@ -1,0 +1,21 @@
+uuid: 34f77fdd-d2d4-44c8-8c04-55aaa3adaa1c
+langcode: vi
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_thoi_gian
+    - node.type.schedule_item
+  module:
+    - datetime
+id: node.schedule_item.field_thoi_gian
+field_name: field_thoi_gian
+entity_type: node
+bundle: schedule_item
+label: 'Thời gian'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

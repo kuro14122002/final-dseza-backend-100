@@ -1,0 +1,12 @@
+uuid: 91ee91d8-574e-4f54-891d-57dfc462b11f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 8MPEa70V9QZKBADgKAAGkca3VVVZmsMmIB-ISrzwfPI
+id: image_block
+label: 'Image Block'
+icon_uuid: null
+icon_default: null
+description: 'A simple image block with caption'
+behavior_plugins: {  }

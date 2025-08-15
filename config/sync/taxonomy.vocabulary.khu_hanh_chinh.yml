@@ -1,0 +1,9 @@
+uuid: 419317fa-4845-4dbb-a8f8-24405d909d78
+langcode: vi
+status: true
+dependencies: {  }
+name: 'Khu hành chính'
+vid: khu_hanh_chinh
+description: null
+weight: 0
+new_revision: false

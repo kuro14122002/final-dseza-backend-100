@@ -1,0 +1,21 @@
+uuid: a524c99d-e61a-431b-af4d-cb1a5a2ff9b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_icon
+    - node.type.quick_access_link
+  module:
+    - options
+id: node.quick_access_link.field_icon
+field_name: field_icon
+entity_type: node
+bundle: quick_access_link
+label: Icon
+description: 'Select an icon for the quick access link'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

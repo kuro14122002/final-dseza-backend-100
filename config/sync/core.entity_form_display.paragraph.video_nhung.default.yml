@@ -1,0 +1,24 @@
+uuid: ee899d17-3f01-488c-a603-9e1eb1dffc12
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.video_nhung.field_video
+    - paragraphs.paragraphs_type.video_nhung
+  module:
+    - media_library
+id: paragraph.video_nhung.default
+targetEntityType: paragraph
+bundle: video_nhung
+mode: default
+content:
+  field_video:
+    type: media_library_widget
+    weight: 0
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

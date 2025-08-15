@@ -1,0 +1,9 @@
+uuid: ca6fbb14-5c14-4058-8595-7bfa4e21a283
+langcode: vi
+status: true
+dependencies: {  }
+name: 'Các loại văn bản'
+vid: loai_van_ban
+description: null
+weight: 0
+new_revision: false

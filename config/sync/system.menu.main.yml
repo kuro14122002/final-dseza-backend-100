@@ -1,0 +1,8 @@
+uuid: 2a8d2037-3a7d-464a-a17d-847d645737bf
+langcode: vi
+status: true
+dependencies: {  }
+id: main
+label: 'Main navigation'
+description: 'Vietnamese navigation menu - complete structure'
+locked: false

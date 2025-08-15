@@ -1,0 +1,19 @@
+uuid: 68f8fa45-f39b-44ef-80ab-41cf3fcf1203
+langcode: vi
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vi_tri
+    - node.type.tin_tuyen_dung
+id: node.tin_tuyen_dung.field_vi_tri
+field_name: field_vi_tri
+entity_type: node
+bundle: tin_tuyen_dung
+label: 'Vị trí'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

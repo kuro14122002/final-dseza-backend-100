@@ -3,6 +3,7 @@
 namespace Drupal\dseza_api\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Flood\FloodInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -29,16 +30,26 @@ class ContactFormController extends ControllerBase {
   protected $mailManager;
 
   /**
+   * Flood control service.
+   *
+   * @var \Drupal\Core\Flood\FloodInterface
+   */
+  protected $flood;
+
+  /**
    * ContactFormController constructor.
    *
    * @param \Drupal\Core\Logger\LoggerChannelFactoryInterface $logger_factory
    *   The logger factory.
    * @param \Drupal\Core\Mail\MailManagerInterface $mail_manager
    *   The mail manager.
+   * @param \Drupal\Core\Flood\FloodInterface $flood
+   *   The flood control service.
    */
-  public function __construct(LoggerChannelFactoryInterface $logger_factory, MailManagerInterface $mail_manager) {
+  public function __construct(LoggerChannelFactoryInterface $logger_factory, MailManagerInterface $mail_manager, FloodInterface $flood) {
     $this->logger = $logger_factory->get('dseza_api');
     $this->mailManager = $mail_manager;
+    $this->flood = $flood;
   }
 
   /**
@@ -47,7 +58,8 @@ class ContactFormController extends ControllerBase {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('logger.factory'),
-      $container->get('plugin.manager.mail')
+      $container->get('plugin.manager.mail'),
+      $container->get('flood')
     );
   }
 
@@ -62,6 +74,19 @@ class ContactFormController extends ControllerBase {
    */
   public function handleSubmission(Request $request) {
     try {
+      // Flood control: limit number of submissions per identifier within a time window.
+      $event = 'dseza_api_contact_submit';
+      $windowSeconds = 3600; // 1 hour window
+      $maxAttempts = 5; // Allow 5 submissions per window
+      $identifier = $this->currentUser()->isAuthenticated() ? (string) $this->currentUser()->id() : (string) $request->getClientIp();
+
+      if (!$this->flood->isAllowed($event, $maxAttempts, $windowSeconds, $identifier)) {
+        return new JsonResponse([
+          'status' => 'error',
+          'message' => 'Bạn đã gửi quá nhiều lần. Vui lòng thử lại sau.',
+        ], 429);
+      }
+
       // Lấy dữ liệu JSON từ request body
       $content = $request->getContent();
       
@@ -100,9 +125,19 @@ class ContactFormController extends ControllerBase {
         ], 400);
       }
 
+      // Lấy email và tên website từ cấu hình
+      $siteConfig = \Drupal::config('system.site');
+      $siteName = $siteConfig->get('name') ?: 'Website';
+      $siteEmail = $siteConfig->get('mail');
+      if (empty($siteEmail)) {
+        // Fallback an toàn nếu chưa cấu hình email site.
+        $host = parse_url($request->getSchemeAndHttpHost(), PHP_URL_HOST) ?: 'localhost';
+        $siteEmail = 'no-reply@' . $host;
+      }
+
       // Chuẩn bị dữ liệu email
-      $admin_email = 'admin@dseza.gov.vn';
-      $subject = 'Thư liên hệ từ website: ' . $data['tieuDe'];
+      $admin_email = $siteEmail; // Gửi về email quản trị của website
+      $subject = 'Thư liên hệ từ ' . $siteName . ': ' . $data['tieuDe'];
       
       // Tạo nội dung email
       $message_body = "
@@ -123,8 +158,11 @@ Thư này được gửi tự động từ website DSEZA.
       $params = [
         'subject' => $subject,
         'body' => $message_body,
-        'from' => $data['email'],
-        'from_name' => $data['hoTen'],
+        // Luôn gửi từ email của website để tránh SPF/DMARC.
+        'from' => $siteEmail,
+        'headers' => [
+          'Reply-To' => $data['hoTen'] . ' <' . $data['email'] . '>',
+        ],
       ];
 
       // Log thông tin trước khi gửi email
@@ -157,7 +195,7 @@ Thư này được gửi tự động từ website DSEZA.
           ], 200);
         }
 
-        // Production: thực sự gửi email
+        // Production: thực sự gửi email, luôn dùng from là email của site
         $result = $this->mailManager->mail(
           'dseza_api',
           'contact_form',
@@ -167,6 +205,8 @@ Thư này được gửi tự động từ website DSEZA.
         );
 
         if ($result['result']) {
+          // Đăng ký flood khi gửi thành công
+          $this->flood->register($event, $windowSeconds, $identifier);
           // Log thành công
           $this->logger->info('Contact form submitted successfully from @email', [
             '@email' => $data['email'],

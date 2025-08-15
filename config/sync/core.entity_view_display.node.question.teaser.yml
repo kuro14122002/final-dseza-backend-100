@@ -1,0 +1,37 @@
+uuid: 1b5b725a-775d-4917-b518-bf955b73d652
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.question.field_dia_chi
+    - field.field.node.question.field_email
+    - field.field.node.question.field_linh_vuc
+    - field.field.node.question.field_nguoi_gui
+    - field.field.node.question.field_noi_dung_cau_hoi
+    - field.field.node.question.field_noi_dung_tra_loi
+    - field.field.node.question.field_so_dien_thoai
+    - field.field.node.question.field_trang_thai
+    - node.type.question
+  module:
+    - user
+id: node.question.teaser
+targetEntityType: node
+bundle: question
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_dia_chi: true
+  field_email: true
+  field_linh_vuc: true
+  field_nguoi_gui: true
+  field_noi_dung_cau_hoi: true
+  field_noi_dung_tra_loi: true
+  field_so_dien_thoai: true
+  field_trang_thai: true
+  langcode: true

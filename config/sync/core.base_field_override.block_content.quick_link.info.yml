@@ -1,0 +1,18 @@
+uuid: 8dadce9f-0c32-4f9e-9392-7efb86464394
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.quick_link
+id: block_content.quick_link.info
+field_name: info
+entity_type: block_content
+bundle: quick_link
+label: 'Block description'
+description: 'A brief description of your block.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

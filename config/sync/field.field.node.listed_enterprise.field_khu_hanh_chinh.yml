@@ -1,0 +1,29 @@
+uuid: feb45b3d-a43b-4734-a09e-7f01693b9c21
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_khu_hanh_chinh
+    - node.type.listed_enterprise
+    - taxonomy.vocabulary.khu_hanh_chinh
+id: node.listed_enterprise.field_khu_hanh_chinh
+field_name: field_khu_hanh_chinh
+entity_type: node
+bundle: listed_enterprise
+label: 'Khu hành chính'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      khu_hanh_chinh: khu_hanh_chinh
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,29 @@
+uuid: 9315b828-d5b6-4100-93c6-0822a41df72e
+langcode: vi
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_file_dinh_kem
+    - media.type.document
+    - node.type.tai_lieu_doanh_nghiep
+id: node.tai_lieu_doanh_nghiep.field_file_dinh_kem
+field_name: field_file_dinh_kem
+entity_type: node
+bundle: tai_lieu_doanh_nghiep
+label: 'File đính kèm'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      document: document
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

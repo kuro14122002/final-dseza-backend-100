@@ -1,0 +1,20 @@
+uuid: ffa9d2ac-5762-46d8-a9dc-639c023f3fdb
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_linh_vuc
+field_name: field_linh_vuc
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

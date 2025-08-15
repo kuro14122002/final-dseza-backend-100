@@ -1,0 +1,31 @@
+uuid: ba681f68-dfcf-491b-a86d-e1a4a940f031
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_slides
+    - media.type.image
+    - paragraphs.paragraphs_type.slideshow
+_core:
+  default_config_hash: Jmqy8840UzYglkrc6vRMwy9U8A0ZilIPhN09QZbV4Do
+id: paragraph.slideshow.field_slides
+field_name: field_slides
+entity_type: paragraph
+bundle: slideshow
+label: Slides
+description: 'Select multiple images for the slideshow'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

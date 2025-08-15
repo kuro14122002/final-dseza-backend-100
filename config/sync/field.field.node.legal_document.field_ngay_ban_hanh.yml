@@ -1,0 +1,21 @@
+uuid: 40285950-fcab-4ed1-bc10-25d1cb93b217
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ngay_ban_hanh
+    - node.type.legal_document
+  module:
+    - datetime
+id: node.legal_document.field_ngay_ban_hanh
+field_name: field_ngay_ban_hanh
+entity_type: node
+bundle: legal_document
+label: 'Ngày ban hành'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

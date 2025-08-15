@@ -1,0 +1,33 @@
+uuid: 50d08671-0185-4bad-a233-ce7984f0ebb2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.news_category.field_hien_thi_noi_bat
+    - taxonomy.vocabulary.news_category
+  module:
+    - text
+id: taxonomy_term.news_category.default
+targetEntityType: taxonomy_term
+bundle: news_category
+mode: default
+content:
+  description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_hien_thi_noi_bat:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true

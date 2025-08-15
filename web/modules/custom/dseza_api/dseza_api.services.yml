@@ -1,8 +1,4 @@
 services:
-  dseza_api.question_submission_controller:
-    class: Drupal\dseza_api\Controller\QuestionSubmissionController
-    arguments: ['@entity_type.manager', '@logger.factory']
-
   dseza_api.cors_event_subscriber:
     class: Drupal\dseza_api\EventSubscriber\CorsEventSubscriber
     tags:

@@ -1,0 +1,25 @@
+uuid: 9b69097c-8046-4e9c-b75e-cac52f46c4a2
+langcode: vi
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_order_weight
+    - node.type.department
+id: node.department.field_order_weight
+field_name: field_order_weight
+entity_type: node
+bundle: department
+label: 'Order Weight'
+description: 'Numeric weight for ordering partners (lower numbers appear first)'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

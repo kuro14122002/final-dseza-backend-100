@@ -1,0 +1,19 @@
+uuid: 1f7d5376-b56c-470b-aec9-207daf886953
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_email1
+    - node.type.listed_enterprise
+id: node.listed_enterprise.field_email1
+field_name: field_email1
+entity_type: node
+bundle: listed_enterprise
+label: Email
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

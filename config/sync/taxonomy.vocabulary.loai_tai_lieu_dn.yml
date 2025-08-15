@@ -1,0 +1,9 @@
+uuid: af212a30-b17d-479c-b0c0-256b409b8a2e
+langcode: vi
+status: true
+dependencies: {  }
+name: 'Loại tài liệu DN'
+vid: loai_tai_lieu_dn
+description: null
+weight: 0
+new_revision: false

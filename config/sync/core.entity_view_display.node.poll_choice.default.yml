@@ -1,0 +1,41 @@
+uuid: e4d38e81-1e1f-4994-82b7-8ad009217acb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.poll_choice.body
+    - field.field.node.poll_choice.field_choice_text
+    - field.field.node.poll_choice.field_vote_count
+    - node.type.poll_choice
+  module:
+    - text
+    - user
+id: node.poll_choice.default
+targetEntityType: node
+bundle: poll_choice
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_vote_count:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_choice_text: true
+  langcode: true

@@ -1,0 +1,25 @@
+uuid: 6ba69619-6ccc-4f6c-98be-0c15dc9a8599
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_order_weight
+    - node.type.business_partner
+id: node.business_partner.field_order_weight
+field_name: field_order_weight
+entity_type: node
+bundle: business_partner
+label: 'Order Weight'
+description: 'Numeric weight for ordering partners (lower numbers appear first)'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

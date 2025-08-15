@@ -1,0 +1,29 @@
+uuid: a06a6ca9-db73-4a5b-b3b2-82d3678ebe0a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_danh_sach_anh
+    - media.type.image
+    - paragraphs.paragraphs_type.thu_vien_anh
+id: paragraph.thu_vien_anh.field_danh_sach_anh
+field_name: field_danh_sach_anh
+entity_type: paragraph
+bundle: thu_vien_anh
+label: 'Danh sách ảnh'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,19 @@
+uuid: c488151b-69ae-4013-9efb-8569998a7928
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_thoi_gian_lay_y_kien
+    - node.type.du_thao_van_ban
+id: node.du_thao_van_ban.field_thoi_gian_lay_y_kien
+field_name: field_thoi_gian_lay_y_kien
+entity_type: node
+bundle: du_thao_van_ban
+label: 'Thời gian lấy ý kiến'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

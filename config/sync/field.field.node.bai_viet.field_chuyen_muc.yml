@@ -1,0 +1,29 @@
+uuid: 680f55b7-92a7-4a30-af83-692aa62faa71
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_chuyen_muc
+    - node.type.bai_viet
+    - taxonomy.vocabulary.news_category
+id: node.bai_viet.field_chuyen_muc
+field_name: field_chuyen_muc
+entity_type: node
+bundle: bai_viet
+label: 'Chuyên mục'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      news_category: news_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

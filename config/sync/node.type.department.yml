@@ -1,0 +1,18 @@
+uuid: 005a126a-356d-44f9-b179-6c9a330e3788
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Phòng ban'
+type: department
+description: null
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: true

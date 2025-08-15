@@ -1,0 +1,15 @@
+uuid: 3af53ca1-f73f-45c4-8015-36ec545c5580
+langcode: en
+status: true
+dependencies: {  }
+name: medium_800x600
+label: 'Medium (800x600)'
+effects:
+  9b4d00a6-38a7-4de6-bbfc-ab1f1ebe1687:
+    uuid: 9b4d00a6-38a7-4de6-bbfc-ab1f1ebe1687
+    id: image_scale
+    weight: 1
+    data:
+      width: 800
+      height: 600
+      upscale: true

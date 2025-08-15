@@ -1,0 +1,36 @@
+uuid: a4a06921-b06b-4bab-97e6-cfe26c226bbe
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_icon
+field_name: field_icon
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: briefcase
+      label: briefcase
+    -
+      value: file-text
+      label: file-text
+    -
+      value: check-square
+      label: check-square
+    -
+      value: message-square
+      label: message-square
+    -
+      value: calendar
+      label: calendar
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

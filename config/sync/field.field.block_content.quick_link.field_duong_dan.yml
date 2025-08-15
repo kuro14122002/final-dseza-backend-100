@@ -1,0 +1,23 @@
+uuid: 56fec148-3da2-462d-b354-57d8c35d0886
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.quick_link
+    - field.storage.block_content.field_duong_dan
+  module:
+    - link
+id: block_content.quick_link.field_duong_dan
+field_name: field_duong_dan
+entity_type: block_content
+bundle: quick_link
+label: 'Đường dẫn'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

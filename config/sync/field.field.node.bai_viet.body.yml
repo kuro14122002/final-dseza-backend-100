@@ -1,0 +1,24 @@
+uuid: 66187822-6e60-44ea-b48f-d20a60e9506a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.bai_viet
+  module:
+    - text
+id: node.bai_viet.body
+field_name: body
+entity_type: node
+bundle: bai_viet
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

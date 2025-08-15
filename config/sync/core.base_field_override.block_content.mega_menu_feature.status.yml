@@ -1,0 +1,22 @@
+uuid: f758a500-4835-4ce9-a688-d4d4b640ff2c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mega_menu_feature
+id: block_content.mega_menu_feature.status
+field_name: status
+entity_type: block_content
+bundle: mega_menu_feature
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

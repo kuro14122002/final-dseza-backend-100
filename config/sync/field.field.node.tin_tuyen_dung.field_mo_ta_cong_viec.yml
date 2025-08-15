@@ -1,0 +1,22 @@
+uuid: 8a21763f-a4c5-49b8-a365-b52da9d4e407
+langcode: vi
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mo_ta_cong_viec
+    - node.type.tin_tuyen_dung
+  module:
+    - text
+id: node.tin_tuyen_dung.field_mo_ta_cong_viec
+field_name: field_mo_ta_cong_viec
+entity_type: node
+bundle: tin_tuyen_dung
+label: 'Mô tả công việc'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

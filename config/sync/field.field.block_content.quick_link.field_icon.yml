@@ -1,0 +1,19 @@
+uuid: 20bd1c30-74cc-4676-9ec5-4fec7e577d73
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.quick_link
+    - field.storage.block_content.field_icon
+id: block_content.quick_link.field_icon
+field_name: field_icon
+entity_type: block_content
+bundle: quick_link
+label: Icon
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

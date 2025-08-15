@@ -1,0 +1,21 @@
+uuid: 05427df3-a4b1-4fe2-a941-93d0d2980192
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_partner_name
+    - paragraphs.paragraphs_type.partner_logo
+_core:
+  default_config_hash: 0p8MA_BDE09DpIzUTFYbKMKHuxv090PlKfeqeQ3T_t4
+id: paragraph.partner_logo.field_partner_name
+field_name: field_partner_name
+entity_type: paragraph
+bundle: partner_logo
+label: 'Partner Name'
+description: 'Name of the partner organization'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,18 @@
+uuid: 499c71d3-4113-4b45-adb3-e16ffa741801
+langcode: vi
+status: true
+dependencies:
+  config:
+    - node.type.staff_member
+id: node.staff_member.title
+field_name: title
+entity_type: node
+bundle: staff_member
+label: 'Họ và tên'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

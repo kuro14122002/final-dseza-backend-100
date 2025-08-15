@@ -1,0 +1,20 @@
+uuid: 476e4729-28fa-4d37-98bc-2d70e5356dba
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - node
+id: node.field_file_dinh_kem
+field_name: field_file_dinh_kem
+entity_type: node
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

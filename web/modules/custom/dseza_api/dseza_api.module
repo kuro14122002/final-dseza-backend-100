@@ -5,7 +5,7 @@
  * Module file cho Dseza API.
  */
 
-use Symfony\Component\HttpFoundation\Response;
+ 
 
 /**
  * Implements hook_page_attachments().
@@ -17,25 +17,13 @@ function dseza_api_page_attachments(array &$attachments) {
 }
 
 /**
- * Implements hook_init().
+ * Ghi chú: Hàm dseza_api_init() đã được loại bỏ.
+ *
+ * Lý do: Xử lý CORS và preflight OPTIONS đã được chuyển hoàn toàn sang
+ * Event Subscriber `Drupal\\dseza_api\\EventSubscriber\\CorsEventSubscriber`,
+ * bảo đảm an toàn và đúng luồng xử lý response trong Symfony/Drupal.
+ * Không nên gửi headers/response trực tiếp trong hook_init() ở Drupal 8+.
  */
-function dseza_api_init() {
-  // Xử lý preflight OPTIONS requests
-  if (\Drupal::request()->getMethod() === 'OPTIONS') {
-    $current_path = \Drupal::request()->getPathInfo();
-    
-    if (strpos($current_path, '/api/v1/') === 0) {
-      $response = new Response('', 200, [
-        'Access-Control-Allow-Origin' => '*',
-        'Access-Control-Allow-Methods' => 'GET, POST, PUT, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers' => 'Content-Type, Authorization, X-Requested-With',
-        'Access-Control-Max-Age' => '86400',
-      ]);
-      $response->send();
-      exit;
-    }
-  }
-}
 
 /**
  * Implements hook_mail().
@@ -49,7 +37,31 @@ function dseza_api_mail($key, &$message, $params) {
       // Thiết lập header
       $message['headers']['Content-Type'] = 'text/plain; charset=UTF-8';
       $message['headers']['From'] = $params['from_name'] . ' <' . $params['from'] . '>';
-      $message['headers']['Reply-To'] = $params['from'];
+      // Thiết lập Reply-To an toàn để tránh header injection và chỉ set khi email hợp lệ.
+      if (!empty($params['headers']['Reply-To'])) {
+        $raw_reply_to = str_replace(["\r", "\n"], '', (string) $params['headers']['Reply-To']);
+        $reply_to_name = '';
+        $reply_to_email = '';
+
+        if (preg_match('/^(.*)<([^<>]+)>$/', $raw_reply_to, $matches)) {
+          $reply_to_name = trim($matches[1], " \t\"'\0");
+          $reply_to_name = preg_replace('/[\r\n<>]/', '', $reply_to_name);
+          $reply_to_email = trim($matches[2]);
+        }
+        else {
+          $reply_to_email = trim($raw_reply_to);
+        }
+
+        if (filter_var($reply_to_email, FILTER_VALIDATE_EMAIL)) {
+          $message['headers']['Reply-To'] = $reply_to_name !== ''
+            ? ($reply_to_name . ' <' . $reply_to_email . '>')
+            : $reply_to_email;
+        }
+      }
+      elseif (!empty($params['from']) && filter_var($params['from'], FILTER_VALIDATE_EMAIL)) {
+        // Fallback: dùng from nếu hợp lệ.
+        $message['headers']['Reply-To'] = str_replace(["\r", "\n"], '', $params['from']);
+      }
       
       break;
   }

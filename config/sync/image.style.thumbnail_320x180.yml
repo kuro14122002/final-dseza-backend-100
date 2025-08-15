@@ -1,0 +1,15 @@
+uuid: 7c2e2968-edee-42f7-a604-512715bdb0b9
+langcode: en
+status: true
+dependencies: {  }
+name: thumbnail_320x180
+label: 'Thumbnail (320x180)'
+effects:
+  0ebcfef7-977c-4523-8f15-f5e1d5581d12:
+    uuid: 0ebcfef7-977c-4523-8f15-f5e1d5581d12
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 320
+      height: 180
+      anchor: center-center

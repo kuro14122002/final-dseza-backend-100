@@ -1,0 +1,19 @@
+uuid: b8d960be-026c-4d6f-a362-936b2441818b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sdt_nhan_su
+    - node.type.staff_member
+id: node.staff_member.field_sdt_nhan_su
+field_name: field_sdt_nhan_su
+entity_type: node
+bundle: staff_member
+label: 'Số điện thoại'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

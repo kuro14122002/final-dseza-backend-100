@@ -1,0 +1,31 @@
+uuid: bf09f69b-b80a-4528-9bbe-fe149f43efc8
+langcode: vi
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.tin_tuyen_dung.field_han_nop_ho_so
+    - field.field.node.tin_tuyen_dung.field_mo_ta_cong_viec
+    - field.field.node.tin_tuyen_dung.field_muc_luong
+    - field.field.node.tin_tuyen_dung.field_vi_tri
+    - field.field.node.tin_tuyen_dung.field_yeu_cau_ung_vien
+    - node.type.tin_tuyen_dung
+  module:
+    - user
+id: node.tin_tuyen_dung.teaser
+targetEntityType: node
+bundle: tin_tuyen_dung
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_han_nop_ho_so: true
+  field_mo_ta_cong_viec: true
+  field_muc_luong: true
+  field_vi_tri: true
+  field_yeu_cau_ung_vien: true
+  langcode: true

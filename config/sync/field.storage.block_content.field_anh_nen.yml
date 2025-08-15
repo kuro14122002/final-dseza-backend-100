@@ -1,0 +1,20 @@
+uuid: 8e2b97b4-c089-46bc-8b23-f2ceea29c1e3
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - media
+id: block_content.field_anh_nen
+field_name: field_anh_nen
+entity_type: block_content
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

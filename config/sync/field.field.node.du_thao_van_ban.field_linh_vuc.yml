@@ -1,0 +1,31 @@
+uuid: 46fbda5c-434a-4da0-80c3-6eadf9727e4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_linh_vuc
+    - node.type.du_thao_van_ban
+    - taxonomy.vocabulary.linh_vuc_hoat_dong
+    - taxonomy.vocabulary.linh_vuc_van_ban
+id: node.du_thao_van_ban.field_linh_vuc
+field_name: field_linh_vuc
+entity_type: node
+bundle: du_thao_van_ban
+label: 'Lĩnh vực'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      linh_vuc_van_ban: linh_vuc_van_ban
+      linh_vuc_hoat_dong: linh_vuc_hoat_dong
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: linh_vuc_van_ban
+field_type: entity_reference

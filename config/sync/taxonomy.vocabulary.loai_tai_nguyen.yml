@@ -1,0 +1,9 @@
+uuid: f100101f-9230-4997-be5d-91b98c86f80f
+langcode: vi
+status: true
+dependencies: {  }
+name: 'Loại Tài nguyên'
+vid: loai_tai_nguyen
+description: null
+weight: 0
+new_revision: false

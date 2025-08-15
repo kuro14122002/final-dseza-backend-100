@@ -1,0 +1,21 @@
+uuid: aa8f31cb-6bdf-4e69-890e-20c251ae2585
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_su_kien_tieu_bieu
+    - node.type.bai_viet
+id: node.bai_viet.field_su_kien_tieu_bieu
+field_name: field_su_kien_tieu_bieu
+entity_type: node
+bundle: bai_viet
+label: 'Là sự kiện tiêu biểu'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Có
+  off_label: Không
+field_type: boolean

@@ -1,0 +1,9 @@
+uuid: 9aad5330-5e9d-452f-b63e-2248129e901f
+langcode: en
+status: true
+dependencies: {  }
+name: 'Cấp ban hành'
+vid: cap_ban_hanh
+description: null
+weight: 0
+new_revision: false

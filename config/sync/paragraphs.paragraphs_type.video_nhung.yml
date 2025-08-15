@@ -1,0 +1,10 @@
+uuid: 090c7395-7125-40ab-b7af-6b06418e3181
+langcode: en
+status: true
+dependencies: {  }
+id: video_nhung
+label: 'Video Nhúng'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

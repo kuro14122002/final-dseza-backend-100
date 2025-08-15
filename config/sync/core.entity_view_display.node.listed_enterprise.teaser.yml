@@ -1,0 +1,41 @@
+uuid: c4b71342-bf0a-40cd-9e52-65af51f6416e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.listed_enterprise.field_address
+    - field.field.node.listed_enterprise.field_dien_thoai
+    - field.field.node.listed_enterprise.field_email1
+    - field.field.node.listed_enterprise.field_khu_hanh_chinh
+    - field.field.node.listed_enterprise.field_linh_vuc_hoat_dong
+    - field.field.node.listed_enterprise.field_mo_ta
+    - field.field.node.listed_enterprise.field_nguoi_dai_dien
+    - field.field.node.listed_enterprise.field_quoc_gia
+    - field.field.node.listed_enterprise.field_ten_viet_tat
+    - field.field.node.listed_enterprise.field_website
+    - node.type.listed_enterprise
+  module:
+    - user
+id: node.listed_enterprise.teaser
+targetEntityType: node
+bundle: listed_enterprise
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_address: true
+  field_dien_thoai: true
+  field_email1: true
+  field_khu_hanh_chinh: true
+  field_linh_vuc_hoat_dong: true
+  field_mo_ta: true
+  field_nguoi_dai_dien: true
+  field_quoc_gia: true
+  field_ten_viet_tat: true
+  field_website: true
+  langcode: true

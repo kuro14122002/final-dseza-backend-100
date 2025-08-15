@@ -1,0 +1,9 @@
+uuid: 3514a358-e516-4f42-b32f-d21cb004452e
+langcode: vi
+status: true
+dependencies: {  }
+name: 'Chuyên mục Tin tức'
+vid: news_category
+description: null
+weight: 0
+new_revision: false

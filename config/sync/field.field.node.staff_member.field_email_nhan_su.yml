@@ -1,0 +1,19 @@
+uuid: cbb13129-b514-4d83-a703-5a55d3bd66a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_email_nhan_su
+    - node.type.staff_member
+id: node.staff_member.field_email_nhan_su
+field_name: field_email_nhan_su
+entity_type: node
+bundle: staff_member
+label: Email
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

@@ -1,0 +1,29 @@
+uuid: 8daf101c-06fa-498d-b500-4b6d4115e621
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_logo
+    - media.type.image
+    - node.type.business_partner
+id: node.business_partner.field_logo
+field_name: field_logo
+entity_type: node
+bundle: business_partner
+label: Logo
+description: 'Partner logo image'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: image
+field_type: entity_reference

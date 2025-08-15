@@ -1,0 +1,21 @@
+uuid: 8c93ce2a-7cb4-44d2-811b-95465b83d4d1
+langcode: vi
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_vi_tri
+field_name: field_vi_tri
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

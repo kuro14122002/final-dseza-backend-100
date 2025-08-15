@@ -1,0 +1,18 @@
+uuid: 652b16e1-75ef-40fb-a0c4-6139429878f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.linh_vuc_hoat_dong
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.linh_vuc_hoat_dong
+target_entity_type_id: taxonomy_term
+target_bundle: linh_vuc_hoat_dong
+default_langcode: site_default
+language_alterable: true

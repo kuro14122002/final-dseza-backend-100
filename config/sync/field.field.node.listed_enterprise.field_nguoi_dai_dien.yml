@@ -1,0 +1,19 @@
+uuid: ab9bf615-b40e-4400-af96-9dcc17524f50
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_nguoi_dai_dien
+    - node.type.listed_enterprise
+id: node.listed_enterprise.field_nguoi_dai_dien
+field_name: field_nguoi_dai_dien
+entity_type: node
+bundle: listed_enterprise
+label: 'Người đại diện'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

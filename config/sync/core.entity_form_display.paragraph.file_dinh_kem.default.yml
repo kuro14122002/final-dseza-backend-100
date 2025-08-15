@@ -1,0 +1,24 @@
+uuid: 15f2c317-d6db-4e0d-82f9-0a96dcc4c0b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.file_dinh_kem.field_file_dinh_kem
+    - paragraphs.paragraphs_type.file_dinh_kem
+  module:
+    - media_library
+id: paragraph.file_dinh_kem.default
+targetEntityType: paragraph
+bundle: file_dinh_kem
+mode: default
+content:
+  field_file_dinh_kem:
+    type: media_library_widget
+    weight: 0
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

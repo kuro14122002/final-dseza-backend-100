@@ -1,0 +1,19 @@
+uuid: fd4fa377-43f6-4f62-acbd-8008aea886ea
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_noi_dung
+field_name: field_noi_dung
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

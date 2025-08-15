@@ -1,0 +1,19 @@
+uuid: fa7f87bc-568f-420f-883b-d0608e0714bb
+langcode: vi
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_name_en
+    - node.type.functional_zone
+id: node.functional_zone.field_name_en
+field_name: field_name_en
+entity_type: node
+bundle: functional_zone
+label: 'Name (English)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,33 @@
+uuid: 5f09fde4-5ecf-449b-a15e-8f2e1bd67980
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.image_block.field_caption
+    - field.field.paragraph.image_block.field_image
+    - paragraphs.paragraphs_type.image_block
+_core:
+  default_config_hash: eHDVhKbVhjpqvnxKlavQlFfOb4DS1zNu0SxeWE2ZOTU
+id: paragraph.image_block.default
+targetEntityType: paragraph
+bundle: image_block
+mode: default
+content:
+  field_caption:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

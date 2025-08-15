@@ -1,0 +1,19 @@
+uuid: dfd3c484-f164-4073-816e-8cf3c0facecd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_choice_text
+    - node.type.poll_choice
+id: node.poll_choice.field_choice_text
+field_name: field_choice_text
+entity_type: node
+bundle: poll_choice
+label: 'Choice Text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

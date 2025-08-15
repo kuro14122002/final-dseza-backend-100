@@ -1,0 +1,66 @@
+uuid: 9f473912-b541-4979-aa61-1823bc34a237
+langcode: vi
+status: true
+dependencies:
+  config:
+    - field.field.node.tin_tuyen_dung.field_han_nop_ho_so
+    - field.field.node.tin_tuyen_dung.field_mo_ta_cong_viec
+    - field.field.node.tin_tuyen_dung.field_muc_luong
+    - field.field.node.tin_tuyen_dung.field_vi_tri
+    - field.field.node.tin_tuyen_dung.field_yeu_cau_ung_vien
+    - node.type.tin_tuyen_dung
+  module:
+    - datetime
+    - text
+    - user
+id: node.tin_tuyen_dung.default
+targetEntityType: node
+bundle: tin_tuyen_dung
+mode: default
+content:
+  field_han_nop_ho_so:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_mo_ta_cong_viec:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_muc_luong:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_vi_tri:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  field_yeu_cau_ung_vien:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true

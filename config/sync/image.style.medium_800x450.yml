@@ -1,0 +1,15 @@
+uuid: 67655365-3c77-48ee-9a1c-2ceb6ed797fa
+langcode: en
+status: true
+dependencies: {  }
+name: medium_800x450
+label: 'Medium (800x450)'
+effects:
+  f40bb73f-fcee-4157-9d80-883e3abda72a:
+    uuid: f40bb73f-fcee-4157-9d80-883e3abda72a
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 800
+      height: 450
+      anchor: center-center

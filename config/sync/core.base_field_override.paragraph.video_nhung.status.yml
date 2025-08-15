@@ -1,0 +1,22 @@
+uuid: a78838d5-1e86-44e0-be0e-23ce1986fc4f
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.video_nhung
+id: paragraph.video_nhung.status
+field_name: status
+entity_type: paragraph
+bundle: video_nhung
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

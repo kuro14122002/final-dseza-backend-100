@@ -1,0 +1,18 @@
+uuid: 6108b2fc-a652-4d06-8641-9a12b6ee0cb5
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Business Partner'
+type: business_partner
+description: 'Content type for business partners and sponsors'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

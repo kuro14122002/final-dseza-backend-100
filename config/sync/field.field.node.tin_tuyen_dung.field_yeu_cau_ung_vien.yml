@@ -1,0 +1,22 @@
+uuid: f4dcf42b-34e5-4979-b7be-0dd400fd9475
+langcode: vi
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_yeu_cau_ung_vien
+    - node.type.tin_tuyen_dung
+  module:
+    - text
+id: node.tin_tuyen_dung.field_yeu_cau_ung_vien
+field_name: field_yeu_cau_ung_vien
+entity_type: node
+bundle: tin_tuyen_dung
+label: 'Yêu cầu ứng viên'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

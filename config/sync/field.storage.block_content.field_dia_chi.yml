@@ -1,0 +1,21 @@
+uuid: 5e836ab4-cc2d-4b51-a7f7-266dd97db344
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.field_dia_chi
+field_name: field_dia_chi
+entity_type: block_content
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

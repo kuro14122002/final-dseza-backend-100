@@ -1,0 +1,18 @@
+uuid: 80915c04-8b47-4194-a2bc-a1243a203fe6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_thoi_gian_lay_y_kien
+field_name: field_thoi_gian_lay_y_kien
+entity_type: node
+type: timestamp
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

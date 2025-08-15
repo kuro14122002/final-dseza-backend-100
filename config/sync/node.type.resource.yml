@@ -1,0 +1,11 @@
+uuid: f7733ad8-7a21-4986-a17d-b6f1db07c0c3
+langcode: en
+status: true
+dependencies: {  }
+name: Resource
+type: resource
+description: 'Resource content type for managing documents, images, and multimedia files'
+help: null
+new_revision: true
+preview_mode: 1
+display_submitted: false

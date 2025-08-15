@@ -1,0 +1,12 @@
+uuid: 703d1e52-5342-4c67-9efa-a7aa2b6af091
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: fOOhhlMGb5sBXBusxMEWsBca8sbO2Rc0jc0rl5kbrkY
+id: partner_logo
+label: 'Partner Logo'
+icon_uuid: null
+icon_default: null
+description: 'Partner logo with name and URL'
+behavior_plugins: {  }

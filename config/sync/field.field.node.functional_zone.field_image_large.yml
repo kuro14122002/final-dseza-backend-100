@@ -1,0 +1,29 @@
+uuid: 5e1657d6-f2b1-493f-bd1a-f35ece5f0c3b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image_large
+    - media.type.image
+    - node.type.functional_zone
+id: node.functional_zone.field_image_large
+field_name: field_image_large
+entity_type: node
+bundle: functional_zone
+label: 'Large Image'
+description: 'Large image for this functional zone'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

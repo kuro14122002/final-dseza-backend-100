@@ -1,0 +1,23 @@
+uuid: 7f1486d3-ecde-4363-94fd-2da43bd7b179
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_occupancy
+    - node.type.functional_zone
+id: node.functional_zone.field_occupancy
+field_name: field_occupancy
+entity_type: node
+bundle: functional_zone
+label: 'Occupancy Rate'
+description: 'Occupancy rate of this functional zone (0-100)'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0.0
+  max: 100.0
+  prefix: ''
+  suffix: '%'
+field_type: float

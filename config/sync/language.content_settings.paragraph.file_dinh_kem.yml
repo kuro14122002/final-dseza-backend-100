@@ -1,0 +1,18 @@
+uuid: ef88983c-1935-4ea5-b123-5704d11310e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.file_dinh_kem
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.file_dinh_kem
+target_entity_type_id: paragraph
+target_bundle: file_dinh_kem
+default_langcode: vi
+language_alterable: true

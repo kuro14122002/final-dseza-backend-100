@@ -1,0 +1,12 @@
+uuid: 9118a589-7ff0-4b21-be2f-04d18c924cc0
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: iRLLDsnM2IKe9H7R80ObZ752hnxgxXgUVCaFvkYg7SQ
+id: investment_card
+label: 'Investment Card'
+icon_uuid: null
+icon_default: null
+description: 'Investment information card with image and link'
+behavior_plugins: {  }
