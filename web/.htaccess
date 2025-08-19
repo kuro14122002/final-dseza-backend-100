@@ -12,6 +12,16 @@
   </IfModule>
 </FilesMatch>
 
+# Block access to environment files and private keys explicitly
+<FilesMatch "^(\.env|.*\.(key|pem))$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+  </IfModule>
+</FilesMatch>
+
 # Don't show directory listings for URLs which map to a directory.
 Options -Indexes
 
@@ -59,6 +69,9 @@ AddEncoding gzip svgz
 # Various rewrite rules.
 <IfModule mod_rewrite.c>
   RewriteEngine on
+  # Enforce HTTPS
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
   # Set "protossl" to "s" if we were accessed via https://.  This is used later
   # if you enable "www." stripping or enforcement, in order to ensure that
@@ -181,6 +194,8 @@ AddEncoding gzip svgz
   # https://httpd.apache.org/docs/current/mod/mod_headers.html.
   Header onsuccess unset X-Content-Type-Options
   Header always set X-Content-Type-Options nosniff
+  # Enable HSTS (force HTTPS for 6 months, include subdomains, allow preload)
+  Header always set Strict-Transport-Security "max-age=15552000; includeSubDomains; preload"
   # Disable Proxy header, since it's an attack vector.
   RequestHeader unset Proxy
 </IfModule>

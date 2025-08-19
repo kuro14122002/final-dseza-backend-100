@@ -1,0 +1,21 @@
+uuid: 3a5ec983-76b8-428c-aeee-549391e328e5
+langcode: en
+status: true
+dependencies: {  }
+id: node--listed_enterprise
+disabled: false
+path: node/listed_enterprise
+resourceType: node--listed_enterprise
+resourceFields:
+  field_email1:
+    disabled: true
+    fieldName: field_email1
+    publicName: field_email1
+    enhancer:
+      id: ''
+  field_dien_thoai:
+    disabled: true
+    fieldName: field_dien_thoai
+    publicName: field_dien_thoai
+    enhancer:
+      id: ''

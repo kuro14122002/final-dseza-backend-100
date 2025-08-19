@@ -2,22 +2,13 @@ uuid: 2a65bd67-bf06-415e-805d-a7555a83cdb8
 langcode: en
 status: true
 dependencies:
-  config:
-    - filter.format.restricted_html
-    - media.type.image
-    - node.type.bai_viet
   module:
     - comment
+    - consumers
     - contact
-    - field_ui
-    - filter
     - graphql
     - media
-    - node
-    - paragraphs
     - search
-    - simple_oauth
-    - statistics
     - system
 _core:
   default_config_hash: 6WavjUYXIegP9AAg2zXGx54MWIVoomC3SZhNiqe-Dyk
@@ -29,19 +20,12 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
-  - 'administer comment display'
-  - 'administer comment form display'
   - 'administer comments'
   - 'edit own comments'
-  - 'grant simple_oauth codes'
-  - 'search content'
-  - 'use text format restricted_html'
-  - 'view any image media revisions'
-  - 'view bai_viet revisions'
-  - 'view media'
-  - 'view post access counter'
-  # Allow anonymous GraphQL access for the compose and dseza_api servers
-  - 'execute graphql_compose_server arbitrary graphql requests'
-  - 'execute graphql_compose_server persisted graphql requests'
   - 'execute dseza_api arbitrary graphql requests'
   - 'execute dseza_api persisted graphql requests'
+  - 'post comments'
+  - 'search content'
+  - 'skip comment approval'
+  - 'view media'
+  - 'view own consumer entities'

@@ -9,6 +9,11 @@ web/sites/*/settings*.php
 web/sites/*/services*.yml
 web/sites/*/settings.local.php
 
+# Environment files (never commit secrets)
+.env
+.env.*
+!.env.example
+
 # User-generated content
 web/sites/*/files
 web/sites/*/private

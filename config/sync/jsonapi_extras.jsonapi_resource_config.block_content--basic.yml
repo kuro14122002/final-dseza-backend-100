@@ -1,0 +1,21 @@
+uuid: 26621b21-64ee-4263-ac75-51774d27c538
+langcode: en
+status: true
+dependencies: {  }
+id: block_content--basic
+disabled: false
+path: block_content/basic
+resourceType: block_content--basic
+resourceFields:
+  field_email:
+    disabled: true
+    fieldName: field_email
+    publicName: field_email
+    enhancer:
+      id: ''
+  field_so_dien_thoai:
+    disabled: true
+    fieldName: field_so_dien_thoai
+    publicName: field_so_dien_thoai
+    enhancer:
+      id: ''

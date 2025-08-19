@@ -4,7 +4,7 @@ dseza_api.submit_question:
     _controller: '\Drupal\dseza_api\Controller\QuestionSubmissionController::handleSubmission'
   methods: [POST]
   requirements:
-    _access: 'TRUE'
+    _permission: 'access content'
   options:
     _format: 'json'
 
@@ -14,7 +14,7 @@ dseza_api.test:
     _controller: '\Drupal\dseza_api\Controller\QuestionSubmissionController::testEndpoint'
   methods: [GET]
   requirements:
-    _access: 'TRUE'
+    _permission: 'access content'
   options:
     _format: 'json'
 
@@ -85,7 +85,7 @@ dseza_api.submit_contact_form:
     _controller: '\Drupal\dseza_api\Controller\ContactFormController::handleSubmission'
   methods: [POST]
   requirements:
-    _access: 'TRUE'
+    _permission: 'access site-wide contact form'
   options:
     _format: 'json'
 
@@ -95,7 +95,7 @@ dseza_api.user_register:
     _controller: '\Drupal\dseza_api\Controller\UserRegistrationController::handleRegistration'
   methods: [POST]
   requirements:
-    _access: 'TRUE'
+    _permission: 'access site-wide contact form'
   options:
     _format: 'json'
 
@@ -105,7 +105,7 @@ dseza_api.user_register_options:
     _controller: '\Drupal\dseza_api\Controller\UserRegistrationController::handleOptions'
   methods: [OPTIONS]
   requirements:
-    _access: 'TRUE'
+    _permission: 'access site-wide contact form'
   options:
     _format: 'json'
 
@@ -126,6 +126,48 @@ dseza_api.user_change_password_options:
     _controller: '\Drupal\dseza_api\Controller\UserPasswordController::handleOptions'
   methods: [OPTIONS]
   requirements:
-    _access: 'TRUE'
+    _permission: 'access content'
+  options:
+    _format: 'json' 
+
+# OAuth2.1 + PKCE BFF endpoints
+
+dseza_api.auth_login:
+  path: '/api/auth/login'
+  defaults:
+    _controller: '\Drupal\dseza_api\Controller\AuthController::login'
+  methods: [GET]
+  requirements:
+    _permission: 'access content'
+  options:
+    _format: 'json'
+
+dseza_api.auth_callback:
+  path: '/api/auth/callback'
+  defaults:
+    _controller: '\Drupal\dseza_api\Controller\AuthController::callback'
+  methods: [GET]
+  requirements:
+    _permission: 'access content'
+  options:
+    _format: 'json'
+
+dseza_api.auth_logout:
+  path: '/api/auth/logout'
+  defaults:
+    _controller: '\Drupal\dseza_api\Controller\AuthController::logout'
+  methods: [POST]
+  requirements:
+    _permission: 'access content'
+  options:
+    _format: 'json'
+
+dseza_api.auth_me:
+  path: '/api/auth/me'
+  defaults:
+    _controller: '\Drupal\dseza_api\Controller\AuthController::me'
+  methods: [GET]
+  requirements:
+    _permission: 'access content'
   options:
     _format: 'json' 

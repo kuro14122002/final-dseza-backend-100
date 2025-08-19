@@ -1,0 +1,33 @@
+uuid: 0b035077-a0c8-467d-a5d1-f7e937455924
+langcode: en
+status: true
+dependencies: {  }
+id: node--question
+disabled: false
+path: node/question
+resourceType: node--question
+resourceFields:
+  field_email:
+    disabled: true
+    fieldName: field_email
+    publicName: field_email
+    enhancer:
+      id: ''
+  field_so_dien_thoai:
+    disabled: true
+    fieldName: field_so_dien_thoai
+    publicName: field_so_dien_thoai
+    enhancer:
+      id: ''
+  field_nguoi_gui:
+    disabled: true
+    fieldName: field_nguoi_gui
+    publicName: field_nguoi_gui
+    enhancer:
+      id: ''
+  field_dia_chi:
+    disabled: true
+    fieldName: field_dia_chi
+    publicName: field_dia_chi
+    enhancer:
+      id: ''

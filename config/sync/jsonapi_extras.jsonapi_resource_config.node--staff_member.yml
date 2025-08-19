@@ -1,0 +1,21 @@
+uuid: 5b032d72-c034-45d3-b23f-7205e4812485
+langcode: en
+status: true
+dependencies: {  }
+id: node--staff_member
+disabled: false
+path: node/staff_member
+resourceType: node--staff_member
+resourceFields:
+  field_email_nhan_su:
+    disabled: false
+    fieldName: field_email_nhan_su
+    publicName: field_email_nhan_su
+    enhancer:
+      id: ''
+  field_sdt_nhan_su:
+    disabled: false
+    fieldName: field_sdt_nhan_su
+    publicName: field_sdt_nhan_su
+    enhancer:
+      id: ''

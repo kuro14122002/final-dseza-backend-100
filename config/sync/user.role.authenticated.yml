@@ -34,8 +34,3 @@ permissions:
   - 'use text format basic_html'
   - 'view media'
   - 'view unpublished paragraphs'
-  # Allow authenticated GraphQL access for the compose and dseza_api servers
-  - 'execute graphql_compose_server arbitrary graphql requests'
-  - 'execute graphql_compose_server persisted graphql requests'
-  - 'execute dseza_api arbitrary graphql requests'
-  - 'execute dseza_api persisted graphql requests'

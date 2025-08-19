@@ -1,0 +1,15 @@
+uuid: 2e874db3-ce6b-485a-b1e7-600c6a7b30a5
+langcode: en
+status: true
+dependencies: {  }
+id: node--schedule_item
+disabled: false
+path: node/schedule_item
+resourceType: node--schedule_item
+resourceFields:
+  field_ghi_chu:
+    disabled: true
+    fieldName: field_ghi_chu
+    publicName: field_ghi_chu
+    enhancer:
+      id: ''

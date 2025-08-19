@@ -45,6 +45,11 @@ class CorsEventSubscriber implements EventSubscriberInterface {
         $response->headers->set('Vary', 'Origin');
         // Cho phép credentials khi cần (ví dụ cookie-based auth).
         $response->headers->set('Access-Control-Allow-Credentials', 'true');
+      } else {
+        // If origin is not explicitly allowed, do not set wildcard to avoid abuse.
+        // Ensure no permissive CORS is leaked from controllers.
+        $response->headers->remove('Access-Control-Allow-Origin');
+        $response->headers->remove('Access-Control-Allow-Credentials');
       }
 
       $response->headers->set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');

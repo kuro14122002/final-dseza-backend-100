@@ -1,0 +1,9 @@
+uuid: 3a49feae-5e27-41d1-952f-c429a4317b8b
+langcode: en
+status: true
+dependencies: {  }
+id: user--user
+disabled: true
+path: user/user
+resourceType: user--user
+resourceFields: {  }
