@@ -87,6 +87,11 @@ module:
   update: 0
   user: 0
   views_ui: 0
+  webform: 0
+  webform_node: 0
+  webform_submission_log: 0
+  webform_templates: 0
+  webform_ui: 0
   webhooks: 0
   webp: 0
   pathauto: 1

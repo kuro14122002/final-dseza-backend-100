@@ -3,7 +3,7 @@ _core:
 langcode: en
 uuid: ab81299d-970a-4619-8048-b22ed8ad508d
 name: DSEZA
-mail: admin@dseza.local
+mail: nguyenductoan1412@gmail.com
 slogan: ''
 page:
   403: ''
@@ -13,3 +13,11 @@ admin_compact_mode: false
 weight_select_max: 100
 default_langcode: vi
 mail_notification: ''
+oidc_client_id: 1099343247609-ih43uov0l8bkk1j189ediv1s849s27d0.apps.googleusercontent.com
+oidc_client_secret: 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
+oidc_authorize_url: 'https://accounts.google.com/o/oauth2/v2/auth'
+oidc_token_url: 'https://oauth2.googleapis.com/token'
+oidc_redirect_uri: 'https://dseza-backend.lndo.site/vi/api/auth/callback'
+oidc_userinfo_url: 'https://openidconnect.googleapis.com/v1/userinfo'
+oidc_scope: 'openid profile email'
+oidc_post_login_redirect: 'http://localhost:8080/vi/auth/callback'

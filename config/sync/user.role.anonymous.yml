@@ -9,6 +9,7 @@ dependencies:
     - graphql
     - media
     - search
+    - statistics
     - system
 _core:
   default_config_hash: 6WavjUYXIegP9AAg2zXGx54MWIVoomC3SZhNiqe-Dyk
@@ -26,6 +27,6 @@ permissions:
   - 'execute dseza_api persisted graphql requests'
   - 'post comments'
   - 'search content'
-  - 'skip comment approval'
   - 'view media'
   - 'view own consumer entities'
+  - 'view post access counter'

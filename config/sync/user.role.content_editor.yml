@@ -23,6 +23,7 @@ dependencies:
     - node.type.tai_lieu_doanh_nghiep
     - node.type.tin_tuyen_dung
   module:
+    - comment
     - contextual
     - file
     - node
@@ -182,6 +183,7 @@ permissions:
   - 'revert staff_member revisions'
   - 'revert tai_lieu_doanh_nghiep revisions'
   - 'revert tin_tuyen_dung revisions'
+  - 'skip comment approval'
   - 'view all revisions'
   - 'view bai_viet revisions'
   - 'view business_partner revisions'

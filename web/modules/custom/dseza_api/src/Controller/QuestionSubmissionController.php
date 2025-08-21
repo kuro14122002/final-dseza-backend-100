@@ -10,6 +10,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\webform\Entity\WebformSubmission;
+use Drupal\webform\Entity\Webform;
 
 /**
  * Controller để xử lý việc gửi câu hỏi.
@@ -127,93 +129,50 @@ class QuestionSubmissionController extends ControllerBase {
         ], 400);
       }
 
-      // Kiểm tra content type 'question' có tồn tại không
-      $nodeTypeStorage = $this->entityTypeManager->getStorage('node_type');
-      $questionType = $nodeTypeStorage->load('question');
-      
-      if (!$questionType) {
-        $this->logger->error('Content type "question" không tồn tại');
+      // Tạo submission cho Webform 'questionaire'
+      $webform = Webform::load('questionaire');
+      if (!$webform) {
+        $this->logger->error('Webform "questionaire" không tồn tại');
         return new JsonResponse([
           'status' => 'error',
-          'message' => 'Hệ thống chưa được cấu hình đúng. Vui lòng liên hệ quản trị viên.',
+          'message' => 'Webform chưa được cấu hình. Vui lòng liên hệ quản trị viên.',
         ], 500);
       }
 
-      // Tạo node mới với content type 'question'
-      $nodeData = [
-        'type' => 'question',
-        'title' => $data['tieuDe'],
-        'status' => FALSE, // Unpublished để chờ duyệt
-        'uid' => $this->currentUser()->id(), // Gán cho người dùng hiện tại hoặc ẩn danh
+      $values = [
+        'webform_id' => 'questionaire',
+        'entity_type' => NULL,
+        'entity_id' => NULL,
+        'in_draft' => FALSE,
         'langcode' => 'vi',
+        'data' => [
+          // Chú ý: các key bên dưới phải khớp machine name của phần tử trong Webform
+          'full_name' => $data['hoTen'],
+          'email' => $data['email'],
+          'phone' => !empty($data['dienThoai']) ? $data['dienThoai'] : '',
+          'address' => !empty($data['congTy']) ? $data['congTy'] : '',
+          'category' => !empty($data['category']) ? $data['category'] : 'khac',
+          'title' => $data['tieuDe'],
+          'content' => $data['noiDung'],
+        ],
       ];
 
-      $node = Node::create($nodeData);
+      $submission = WebformSubmission::create($values);
+      $submission->save();
 
-      // Set các fields trực tiếp với try-catch
-      try {
-        $node->set('field_nguoi_gui', $data['hoTen']);
-      } catch (\Exception $e) {
-        $this->logger->warning('Cannot set field_nguoi_gui: @error', ['@error' => $e->getMessage()]);
-      }
-      
-      try {
-        $node->set('field_email', $data['email']);
-      } catch (\Exception $e) {
-        $this->logger->warning('Cannot set field_email: @error', ['@error' => $e->getMessage()]);
-      }
-      
-      try {
-        $node->set('field_noi_dung_cau_hoi', [
-          'value' => $data['noiDung'],
-          'format' => 'plain_text',
-        ]);
-      } catch (\Exception $e) {
-        $this->logger->warning('Cannot set field_noi_dung_cau_hoi: @error', ['@error' => $e->getMessage()]);
-        // Fallback: sử dụng body field
-        $node->set('body', [
-          'value' => $data['noiDung'],
-          'format' => 'plain_text',
-        ]);
-      }
+      // Register flood event khi thành công
+      $this->flood->register($event, $windowSeconds, $identifier);
+      $this->logger->info('Đã tạo Webform submission từ @email với tiêu đề: @title', [
+        '@email' => $data['email'],
+        '@title' => $data['tieuDe'],
+      ]);
 
-      // Set các trường tùy chọn nếu có
-      if (!empty($data['dienThoai'])) {
-        try {
-          $node->set('field_so_dien_thoai', $data['dienThoai']);
-        } catch (\Exception $e) {
-          $this->logger->warning('Cannot set field_so_dien_thoai: @error', ['@error' => $e->getMessage()]);
-        }
-      }
-
-      if (!empty($data['congTy'])) {
-        try {
-          $node->set('field_dia_chi', $data['congTy']);
-        } catch (\Exception $e) {
-          $this->logger->warning('Cannot set field_dia_chi: @error', ['@error' => $e->getMessage()]);
-        }
-      }
-
-      // Lưu node
-      $result = $node->save();
-
-      if ($result === SAVED_NEW) {
-        // Register flood event on successful submission.
-        $this->flood->register($event, $windowSeconds, $identifier);
-        // Log thành công
-        $this->logger->info('Câu hỏi mới đã được gửi từ @email với tiêu đề: @title', [
-          '@email' => $data['email'],
-          '@title' => $data['tieuDe'],
-        ]);
-
-        return new JsonResponse([
-          'status' => 'success',
-          'message' => 'Câu hỏi của bạn đã được gửi thành công và đang chờ được duyệt',
-          'question_id' => $node->id(),
-        ], 201);
-      } else {
-        throw new \Exception('Không thể lưu câu hỏi');
-      }
+      return new JsonResponse([
+        'status' => 'success',
+        'message' => 'Câu hỏi của bạn đã được gửi thành công và đang chờ xử lý',
+        'sid' => $submission->id(),
+        'token' => $submission->getToken(),
+      ], 201);
 
     } catch (\Exception $e) {
       // Log lỗi chi tiết

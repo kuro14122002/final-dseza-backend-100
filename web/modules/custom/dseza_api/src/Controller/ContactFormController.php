@@ -9,6 +9,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Mail\MailManagerInterface;
+use Drupal\webform\Entity\WebformSubmission;
+use Drupal\webform\Entity\Webform;
 
 /**
  * Controller để xử lý việc gửi form liên hệ.
@@ -125,132 +127,47 @@ class ContactFormController extends ControllerBase {
         ], 400);
       }
 
-      // Lấy email và tên website từ cấu hình
-      $siteConfig = \Drupal::config('system.site');
-      $siteName = $siteConfig->get('name') ?: 'Website';
-      $siteEmail = $siteConfig->get('mail');
-      if (empty($siteEmail)) {
-        // Fallback an toàn nếu chưa cấu hình email site.
-        $host = parse_url($request->getSchemeAndHttpHost(), PHP_URL_HOST) ?: 'localhost';
-        $siteEmail = 'no-reply@' . $host;
+      // Thay vì gửi email, tạo Webform submission cho webform 'contact'.
+      $webform = Webform::load('contact');
+      if (!$webform) {
+        $this->logger->error('Webform "contact" không tồn tại');
+        return new JsonResponse([
+          'status' => 'error',
+          'message' => 'Webform liên hệ chưa được cấu hình. Vui lòng liên hệ quản trị viên.',
+        ], 500);
       }
 
-      // Chuẩn bị dữ liệu email
-      $admin_email = $siteEmail; // Gửi về email quản trị của website
-      $subject = 'Thư liên hệ từ ' . $siteName . ': ' . $data['tieuDe'];
-      
-      // Tạo nội dung email
-      $message_body = "
-Bạn có một thư liên hệ mới từ website:
-
-Họ tên: {$data['hoTen']}
-Email: {$data['email']}
-Tiêu đề: {$data['tieuDe']}
-
-Nội dung:
-{$data['noiDung']}
-
----
-Thư này được gửi tự động từ website DSEZA.
-";
-
-      // Tham số email
-      $params = [
-        'subject' => $subject,
-        'body' => $message_body,
-        // Luôn gửi từ email của website để tránh SPF/DMARC.
-        'from' => $siteEmail,
-        'headers' => [
-          'Reply-To' => $data['hoTen'] . ' <' . $data['email'] . '>',
+      $values = [
+        'webform_id' => 'contact',
+        'entity_type' => NULL,
+        'entity_id' => NULL,
+        'in_draft' => FALSE,
+        'langcode' => 'vi',
+        'data' => [
+          // Phải khớp machine name các phần tử trong webform Contact
+          'ho_ten' => $data['hoTen'],
+          'email' => $data['email'],
+          'tieu_de' => $data['tieuDe'],
+          'noi_dung' => $data['noiDung'],
         ],
       ];
 
-      // Log thông tin trước khi gửi email
-      $this->logger->info('Attempting to send contact form email from @email', [
+      $submission = WebformSubmission::create($values);
+      $submission->save();
+
+      // Đăng ký flood khi gửi thành công
+      $this->flood->register($event, $windowSeconds, $identifier);
+      $this->logger->info('Đã tạo Webform Contact submission từ @email với tiêu đề: @title', [
         '@email' => $data['email'],
+        '@title' => $data['tieuDe'],
       ]);
 
-      // Kiểm tra cấu hình email hiện tại
-      $mail_interface = \Drupal::config('system.mail')->get('interface.default');
-      $this->logger->info('Current mail interface: @interface', [
-        '@interface' => $mail_interface,
-      ]);
-
-      // Gửi email với error handling tốt hơn
-      try {
-        // Kiểm tra nếu đang ở development environment
-        $is_development = getenv('LANDO') === 'ON' || 
-                         (php_uname('n') === 'appserver' && strpos($_SERVER['HTTP_HOST'], 'lndo.site') !== false);
-
-        if ($is_development) {
-          // Trong development, chỉ log thông tin và return success
-          $this->logger->info('Development mode: Contact form email logged instead of sent. From: @email, Subject: @subject', [
-            '@email' => $data['email'],
-            '@subject' => $subject,
-          ]);
-
-          return new JsonResponse([
-            'status' => 'success',
-            'message' => 'Thư liên hệ đã được gửi thành công (development mode)',
-          ], 200);
-        }
-
-        // Production: thực sự gửi email, luôn dùng from là email của site
-        $result = $this->mailManager->mail(
-          'dseza_api',
-          'contact_form',
-          $admin_email,
-          \Drupal::languageManager()->getCurrentLanguage()->getId(),
-          $params
-        );
-
-        if ($result['result']) {
-          // Đăng ký flood khi gửi thành công
-          $this->flood->register($event, $windowSeconds, $identifier);
-          // Log thành công
-          $this->logger->info('Contact form submitted successfully from @email', [
-            '@email' => $data['email'],
-          ]);
-
-          return new JsonResponse([
-            'status' => 'success',
-            'message' => 'Thư liên hệ đã được gửi thành công',
-          ], 200);
-        } else {
-          // Log lỗi
-          $this->logger->error('Failed to send contact form email from @email', [
-            '@email' => $data['email'],
-          ]);
-
-          return new JsonResponse([
-            'status' => 'error',
-            'message' => 'Có lỗi xảy ra khi gửi thư liên hệ',
-          ], 500);
-        }
-      } catch (\Exception $mail_exception) {
-        // Log lỗi gửi email cụ thể
-        $this->logger->error('Email sending exception: @message', [
-          '@message' => $mail_exception->getMessage(),
-        ]);
-
-        // Trong development environment, vẫn coi như thành công nếu là test mode
-        $mail_interface = \Drupal::config('system.mail')->get('interface.default');
-        if ($mail_interface === 'test_mail_collector' || $mail_interface === 'symfony_mailer') {
-          $this->logger->info('Email handled by test system for @email', [
-            '@email' => $data['email'],
-          ]);
-
-          return new JsonResponse([
-            'status' => 'success',
-            'message' => 'Thư liên hệ đã được xử lý thành công (test mode)',
-          ], 200);
-        }
-
-        return new JsonResponse([
-          'status' => 'error',
-          'message' => 'Có lỗi xảy ra khi gửi thư liên hệ: ' . $mail_exception->getMessage(),
-        ], 500);
-      }
+      return new JsonResponse([
+        'status' => 'success',
+        'message' => 'Thư liên hệ của bạn đã được ghi nhận',
+        'sid' => $submission->id(),
+        'token' => $submission->getToken(),
+      ], 201);
 
     } catch (\Exception $e) {
       // Log lỗi
