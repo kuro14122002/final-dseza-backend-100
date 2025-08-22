@@ -24,6 +24,11 @@ class AuthController extends ControllerBase {
     $clientId = (string) ($config->get('oidc_client_id') ?? '');
     $authorizeUrl = rtrim((string) ($config->get('oidc_authorize_url') ?? ''), '/');
     $redirectUri = (string) ($config->get('oidc_redirect_uri') ?? '');
+    // Allow overriding redirect_uri via query for flexibility between environments
+    $overrideRedirect = $request->get('redirect_uri');
+    if (!empty($overrideRedirect) && is_string($overrideRedirect)) {
+      $redirectUri = $overrideRedirect;
+    }
     if (!$clientId || !$authorizeUrl || !$redirectUri) {
       return new JsonResponse(['error' => 'OIDC is not configured'], 500);
     }
@@ -31,6 +36,27 @@ class AuthController extends ControllerBase {
     $state = bin2hex(random_bytes(16));
     $codeChallenge = $request->get('code_challenge');
     $codeChallengeMethod = $request->get('code_challenge_method', 'S256');
+
+    // Internal vs external login flow via query parameter 'flow'
+    $flow = (string) $request->get('flow');
+    if ($flow === 'internal') {
+      // Send users to Drupal's native login form for internal network
+      return new RedirectResponse('/user/login');
+    }
+    // Optional: auto-route internal users by private IP ranges when flow not specified
+    if ($flow === '' || $flow === 'auto') {
+      $clientIp = $request->getClientIp() ?: '';
+      if (preg_match('/^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/', $clientIp)) {
+        return new RedirectResponse('/user/login');
+      }
+    }
+
+    // Control re-authentication behavior at IdP.
+    // Default to 'select_account' so users can choose another account when re-login.
+    $prompt = (string) $request->get('prompt');
+    if ($prompt === '') {
+      $prompt = (string) (\Drupal::config('system.site')->get('oidc_prompt') ?? 'select_account');
+    }
 
     $query = http_build_query([
       'response_type' => 'code',
@@ -40,13 +66,24 @@ class AuthController extends ControllerBase {
       'state' => $state,
       'code_challenge' => $codeChallenge,
       'code_challenge_method' => $codeChallengeMethod,
+      // OIDC optional prompt param: 'login' | 'consent' | 'select_account'.
+      // Google honors 'select_account' and 'consent'.
+      'prompt' => $prompt,
     ]);
 
     // Store state server-side if desired. Here we set a transient cookie.
     $response = new TrustedRedirectResponse($authorizeUrl . '?' . $query, 302);
+    $cookieDomain = \Drupal::service('settings')->get('cookie_domain');
     $response->headers->setCookie(new \Symfony\Component\HttpFoundation\Cookie(
-      'oidc_state', $state, time() + 600, '/', NULL, TRUE, TRUE, FALSE, 'Lax'
+      'oidc_state', $state, time() + 600, '/', $cookieDomain ?: NULL, TRUE, TRUE, FALSE, 'None'
     ));
+    // Persist desired post-login redirect target (frontend callback) if provided
+    $postLoginRedirect = $request->get('redirect');
+    if (is_string($postLoginRedirect) && $postLoginRedirect !== '') {
+      $response->headers->setCookie(new \Symfony\Component\HttpFoundation\Cookie(
+        'post_login_redirect', $postLoginRedirect, time() + 900, '/', $cookieDomain ?: NULL, TRUE, TRUE, FALSE, 'None'
+      ));
+    }
     return $response;
   }
 
@@ -165,18 +202,27 @@ class AuthController extends ControllerBase {
       user_login_finalize($account);
     }
 
-    // Set HttpOnly cookies; set Secure flag based on request protocol (dev HTTP support)
-    $postLoginRedirect = (string) ($config->get('oidc_post_login_redirect') ?? '/');
+    // Set HttpOnly cookies; cookies must be cross-site for SPA frontend on another subdomain
+    // Determine post-login redirect destination
+    $postLoginRedirectCookie = (string) $request->cookies->get('post_login_redirect', '');
+    $postLoginRedirect = $postLoginRedirectCookie !== '' ? $postLoginRedirectCookie : (string) ($config->get('oidc_post_login_redirect') ?? '/');
     $response = new TrustedRedirectResponse($postLoginRedirect ?: '/', 302);
-    $secure = $request->isSecure();
-    // SameSite=None for cross-site XHR from dev frontend; requires Secure=true
+    // SameSite=None; Secure for cross-site XHR from frontend
     $cookieParams = ['/', NULL, TRUE, TRUE, FALSE, 'None'];
+    // Apply cookie domain when configured (e.g., .lndo.site) so cookies are sent to all subdomains
+    $cookieDomain = \Drupal::service('settings')->get('cookie_domain');
+    if ($cookieDomain) {
+      $cookieParams[1] = $cookieDomain; // path '/', domain set below
+    }
     if (!empty($payload['access_token'])) {
       $response->headers->setCookie(new \Symfony\Component\HttpFoundation\Cookie('access_token', $payload['access_token'], time() + 900, ...$cookieParams));
     }
     if (!empty($payload['refresh_token'])) {
       $response->headers->setCookie(new \Symfony\Component\HttpFoundation\Cookie('refresh_token', $payload['refresh_token'], time() + 60 * 60 * 24 * 7, ...$cookieParams));
     }
+    // Clear the temporary redirect cookie
+    $cookieDomain = \Drupal::service('settings')->get('cookie_domain');
+    $response->headers->clearCookie('post_login_redirect', '/', $cookieDomain ?: NULL, TRUE, TRUE, 'None');
     return $response;
   }
 
@@ -185,10 +231,48 @@ class AuthController extends ControllerBase {
    * Clear cookies and optionally call IdP end-session.
    */
   public function logout(Request $request): Response {
+    // 1) Terminate Drupal session so currentUser() is anonymous afterwards
+    try {
+      // Best-effort: invalidate active session and log the user out
+      if ($request->hasSession()) {
+        $request->getSession()->invalidate();
+      }
+      user_logout();
+    }
+    catch (\Throwable $e) {
+      // Do not fail logout because of session exceptions
+    }
+
+    // 2) Prepare response and clear cookies
     $response = new JsonResponse(['status' => 'ok']);
-    // Clear with attributes matching creation (SameSite=None; Secure)
-    $response->headers->clearCookie('access_token', '/', NULL, TRUE, TRUE, 'None');
-    $response->headers->clearCookie('refresh_token', '/', NULL, TRUE, TRUE, 'None');
+
+    // Clear OAuth cookies with attributes matching creation (SameSite=None; Secure; domain if set)
+    $cookieDomain = \Drupal::service('settings')->get('cookie_domain');
+    $response->headers->clearCookie('access_token', '/', $cookieDomain ?: NULL, TRUE, TRUE, 'None');
+    $response->headers->clearCookie('refresh_token', '/', $cookieDomain ?: NULL, TRUE, TRUE, 'None');
+
+    // Also clear Drupal session cookie(s). Name can be dynamic (SSESS*). Use configured name.
+    try {
+      /** @var \Drupal\Core\Session\SessionConfigurationInterface $sessionConfig */
+      $sessionConfig = \Drupal::service('session_configuration');
+      $options = $sessionConfig->getOptions($request);
+      $sessionCookieName = isset($options['name']) ? (string) $options['name'] : NULL;
+      if ($sessionCookieName) {
+        // Default Drupal session cookies use SameSite=Lax
+        $response->headers->clearCookie($sessionCookieName, '/', $cookieDomain ?: NULL, TRUE, TRUE, 'Lax');
+      }
+
+      // As a safety net, clear any cookie that looks like a Drupal session cookie.
+      foreach ($request->cookies->all() as $name => $_) {
+        if (preg_match('/^(SSESS|SESS)/', (string) $name)) {
+          $response->headers->clearCookie($name, '/', $cookieDomain ?: NULL, TRUE, TRUE, 'Lax');
+        }
+      }
+    }
+    catch (\Throwable $e) {
+      // Ignore; clearing OAuth cookies above is sufficient to de-auth future /me calls
+    }
+
     return $response;
   }
 
@@ -278,10 +362,11 @@ class AuthController extends ControllerBase {
       $parsed = parse_url($origin);
       $host = $parsed['host'] ?? '';
       $port = isset($parsed['port']) ? (int) $parsed['port'] : (str_starts_with($origin, 'https://') ? 443 : 80);
-      // Allow typical dev variants: localhost, 127.0.0.1, LAN IPs on Vite dev port
-      if ($port === 8080 && (
-        $host === 'localhost' || $host === '127.0.0.1' || preg_match('/^(10|172\.(1[6-9]|2\d|3[01])|192\.168)\./', $host)
-      )) {
+      // Allow typical dev variants: localhost, 127.0.0.1, LAN IPs on Vite dev ports (8080, 5173)
+      $isLocalDev = ((in_array($port, [8080, 5173], true)) && ($host === 'localhost' || $host === '127.0.0.1' || preg_match('/^(10|172\.(1[6-9]|2\d|3[01])|192\.168)\./', $host)));
+      // Also allow same-site frontend on *.lndo.site when session is shared via cookie_domain
+      $isLando = (bool) preg_match('/\.lndo\.site$/', $host);
+      if ($isLocalDev || $isLando) {
         $response->headers->set('Access-Control-Allow-Origin', $origin);
         $response->headers->set('Access-Control-Allow-Credentials', 'true');
       }

@@ -66,3 +66,14 @@ function dseza_api_mail($key, &$message, $params) {
       break;
   }
 } 
+
+/**
+ * Implements hook_language_negotiation_info_alter().
+ *
+ * Replace the core URL negotiator with our variant that skips API paths.
+ */
+function dseza_api_language_negotiation_info_alter(array &$negotiation_info) {
+  if (isset($negotiation_info['language-url'])) {
+    $negotiation_info['language-url']['class'] = 'Drupal\\dseza_api\\Plugin\\LanguageNegotiation\\NoApiLanguageNegotiationUrl';
+  }
+}

@@ -39,6 +39,7 @@
         "drupal/jsonapi_image_styles": "3.0",
         "drupal/metatag": "^2.0",
         "drupal/paragraphs": "1.19",
+        "drupal/password_policy": "^5.0",
         "drupal/pathauto": "^1.12",
         "drupal/redirect": "1.11",
         "drupal/seo_checklist": "5.2",

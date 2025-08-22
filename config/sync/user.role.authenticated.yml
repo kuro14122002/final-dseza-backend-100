@@ -10,6 +10,7 @@ dependencies:
     - contact
     - file
     - filter
+    - graphql
     - media
     - paragraphs
     - search
@@ -30,6 +31,8 @@ permissions:
   - 'administer comments'
   - 'delete own files'
   - 'edit own comments'
+  - 'execute dseza_api arbitrary graphql requests'
+  - 'execute dseza_api persisted graphql requests'
   - 'post comments'
   - 'search content'
   - 'use text format basic_html'
